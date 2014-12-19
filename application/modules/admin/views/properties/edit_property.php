@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-     <a href="<?php echo site_url();?>posts" class="btn btn-primary pull-right">Back to posts</a>
+     <a href="<?php echo site_url();?>property/all-properties" class="btn btn-primary pull-right">Back to Properties</a>
     </div>
 </div>
 <div class="row">
@@ -23,6 +23,8 @@
 		$lease_type_id = $property[0]->lease_type_id;
 		$property_description = $property[0]->property_description;
 		$property_image = $property[0]->property_image;
+		$property_video_id = $property[0]->property_video_id;
+		$property_bathrooms = $property[0]->property_bathrooms;
         if(isset($error)){
             echo '<div class="alert alert-danger">'.$error.'</div>';
         }
@@ -43,7 +45,7 @@
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Title</label>
                         <div class="col-lg-8">
-                        	<input type="text" class="form-control" name="property_name" placeholder="Property Name" value="<?php echo $property_name;?>" required>
+                        	<input type="text" class="form-control" name="property_name" placeholder="Property Name" value="<?php echo $property_name;?>">
                         </div>
                     </div>
                     <!-- post category -->
@@ -58,6 +60,60 @@
                         <label class="col-lg-4 control-label">Property Location</label>
                         <div class="col-lg-8">
                         	<?php echo $locations;?>
+                        </div>
+                    </div>
+                	<div class="form-group">
+                        <label class="col-lg-4 control-label">Property Video ID</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_video_id" placeholder="Property Video ID" value="<?php echo $property_video_id;?>" >
+                        </div>
+                    </div>
+                	<div class="form-group">
+                        <label class="col-lg-4 control-label">Property Price</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_price" placeholder="Property Price" value="<?php echo $property_price;?>" >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Property Bedrooms</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_size" placeholder="Property Bedrooms" value="<?php echo $property_size;?>" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Property Bathrooms</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_bathrooms" placeholder="Property Bathrooms" value="<?php echo $property_bathrooms;?>" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Property Land Size</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_land_size" placeholder="Property Land Size" value="<?php echo $land_size;?>" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Sold?</label>
+                        <div class="col-lg-7">
+                        	<?php
+                        	if($lease_type_id == 1)
+                        	{
+                        		?>
+	                        	 <input type="radio" name="lease_type_id"  checked value="1"> Yes
+	                             <input type="radio" name="lease_type_id"  value="2"> No
+	                             <?php
+                        	}
+                        	else
+                        	{
+                        		?>
+	                        	 <input type="radio" name="lease_type_id"   value="1"> Yes
+	                             <input type="radio" name="lease_type_id" checked value="2"> No
+	                             <?php
+                        	}
+                        	?>
                         </div>
                     </div>
                     <div class="form-group">
@@ -80,48 +136,6 @@
                         }
                         ?>
                             
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                	<div class="form-group">
-                        <label class="col-lg-4 control-label">Property Price</label>
-                        <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_price" placeholder="Property Price" value="<?php echo $property_price;?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label">Property Size</label>
-                        <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_size" placeholder="Property Name" value="<?php echo $property_size;?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label">Property Land Size</label>
-                        <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_land_size" placeholder="Property Name" value="<?php echo $land_size;?>" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label">Property Lease type</label>
-                        <div class="col-lg-7">
-                        	<?php
-                        	if($lease_type_id == 1)
-                        	{
-                        		?>
-	                        	 <input type="radio" name="lease_type_id"  checked value="1"> Rental
-	                             <input type="radio" name="lease_type_id"  value="2"> Sale
-	                             <?php
-                        	}
-                        	else
-                        	{
-                        		?>
-	                        	 <input type="radio" name="lease_type_id"   value="1"> Rental
-	                             <input type="radio" name="lease_type_id" checked value="2"> Sale
-	                             <?php
-                        	}
-                        	?>
                         </div>
                     </div>
                     <!-- Image -->
@@ -200,7 +214,7 @@
             <div class="row">
                 <div class="form-actions center-align">
                     <button class="submit btn btn-primary" type="submit">
-                      	edit property details
+                      	Edit Property Details
                     </button>
                 </div>
             </div>

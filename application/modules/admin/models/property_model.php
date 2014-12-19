@@ -28,6 +28,22 @@ class Property_model extends CI_Model
 
 	}
 	
+	/*
+	*	Delete an existing location
+	*	@param int $location_id
+	*
+	*/
+	public function delete_location($location_id)
+	{
+		if($this->db->delete('location', array('location_id' => $location_id)))
+		{
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+	
 	public function get_all_post_categories($blog_category_id)
 	{
 		$this->db->where('blog_category.blog_category_id = '.$blog_category_id.' OR blog_category.blog_category_parent = '.$blog_category_id);
@@ -333,6 +349,8 @@ class Property_model extends CI_Model
 				'property_type_id'=>$this->input->post('property_type_id'),
 				'location_id'=>$this->input->post('location_id'),
 				'lease_type_id'=>$this->input->post('lease_type_id'),
+				'property_video_id'=>$this->input->post('property_video_id'),
+				'property_bathrooms'=>$this->input->post('property_bathrooms'),
 				'created_on'=>date("Y-m-d"),
 				'bedrooms'=>$this->input->post('bedrooms'),
 				'land_size'=>$this->input->post('property_land_size'),
@@ -345,6 +363,8 @@ class Property_model extends CI_Model
 			
 		if($this->db->insert('property', $data))
 		{
+			$this->session->unset_userdata('property_file_name');
+			$this->session->unset_userdata('property_thumb_name');
 			return $this->db->insert_id();
 		}
 		else{
@@ -361,6 +381,8 @@ class Property_model extends CI_Model
 				'property_type_id'=>$this->input->post('property_type_id'),
 				'location_id'=>$this->input->post('location_id'),
 				'lease_type_id'=>$this->input->post('lease_type_id'),
+				'property_video_id'=>$this->input->post('property_video_id'),
+				'property_bathrooms'=>$this->input->post('property_bathrooms'),
 				'created_on'=>date("Y-m-d"),
 				'bedrooms'=>$this->input->post('bedrooms'),
 				'land_size'=>$this->input->post('property_land_size'),
@@ -373,6 +395,8 @@ class Property_model extends CI_Model
 		$this->db->where('property_id', $property_id);
 		if($this->db->update('property', $data))
 		{
+			$this->session->unset_userdata('property_file_name');
+			$this->session->unset_userdata('property_thumb_name');
 			return $property_id;
 		}
 		else{

@@ -219,8 +219,8 @@ class Property extends admin {
 		}
 		
 		//open the add new post
-		$data['title'] = 'Add New property type';
-		$v_data['title'] = 'edit property type';
+		$data['title'] = 'Edit New property type';
+		$v_data['title'] = 'Edit property type';
 
 		$query = $this->property_model->get_property_type($property_type_id);
 		
@@ -445,27 +445,19 @@ class Property extends admin {
 	*	@param int $post_id
 	*
 	*/
-	public function delete_location($post_id)
+	public function delete_location($location_id)
 	{
-		//delete post image
-		// $query = $this->blog_model->get_post($post_id);
+		if($this->property_model->delete_location($location_id))
+		{
+			$this->session->set_userdata('success_message', 'Location has been deleted');
+		}
 		
-		// if ($query->num_rows() > 0)
-		// {
-		// 	$result = $query->result();
-		// 	$image = $result[0]->post_image;
-			
-		// 	$this->load->model('file_model');
-		// 	//delete image
-		// 	$this->file_model->delete_file($this->posts_path."\\".$image);
-		// 	//delete thumbnail
-		// 	$this->file_model->delete_file($this->posts_path."\\thumbnail_".$image);
-		// }
-		// //delete posts of that category
-		// $this->blog_model->delete_post_comments($post_id);
-		// $this->blog_model->delete_post($post_id);
-		// $this->session->set_userdata('success_message', 'Post has been deleted');
-		// redirect('all-posts');
+		else
+		{
+			$this->session->set_userdata('error_message', 'Location could not be deleted');
+		}
+		
+		redirect('property/all-location');
 	}
     
 	/*
@@ -585,8 +577,17 @@ class Property extends admin {
 
 
 		//form validation rules
-		$this->form_validation->set_rules('property_name', 'Property type Name', 'required|xss_clean');
-		$this->form_validation->set_rules('property_status', 'Property Type Status', 'required|xss_clean');
+		$this->form_validation->set_rules('property_name', 'Property Name', 'required|xss_clean');
+		$this->form_validation->set_rules('property_status', 'Property Status', 'xss_clean');
+		$this->form_validation->set_rules('property_video_id', 'Property Video ID', 'trim|xss_clean');
+		$this->form_validation->set_rules('location_id', 'Location', 'xss_clean');
+		$this->form_validation->set_rules('property_type_id', 'Property Type', 'xss_clean');
+		$this->form_validation->set_rules('property_price', 'Property Price', 'trim|xss_clean');
+		$this->form_validation->set_rules('property_size', 'Property Size', 'xss_clean');
+		$this->form_validation->set_rules('property_land_size', 'Property Land Size', 'xss_clean');
+		$this->form_validation->set_rules('lease_type_id', 'Lease Type', 'trim|xss_clean');
+		$this->form_validation->set_rules('property_description', 'Property Description', 'trim|xss_clean');
+		$this->form_validation->set_rules('property_bathrooms', 'Property Bathrooms', 'numeric|trim|xss_clean');
 		
 		//if form has been submitted
 		if ($this->form_validation->run())
@@ -723,14 +724,21 @@ class Property extends admin {
 		$property_error = $this->session->userdata('property_error_message');
 		
 		//form validation rules
-		$this->form_validation->set_rules('property_name', 'Property type Name', 'required|xss_clean');
-		$this->form_validation->set_rules('property_status', 'Property Type Status', 'required|xss_clean');
+		$this->form_validation->set_rules('property_name', 'Property Name', 'required|xss_clean');
+		$this->form_validation->set_rules('property_status', 'Property Status', 'xss_clean');
+		$this->form_validation->set_rules('property_video_id', 'Property Video ID', 'trim|xss_clean');
+		$this->form_validation->set_rules('location_id', 'Location', 'xss_clean');
+		$this->form_validation->set_rules('property_type_id', 'Property Type', 'xss_clean');
+		$this->form_validation->set_rules('property_price', 'Property Price', 'trim|xss_clean');
+		$this->form_validation->set_rules('property_size', 'Property Size', 'xss_clean');
+		$this->form_validation->set_rules('property_land_size', 'Property Land Size', 'xss_clean');
+		$this->form_validation->set_rules('lease_type_id', 'Lease Type', 'trim|xss_clean');
+		$this->form_validation->set_rules('property_description', 'Property Description', 'trim|xss_clean');
+		$this->form_validation->set_rules('property_bathrooms', 'Property Bathrooms', 'numeric|trim|xss_clean');
 		
 		//if form has been submitted
 		if ($this->form_validation->run())
 		{
-			
-			
 			$file_name = $this->session->userdata('property_file_name');
 			if(!empty($file_name))
 			{
@@ -776,7 +784,7 @@ class Property extends admin {
 		}
 		
 		//open the add new post
-		$data['title'] = 'Add New property';
+		$data['title'] = 'Edit Property';
 		$v_data['title'] = 'Edit property';
 
 		$query = $this->property_model->get_property($property_id);
@@ -796,7 +804,7 @@ class Property extends admin {
 				{
 					$property_type_id = $res->property_type_id;
 
-					if($property_type_id = $property_type_idd)
+					if($property_type_id == $property_type_idd)
 					{
 						$property_types .= '<option value="'.$res->property_type_id.'" selected>'.$res->property_type_name.'</option>';
 					}
@@ -829,7 +837,7 @@ class Property extends admin {
 				{
 					$lcoation_id = $res_location->location_id;
 
-					if($lcoation_id = $location_idd)
+					if($lcoation_id == $location_idd)
 					{
 						$locations .= '<option value="'.$res_location->location_id.'" selected>'.$res_location->location_name.'</option>';
 					}

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-     <a href="<?php echo site_url();?>posts" class="btn btn-primary pull-right">Back to posts</a>
+     <a href="<?php echo site_url();?>posts" class="btn btn-primary pull-right">Back to Properties</a>
     </div>
 </div>
 <div class="row">
@@ -49,39 +49,50 @@
                         	<?php echo $locations;?>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label">Activate Property Post?</label>
-                        <div class="col-lg-8">
-                            <input type="radio" name="property_status" checked  value="1"> Yes
-                            <input type="radio" name="property_status" value="1"> No
+                	<div class="form-group">
+                        <label class="col-lg-4 control-label">Property Video ID</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_video_id" placeholder="Property Video ID" value="<?php echo set_value('property_video_id');?>" >
+                        </div>
+                    </div>
+                	<div class="form-group">
+                        <label class="col-lg-4 control-label">Property Price</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="property_price" placeholder="Property Name" value="<?php echo set_value('property_price');?>" >
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                	<div class="form-group">
-                        <label class="col-lg-4 control-label">Property Price</label>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Property Bedrooms</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_price" placeholder="Property Name" value="<?php echo set_value('property_price');?>" required>
+                        	<input type="text" class="form-control" name="property_size" placeholder="Property Bedrooms" value="<?php echo set_value('property_size');?>" >
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-lg-4 control-label">Property Size</label>
+                        <label class="col-lg-4 control-label">Property Bathrooms</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_size" placeholder="Property Name" value="<?php echo set_value('property_size');?>" required>
+                        	<input type="text" class="form-control" name="property_bathrooms" placeholder="Property Bathrooms" value="<?php echo set_value('property_bathrooms');?>" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Land Size</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_land_size" placeholder="Property Name" value="<?php echo set_value('property_land_size');?>" required>
+                        	<input type="text" class="form-control" name="property_land_size" placeholder="Property Name" value="<?php echo set_value('property_land_size');?>" >
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label class="col-lg-4 control-label">Property Lease type</label>
+                        <label class="col-lg-4 control-label">Sold?</label>
                         <div class="col-lg-7">
-                        	 <input type="radio" name="lease_type_id" checked  value="1"> Rental
-                             <input type="radio" name="lease_type_id" value="1"> Sale
+                        	 <input type="radio" name="lease_type_id" checked  value="1"> Yes
+                             <input type="radio" name="lease_type_id" value="2"> No
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Activate Property Post?</label>
+                        <div class="col-lg-8">
+                            <input type="radio" name="property_status" checked  value="1"> Yes
+                            <input type="radio" name="property_status" value="1"> No
                         </div>
                     </div>
                     <!-- Image -->
@@ -136,7 +147,7 @@
             <div class="row">
                 <div class="form-actions center-align">
                     <button class="submit btn btn-primary" type="submit">
-                        Add a new post
+                        Add New Property
                     </button>
                 </div>
             </div>

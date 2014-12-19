@@ -43,7 +43,7 @@
             </div>
             <div class="form-actions center-align">
                 <button class="submit btn btn-primary" type="submit">
-                    Add location 
+                    Add Location 
                 </button>
             </div>
             <br />

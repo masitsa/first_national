@@ -104,7 +104,7 @@
 						<td>'.$status.'</td>
 						<td><a href="'.site_url().'property/edit-location/'.$location_id.'" class="btn btn-sm btn-success">Edit</a></td>
 						<td>'.$button.'</td>
-						<td><a href="'.site_url().'property/delete-location/'.$location_id.'" class="btn btn-sm btn-danger" onclick="return confirm(\'Do you really want to delete '.$location_name.'? This will delete all posts associated with this category.\');">Delete</a></td>
+						<td><a href="'.site_url().'admin/property/delete_location/'.$location_id.'" class="btn btn-sm btn-danger" onclick="return confirm(\'Do you really want to delete '.$location_name.'? This will delete all posts associated with this category.\');">Delete</a></td>
 					</tr> 
 				';
 			}

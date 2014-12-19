@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="col-sm-12 af-outer af-required">
-                            <div class="form-group af-inner">
+                            <div class="form-group af-inner text-center">
                                 <input type="submit" name="submit" class="form-button btn btn-success" id="submit_btn" value="Send Message!" />
                             </div>
                         </div>
@@ -70,19 +70,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p class="copyright">&copy; Copyright First Natiotional | Your Trusted Real Estate Agent 2014 | All Rights Reserved</p>
+                <p class="copyright">&copy; Copyright First National | Your Trusted Real Estate Agent <?php echo date('Y');?> | All Rights Reserved</p>
             </div>
             <div class="col-md-6">
                 <ul class="social">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -101,6 +96,7 @@
 <script src="<?php echo base_url();?>assets/themes/realta/plugins/owl-carousel/owl.carousel.min.js"></script>
 <script src="<?php echo base_url();?>assets/themes/realta/plugins/ajax-mail.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>assets/themes/realta/js/main.js"></script>
+<script src="<?php echo base_url();?>assets/themes/custom/js/youtube.js"></script>
 
 <script type="text/javascript">
     jQuery(window).load(function() {

@@ -57,7 +57,7 @@
             </div>
             <div class="form-actions center-align">
                 <button class="submit btn btn-primary" type="submit">
-                    Edit property name
+                    Edit Location
                 </button>
             </div>
             <br />

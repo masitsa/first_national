@@ -14,7 +14,6 @@
 	                <ul class="social" style="margin-bottom:0px;">
 	                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-	                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 	                </ul>

@@ -1,6 +1,6 @@
  <div class="featured">
         <div class="content-title">
-            <h2>Featured Properties</h2>
+            <h2>Recent Sales</h2>
         </div>
         <div class="featured-carousel">
             <div class="featured-control">
@@ -8,8 +8,8 @@
                 <a href="#" class="featured-next"><i class="fa fa-angle-right"></i></a>
             </div>
             <div class="theme-owl-carousel">
-                <div class="theme-owl-carousel-wrapper" style"height:150px;">
-                    <div id="featured" class="owl-carousel" style"width: 374px;height:150px;">
+                <div class="theme-owl-carousel-wrapper">
+                    <div id="featured" class="owl-carousel">
                      <?php
 				    	if($latest->num_rows() > 0)
 						{
@@ -23,22 +23,59 @@
 								$property_id = $prods->property_id;
 								$property_name = $prods->property_name;
 								$description = $prods->property_description;
-								$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 10));
+								$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 20));
 								$price = number_format($property_price, 0, '.', ',');
 								$location_name = $prods->location_name;
 								$property_size = $prods->property_size;
 								$land_size = $prods->land_size;
 								$lease_type_id = $prods->lease_type_id;
 								$property_type_name = $prods->property_type_name;
+								$property_video_id = $prods->property_video_id;
+								$property_bathrooms = $prods->property_bathrooms;
+								
+								if(empty($property_video_id))
+								{
+									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive" alt="" style="width: 100%; height: 200px;"/>';
+								}
+								
+								else
+								{
+									$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+								}
 
                                 echo '
-                                    <div class="thumbnail" style="height: 450px; ">
-                                        <a href="#"><iframe width="100%" height="66.8%" src="//www.youtube.com/embed/sjQShSoR7e4" frameborder="0" allowfullscreen></iframe></a>
-                                        <div class="hero-block">
+                                    <div class="thumbnail" style="">
+										'.$image.'
+                                        
+										<div class="hero-block">
 						                    <div class="hero-unit text-center">
-						                        <h5 style="color: #384042;font-size:18px; font-family: Roboto, sans-serif;">Meet The Team</h5>
-						                        <p>With over 45 years combined experience. Wisely they listen to their clients needs.</p>
-						                         <p><a href="#" class="btn btn-large btn-success">Read More</a></p>
+						                        <h5>'.$property_name.'</h5>
+												
+												<div class="row property-info">
+													<div class="col-md-4">
+														<span style="padding-top:10px;">
+															<i class="fa fa-home"></i>
+															'.$land_size.'
+														</span>
+													</div>
+													
+													<div class="col-md-4">
+														<span>
+															<i class="fa fa-inbox-custom"></i>
+															'.$property_size.' Bedrooms
+														</span>
+													</div>
+													
+													<div class="col-md-4">
+														<span>
+															<i class="fa fa-male-custom"></i>
+															'.$property_bathrooms.' Bathrooms
+														</span>
+													</div>
+												</div>
+												
+						                        <p>'.$mini_desc.'…</p>
+						                         <a href="#" class="btn btn-large btn-success">Read More</a>
 						                    </div>
 						                </div>
                                        

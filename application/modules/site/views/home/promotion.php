@@ -6,15 +6,14 @@
 
                 <div class="hero-block text-center">
                     <div class="hero-unit">
-                        <h1 style="font-size: 50px;font-weight: 700;line-height: 54px;margin-bottom: 40px;">Meet The Team</h1>
-                        <p style="color:#fff;font-size: 28px;font-weight: 300;">With over 45 years combined experience. Wisely they listen to their clients needs.</p>
-                        <p><a href="#" class="btn btn-large btn-success">Read More</a></p>
+                        <h1 class="meet-the-team">Meet The Team</h1>
+                        <p class="meet-the-team">With over 45 years combined experience. Wisely they listen to their clients needs.</p>
+                        <a href="#" class="view-property">Find out more</a>
                     </div>
                 </div>
 
             </div>
-           
-
+            
         </div>
     </div>
 </div>

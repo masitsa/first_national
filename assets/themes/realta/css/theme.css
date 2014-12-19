@@ -1,8 +1,8 @@
 /* Google fonts */
 /* font-family: 'Roboto', 'sans-serif'; */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700italic,700);
-/* font-family: 'Lato', 'sans-serif'; */
-@import url(http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);
+/* font-family: 'Roboto', sans-serif; */
+/*@import url(http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);*/
 
 /* Global properties (body, common classes, vertical rhythm, structure etc)
 /* ========================================================================== */
@@ -257,9 +257,9 @@ textarea {
 .btn-success:active,
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
-    color: #ffffff;
-    background-color: #0086c6;
-    border-color: #0086c6;
+    color: #09173c;
+    background-color: #d1d1d1;
+    border-color: #d1d1d1;
 }
 
 .btn-success.disabled,
@@ -296,7 +296,7 @@ fieldset[disabled] .btn-success.active {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     text-rendering: optimizelegibility;
-    font-family: 'Lato', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     color: #394041;
 }
@@ -385,7 +385,6 @@ a:focus {
    /* margin-top: 30px;
     margin-bottom: 15px;
     float: left;*/
-    margin-top: 6px;
     margin-bottom: 0px;
     float: left;
 }
@@ -876,7 +875,6 @@ a:focus {
 .content-title {
     position: relative;
     padding: 20px 0;
-    margin-bottom: 25px;
     text-align: center;
 }
 
@@ -931,12 +929,12 @@ a:focus {
 
 .call-action {
     /*position: relative;*/
-    padding: 30px 0;
+    padding: 30px 0 100px;
     /*background-color: #272a31;*/
     margin-top: 40px;
     margin-bottom: 40px;
 
-    background: url('../../../images/welcome-bg.jpg') no-repeat -380px 30px fixed;
+    background: url('../../../images/welcome-bg.jpg') no-repeat -540px 30px fixed;
     -webkit-background-size: width;
     -moz-background-size: width;
     -o-background-size: width;
@@ -1138,8 +1136,6 @@ a:focus {
 .our-features .media-icon {
     width: 60px;
     height: 60px;
-    border-radius: 30px;
-    border: solid 1px #e7e7e7;
     text-align: center;
 }
 
@@ -1885,7 +1881,7 @@ a:focus {
 }
 
 .footer a:hover {
-    color: #09173c;
+    color: #fff;
 }
 
 .footer .fa {
@@ -1943,6 +1939,7 @@ ul.social li {float: left;}
     width: 20px;
     margin-right: 10px;
     text-align: center;
+	color: #858688;
 }
 
 .footer .form-control {
