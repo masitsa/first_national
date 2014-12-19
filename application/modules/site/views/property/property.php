@@ -108,3 +108,4 @@
   
 
 </div>
+<script type="text/javascript" src="<?php echo site_url().'assets/themes/custom/js/caption.modernizr.custom.js';?>"
