@@ -8,72 +8,103 @@
     <div class="content-title">
         <h2>Recent Properties</h2>
     </div>
-    <ul id="filtrable" class="filtrable nav nav-pills ">
-        <li class="all current"><a href="#" data-filter="*">All</a></li>
-        <li class="sale"><a href="#" data-filter=".sale">Sale</a></li>
-         <?php echo $property_types;?>
-    </ul>
-    <div class="clear"></div>
-    <section class="row items">
-    	<?php
-		    	if($query->num_rows() > 0)
-				{
-					
-					$properties = $query->result();
-					
-					foreach($properties as $prods)
-					{
-						$property_price = $prods->property_price;
-						$property_image = $prods->property_image;
-						$property_id = $prods->property_id;
-						$property_name = $prods->property_name;
-						$description = $prods->property_description;
-						$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 10));
-						$price = number_format($property_price, 0, '.', ',');
-						$location_name = $prods->location_name;
-						$property_size = $prods->property_size;
-						$land_size = $prods->land_size;
-						$lease_type_id = $prods->lease_type_id;
-						$property_type_name = $prods->property_type_name;
-
-						if($lease_type_id == 1)
-						{
-							$type = 'rent';
-						}
-						else
-						{
-							$type = 'sale';
-						}
-
-    					echo '
-				        <article class="item col-sm-6 col-md-4 '.$type.' '.$property_type_name.'">
-				            <div class="thumbnail">
-				                <a href="'.base_url().'properties/view-single/'.$property_id.'"><img src="'.base_url().'assets/images/property/'.$property_image.'" class="img-responsive" alt=""></a>
-
-				                <div class="caption">
-				                    <p class="price">$ '.$property_price.'</p>
-				                    <ul class="fa-ul">
-				                        <li><i class="fa fa-li fa-location-arrow"></i>'.$location_name.', NY</li>
-				                        <li><i class="fa fa-li fa-home"></i>'.$property_size.' sqft</li>
-				                        <li><i class="fa fa-li fa-globe"></i>'.$land_size.' acres</li>
-				                    </ul>
-				                </div>
-				            </div>
-				        </article>
-				        ';
-				    }
-				}
-				?>
-        		
-    </section>
-    <?php
-
-    if(isset($links))
-    {
-    	echo $links;
-    }
-
-    ?>
+    <div class="col-xs-9">
+	    <div class="agent-properties property-list clear">
+			<div class="grid">
+				<ul class="clear">
+					<li id="post-660" class="post-660 homeland_properties type-homeland_properties status-publish has-post-thumbnail hentry clear">
+						<div class="row">
+							<div class="col-xs-5">
+								<div class="property-mask property-image">
+														<figure class="pimage">
+													<a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/">
+														<img width="330" height="230" src="http://101.0.112.4/~firstnat/firstnational/wp-content/uploads/2014/09/banner-2-330x230.jpg" class="attachment-homeland_property_medium wp-post-image" alt="banner 2">						</a>
+													<figcaption><a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/"><i class="fa fa-link fa-lg"></i></a></figcaption>
+													<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/sold/" rel="tag">Sold</a></h4>	
+													<div class="property-price clear">
+														<div class="cat-price">
+															<span class="pcategory">
+																 <a href="http://101.0.112.4/~firstnat/firstnational/property-type/townhouse/" rel="tag">Townhouse</a>								</span>
+																									<span class="price">
+																		$440,000										</span>							</div>
+														<span class="picon"><i class="fa fa-tag"></i></span>
+													</div>
+												</figure>
+														
+								</div>
+							</div>
+							<div class="col-xs-7">
+								<div class="agent-property-desc">
+									<div class="property-desc">
+										<h4><a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/">3/29 Hughes Avenue, Kellyville</a></h4><label></label><p>Testimonial:&nbsp;They listened to our needs and kept us well informed.&nbsp; Peacefully set, this renovated full-brick villa has been tastefully updated with easy living in mind. &nbsp;Located within a boutique Over …</p>
+								
+									</div>
+									<div class="property-info-agent">
+															<span>
+													<i class="fa fa-inbox"></i>
+													2						Bedrooms					</span>					<span>
+													<i class="fa fa-male"></i>
+													1 
+													Bathrooms					</span>		</div>
+									<div class="agent-info">
+										<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> admin</label>
+									</div>
+									<a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/" class="view-profile">
+										View More Details		</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li id="post-660" class="post-660 homeland_properties type-homeland_properties status-publish has-post-thumbnail hentry clear">
+						<div class="row">
+							<div class="col-xs-5">
+								<div class="property-mask property-image">
+														<figure class="pimage">
+													<a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/">
+														<img width="330" height="230" src="http://101.0.112.4/~firstnat/firstnational/wp-content/uploads/2014/09/banner-2-330x230.jpg" class="attachment-homeland_property_medium wp-post-image" alt="banner 2">						</a>
+													<figcaption><a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/"><i class="fa fa-link fa-lg"></i></a></figcaption>
+													<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/sold/" rel="tag">Sold</a></h4>	
+													<div class="property-price clear">
+														<div class="cat-price">
+															<span class="pcategory">
+																 <a href="http://101.0.112.4/~firstnat/firstnational/property-type/townhouse/" rel="tag">Townhouse</a>								</span>
+																									<span class="price">
+																		$440,000										</span>							</div>
+														<span class="picon"><i class="fa fa-tag"></i></span>
+													</div>
+												</figure>
+														
+								</div>
+							</div>
+							<div class="col-xs-7">
+								<div class="agent-property-desc">
+									<div class="property-desc">
+										<h4><a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/">3/29 Hughes Avenue, Kellyville</a></h4><label></label><p>Testimonial:&nbsp;They listened to our needs and kept us well informed.&nbsp; Peacefully set, this renovated full-brick villa has been tastefully updated with easy living in mind. &nbsp;Located within a boutique Over …</p>
+								
+									</div>
+									<div class="property-info-agent">
+															<span>
+													<i class="fa fa-inbox"></i>
+													2						Bedrooms					</span>					<span>
+													<i class="fa fa-male"></i>
+													1 
+													Bathrooms					</span>		</div>
+									<div class="agent-info">
+										<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> admin</label>
+									</div>
+									<a href="http://101.0.112.4/~firstnat/firstnational/property-item/329-hughes-avenue-kellyville/" class="view-profile">
+										View More Details		</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>						
+		</div>
+    </div>
+    <div class="col-xs-3">
+    </div>
+  
   
 
 </div>
