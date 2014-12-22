@@ -57,12 +57,12 @@
                   
                     foreach($galleries as $gal)
                     {
-                        $thumb = 'thumb_'.$gal->property_image_thumb;
+                        $thumb = $gal->property_image_thumb;
                         echo $property_image = $gal->property_image;
                         $product_image_id = $gal->image_id;
                         ?>
                         <li data-thumb="<?php echo base_url();?>assets/images/property/<?php echo $thumb?>">
-                            <img src="<?php echo base_url();?>assets/images/property/<?php echo $property_image?>" />
+                            <img src="<?php echo base_url();?>assets/images/property/<?php echo $thumb?>" />
                         </li>
                         <?php
                     }
@@ -75,7 +75,7 @@
     </div>
     <article>
         <div class="content-title sub-title">
-            <h4>Property Desctiption</h4>
+            <h4>Property Description</h4>
         </div>
 
         <div class="information pull-left">
