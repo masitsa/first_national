@@ -934,7 +934,7 @@ a:focus {
     margin-top: 40px;
     margin-bottom: 40px;
 
-    background: url('../../../images/welcome-bg.jpg') no-repeat -540px 30px fixed;
+    background: url('../../../images/welcome-bg.jpg') no-repeat -420px 30px fixed;
     -webkit-background-size: width;
     -moz-background-size: width;
     -o-background-size: width;

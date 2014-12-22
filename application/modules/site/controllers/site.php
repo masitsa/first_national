@@ -134,6 +134,148 @@ class Site extends MX_Controller {
 
 	}
 
+	public function property_onsale($page = NUll)
+	{
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 1';
+		$table = 'property,location,property_type';
+		//pagination
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'site/property_onsale'.$page;
+		$config['total_rows'] = $this->users_model->count_items($table, $where);
+		$config['uri_segment'] = 2;
+		$config['per_page'] = 20;
+		$config['num_links'] = 5;
+		
+		$config['full_tag_open'] = '<ul class="pagination ">';
+		$config['full_tag_close'] = '</ul>';
+		
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['next_tag_open'] = '<li><a href="#">';
+		$config['next_link'] = 'Newer';
+		$config['next_tag_close'] = '</a></li>';
+		
+		$config['prev_tag_open'] = ' <li><a href="#">';
+		$config['prev_link'] = 'Older';
+		$config['prev_tag_close'] = '</a></li>';
+		
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $data["links"] = $this->pagination->create_links();
+		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
+		$property_type_query = $this->property_model->get_all_active_property_type();
+		if($property_type_query->num_rows > 0)
+		{
+			$property_types = '';
+			
+			foreach($property_type_query->result() as $res)
+			{
+				$property_types .= '<li class="'.$res->property_type_name.'"><a href="#" data-filter=".'.$res->property_type_name.'">'.$res->property_type_name.'</a></li>';
+			}
+			$property_types .= '';
+			
+			
+		}
+		$v_data['property_types'] = $property_types;
+		if ($query->num_rows() > 0)
+		{
+			$v_data['query'] = $query;
+			$v_data['page'] = $page;
+			$data['content'] = $this->load->view('property/property_onsale', $v_data, true);
+		}
+		
+		else
+		{
+			$v_data['query'] = $query;
+			$v_data['page'] = $page;
+			$data['content'] = $this->load->view('property/property_onsale', $v_data, true);
+		}
+		$data['title'] = 'All posts';
+		
+		$this->load->view('templates/general_page', $data);
+	}
+
+	public function property_sold($page = NUll)
+	{
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 2';
+		$table = 'property,location,property_type';
+		//pagination
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'site/property_sold'.$page;
+		$config['total_rows'] = $this->users_model->count_items($table, $where);
+		$config['uri_segment'] = 2;
+		$config['per_page'] = 20;
+		$config['num_links'] = 5;
+		
+		$config['full_tag_open'] = '<ul class="pagination ">';
+		$config['full_tag_close'] = '</ul>';
+		
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['next_tag_open'] = '<li><a href="#">';
+		$config['next_link'] = 'Newer';
+		$config['next_tag_close'] = '</a></li>';
+		
+		$config['prev_tag_open'] = ' <li><a href="#">';
+		$config['prev_link'] = 'Older';
+		$config['prev_tag_close'] = '</a></li>';
+		
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $data["links"] = $this->pagination->create_links();
+		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
+		$property_type_query = $this->property_model->get_all_active_property_type();
+		if($property_type_query->num_rows > 0)
+		{
+			$property_types = '';
+			
+			foreach($property_type_query->result() as $res)
+			{
+				$property_types .= '<li class="'.$res->property_type_name.'"><a href="#" data-filter=".'.$res->property_type_name.'">'.$res->property_type_name.'</a></li>';
+			}
+			$property_types .= '';
+			
+			
+		}
+		$v_data['property_types'] = $property_types;
+		if ($query->num_rows() > 0)
+		{
+			$v_data['query'] = $query;
+			$v_data['page'] = $page;
+			$data['content'] = $this->load->view('property/property_sold', $v_data, true);
+		}
+		
+		else
+		{
+			$v_data['query'] = $query;
+			$v_data['page'] = $page;
+			$data['content'] = $this->load->view('property/property_sold', $v_data, true);
+		}
+		$data['title'] = 'All posts';
+		
+		$this->load->view('templates/general_page', $data);
+	}
+
 	public function property_detail($property_id)
 	{
 		$query = $this->site_model->get_property_details($property_id);

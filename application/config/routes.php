@@ -208,6 +208,8 @@ $route['blog/category/(:num)/(:num)'] = 'blog/index/$1/$2';
 
 $route['home'] = 'site/home_page';
 $route['properties'] = 'site/property';
+$route['properties/for-sale'] = 'site/property_onsale';
+$route['properties/sold'] = 'site/property_sold';
 $route['properties/(:num)'] = 'site/property/$1';
 $route['properties/view-single/(:num)'] = 'site/property_detail/$1';
 $route['contact'] = 'site/contact';

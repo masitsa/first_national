@@ -59,9 +59,8 @@ class Site_model extends CI_Model
                  <li class="'.$properties.'">
                     <a href="'.base_url().'properties">Properties</a>
                     <ul class="sub-menu">
-                       
-                        <li><a href="#">For Sale</a></li>
-                         <li><a href="#">Sold</a></li>
+                        <li><a href="'.base_url().'properties/for-sale">For Sale</a></li>
+                        <li><a href="'.base_url().'properties/sold">Sold</a></li>
                     </ul>
                 </li>
                 

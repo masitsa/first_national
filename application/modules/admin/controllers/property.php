@@ -143,6 +143,10 @@ class Property extends admin {
 		$this->load->view('templates/general_admin', $data);
 	}
 
+
+
+
+
 	/*
 	*
 	*	Add a new post
@@ -546,6 +550,10 @@ class Property extends admin {
 		
 		$this->load->view('templates/general_admin', $data);
 	}
+
+
+
+	
 
 	/*
 	*
