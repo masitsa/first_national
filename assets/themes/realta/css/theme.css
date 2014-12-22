@@ -1414,7 +1414,7 @@ a:focus {
     line-height: 22px;
     color: #ffffff;
     background-color: #09173c;
-    background-color: rgba(0, 174, 239, 0.90);
+    /*background-color: rgba(0, 174, 239, 0.90);*/
 }
 
 .project-slider .caption {
@@ -1425,7 +1425,7 @@ a:focus {
     padding: 10px 15px;
     color: #ffffff;
     background-color: #09173c;
-    background-color: rgba(0, 174, 239, 0.90);
+    /*background-color: rgba(0, 174, 239, 0.90);*/
 }
 
 /* Agents
