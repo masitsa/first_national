@@ -737,7 +737,7 @@ a:hover#toTop, .nsu-submit:hover { background-color:#67a233; }
 	background:#09173C; padding:15px 12px 12px; 
 	border-radius:2px; -webkit-border-radius:2px; -moz-border-radius:2px; 
 }
-.pimage figcaption i:hover, .feat-thumb figcaption i:hover, .feat-medium figcaption i:hover { background:#79b446; }
+.pimage figcaption i:hover, .feat-thumb figcaption i:hover, .feat-medium figcaption i:hover { background:#d1d1d1; }
 .property-two-cols, .property-three-cols, .property-four-cols { padding-top:40px; border-top:1px solid #E1E1E1; }
 .property-two-cols .property-cols { float:left; width:520px; }
 .property-two-cols ul li, .property-four-cols ul li { float:left; margin-right:40px; margin-bottom:20px; }
@@ -874,7 +874,7 @@ body:not(:-moz-handler-blocked) .nsu-submit {  }
 .advance-search-widget ul li input[type='submit'],
 .dsidx-widget.dsidx-search-widget .dsidx-search-button input[type='submit'] { cursor:pointer; font-size:12px; background:#09173c; color:#FFF; width:100%; padding:10px 0; }
 .advance-search-widget ul li input[type='submit']:hover, .agent-form ul li input[type='submit']:hover,
-.dsidx-widget.dsidx-search-widget .dsidx-search-button input[type='submit']:hover { background:#79b446; }
+.dsidx-widget.dsidx-search-widget .dsidx-search-button input[type='submit']:hover { background:#d1d1d1; }
 .homeland_widget-popular-posts iframe { height:180px !important; margin-bottom:0 !important; }
 .homeland_widget-facebook-like iframe { margin-bottom:0 !important; width:100%; }
 
