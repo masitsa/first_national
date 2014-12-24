@@ -22,7 +22,7 @@
                                 tellus a odio. This is Photoshop's version of Lorem Ipsum.</p>
                         </div>
 					</div>
-                    <p class="text-center"><a href="#" class="btn btn-large btn-success" >More Details</a></p>
+                    <p class="text-center"><a href="<?php echo base_url();?>/service/1" class="btn btn-large btn-success" >More Details</a></p>
 				</div>
             </div>
             <div class="col-sm-4">
@@ -40,7 +40,7 @@
                                 tellus a odio. This is Photoshop's version of Lorem Ipsum.</p>
                         </div>
 					</div>
-                    <p class="text-center"><a href="#" class="btn btn-large btn-success" >More Details</a></p>
+                    <p class="text-center"><a href="<?php echo base_url();?>/service/2" class="btn btn-large btn-success" >More Details</a></p>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -58,7 +58,7 @@
                                 tellus a odio. This is Photoshop's version of Lorem Ipsum.</p>
                         </div>
 					</div>
-                    <p class="text-center"><a href="#" class="btn btn-large btn-success" >More Details</a></p>
+                    <p class="text-center"><a href="<?php echo base_url();?>/service/3" class="btn btn-large btn-success" >More Details</a></p>
                 </div>
             </div>
         </div>

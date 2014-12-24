@@ -420,6 +420,7 @@ a:focus {
 .site-navigation .sf-menu > li {
     background-color: transparent;
     padding: 8px;
+    margin-right: 2px;
 }
 
 .site-navigation .sf-menu > li a {
@@ -433,9 +434,9 @@ a:focus {
 .site-navigation .sf-menu > li.active,
 .site-navigation .sf-menu > li.sfHover,
 .site-navigation .sf-menu > li:hover {
-    /*background-color: #09173c;*/
     background-color: #09173c;
     padding: 8px;
+    margin-right: 2px;
 }
 
 .site-navigation .sf-menu ul li a,
@@ -832,7 +833,7 @@ a:focus {
     margin: 0;
     padding: 40px 0 0 0;
     border: none;
-    min-height: 200px;
+    min-height: 320px;
 
 
     background: url('../../../images/welcome-bg.jpg') no-repeat -380px -13px fixed;
@@ -1844,8 +1845,8 @@ a:focus {
 /* ========================================================================== */
 
 .footer {
-    background-color: #272a31;
-    color: #858688;
+    background-color: #171C26;
+    color: #72798a;
     padding: 40px 0 15px 0;
 }
 
@@ -1855,7 +1856,7 @@ a:focus {
 .footer h4,
 .footer h5,
 .footer h6 {
-    color: #f4f4f4;
+    color: #dcdee2;
 }
 
 .footer .widget {
@@ -1943,9 +1944,9 @@ ul.social li {float: left;}
 }
 
 .footer .form-control {
-    color: #858688;
-    background-color: #272a31;
-    border: 1px solid #09173c;
+    color: #fff;
+    background-color: #2B303B;
+    border: 1px solid #fff;
 }
 
 .footer .form-control:focus {

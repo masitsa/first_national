@@ -12,7 +12,7 @@
 	        <div class="top-wrapper clearfix">
 	            <div class="top-left">
 	                <ul class="social" style="margin-bottom:0px;">
-	                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                    <li style="border-left:1px"><a href="#"><i class="fa fa-facebook"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>

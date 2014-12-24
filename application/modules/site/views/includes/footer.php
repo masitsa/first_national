@@ -18,52 +18,41 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="col-sm-12 col-md-6">
-                <div class="clear"></div>
+             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h3 class="widget-title">Contact Us</h3>
-
+                    <h3 class="widget-title">Site Links</h3>
+                    <ul class="fa-ul-icons">
+                        <li><a href="<?php echo base_url();?>home">Home</a></li>
+                        <li><a href="<?php echo base_url();?>about">About Us</a></li>
+                        <li><a href="<?php echo base_url();?>properties">Properties</a></li>
+                        <li><a href="<?php echo base_url();?>news">News</a></li>
+                        <li><a href="<?php echo base_url();?>">Request an appraisal</a></li>
+                        <li><a href="<?php echo base_url();?>contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="widget">
+                    <h3 class="widget-title">Newsletter</h3>
                     <form name="contact" method="post" action="#contact" class="af-form row" id="af-form">
-
-                        <div class="col-sm-4 af-outer af-required">
-                            <div class="form-group af-inner">
-                                <input type="text" name="name" id="name" size="30" value="" placeholder="Name" class="form-control placeholder" />
-                                <label class="error" for="name" id="name_error">Name is required.</label>
-                            </div>
+                        <div class="col-sm-12">
+                         <p>Sign-up to our newsletter and receive the latest property updates.</p>
                         </div>
-
-                        <div class="col-sm-4 af-outer af-required">
+                        <div class="col-sm-12 af-outer af-required">
                             <div class="form-group af-inner">
                                 <input type="text" name="email" id="email" size="30" value="" placeholder="Email *" class="form-control placeholder" />
                                 <label class="error" for="email" id="email_error">Email is required.</label>
                             </div>
                         </div>
-
-                        <div class="col-sm-4 af-outer af-required">
-                            <div class="form-group af-inner">
-                                <input type="text" name="email" id="subject" size="30" value="" placeholder="Subject" class="form-control placeholder" />
-                                <label class="error" for="email" id="subject_error">Email is required.</label>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 af-outer af-required">
-                            <div class="form-group af-inner">
-                                <textarea name="message" id="input-message" cols="30" placeholder="Message *" class="form-control placeholder"></textarea>
-                                <label class="error" for="input-message" id="message_error">Message is required.</label>
-                            </div>
-                        </div>
-
                         <div class="col-sm-12 af-outer af-required">
                             <div class="form-group af-inner text-center">
-                                <input type="submit" name="submit" class="form-button btn btn-success" id="submit_btn" value="Send Message!" />
+                                <input type="submit" name="submit" class="form-button btn btn-success" size="30" id="submit_btn" value="Subscribe" />
                             </div>
                         </div>
-
                     </form>
-
                 </div>
             </div>
+           
         </div>
     </div>
 </div>
