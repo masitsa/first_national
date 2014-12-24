@@ -39,7 +39,7 @@ class Site_model extends CI_Model
 		
 		if($name == 'Request')
 		{
-			$request = 'active';
+			$contact = 'active';
 		}
 		
 		if($name == 'Properties')
@@ -65,11 +65,11 @@ class Site_model extends CI_Model
                 </li>
                 
                  <li class="'.$news.'">
-                    <a href="">News & Trends</a>
+                    <a href="'.base_url().'news">News & Trends</a>
                  
                 </li>
-                 <li class="'.$request.'">
-                    <a href="">Request an appraisal</a>
+                 <li class="'.$contact.'">
+                    <a href="'.base_url().'request">Request an appraisal</a>
                 </li>
                 <li class="'.$contact.'"><a href="'.base_url().'contact">Contact</a></li>
 		';
