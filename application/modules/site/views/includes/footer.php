@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h3 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h3>
+                    <h3 class="widget-title">About Us</h3>
+                    <!-- <h3 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h3> -->
                     <p>Run by Scott & Ian Haggarty, First National is a family run real estate company with over 44 years combined experience. A combination of experience, knowledge and integraty ensures that your expectations are exceeded.</p>
                 </div>
             </div>
