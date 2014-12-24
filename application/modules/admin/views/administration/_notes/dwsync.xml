@@ -15,4 +15,12 @@
 <file name="logs.php" server="148.251.2.43/public_html/clothes/" local="130525138285698838" remote="130538225400000000" Dst="0" />
 <file name="summary.php" server="148.251.2.43/public_html/clothes/" local="130536157018818084" remote="130538225400000000" Dst="0" />
 <file name="table.php" server="148.251.2.43/public_html/clothes/" local="130516128781198542" remote="130538225400000000" Dst="0" />
+<file name="bar_graph.php" server="101.0.112.4/public_html/development/" local="130627774639081833" remote="130637367600000000" Dst="0" />
+<file name="calender.php" server="101.0.112.4/public_html/development/" local="130627774639091833" remote="130637367600000000" Dst="0" />
+<file name="line_graph.php" server="101.0.112.4/public_html/development/" local="130627774639101834" remote="130637367600000000" Dst="0" />
+<file name="real_time.php" server="101.0.112.4/public_html/development/" local="130627774639281844" remote="130637367600000000" Dst="0" />
+<file name="logs.php" server="101.0.112.4/public_html/development/" local="130627774639131836" remote="130637367600000000" Dst="0" />
+<file name="notifications.php" server="101.0.112.4/public_html/development/" local="130627774639141836" remote="130637367600000000" Dst="0" />
+<file name="summary.php" server="101.0.112.4/public_html/development/" local="130627774639391851" remote="130637367600000000" Dst="0" />
+<file name="table.php" server="101.0.112.4/public_html/development/" local="130627774639571861" remote="130637367600000000" Dst="0" />
 </dwsync>
