@@ -1,5 +1,11 @@
 <?php echo $this->load->view('contact/contact_header', '', TRUE); ?>
 <div class="container container-wrapper gradient top bottom">
+    <div class="contact-info">
+        <h2>Contact Info</h2>
+        <label><i class="fa fa-phone"></i><span>Phone:</span> <a href="tel:0414 072 084">0414 072 084</a></label>
+        <label><i class="fa fa-paperclip"></i><span>email:</span> <a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></label>
+        <label><i class="fa fa-map-marker"></i><span>Address:</span> 12 Old Northern Road, Baulkham Hills</label>
+    </div>
     <div class="widget">
         <div class="col-xs-6">
             <h3 class="content-title">Contact Us</h3>
