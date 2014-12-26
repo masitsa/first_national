@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h3 class="widget-title">About Us</h3>
-                    <!-- <h3 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h3> -->
+                    <h2 class="widget-title">About Us</h2>
+                    <!-- <h2 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h2> -->
                     <p>Run by Scott & Ian Haggarty, First National is a family run real estate company with over 44 years combined experience. A combination of experience, knowledge and integraty ensures that your expectations are exceeded.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h3 class="widget-title">Our Address</h3>
+                    <h2 class="widget-title">Our Address</h2>
                     <ul class="fa-ul-icons">
                         <li><i class="fa fa-location-arrow"></i><span class="overflowed">12 Old Northern Road, Baulkham Hills </span></li>
                         <li><i class="fa fa-phone"></i>Call us: +0414 072 084</li>
@@ -21,7 +21,7 @@
             </div>
              <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h3 class="widget-title">Site Links</h3>
+                    <h2 class="widget-title">Site Links</h2>
                     <ul class="fa-ul-icons">
                         <li><a href="<?php echo base_url();?>home">Home</a></li>
                         <li><a href="<?php echo base_url();?>about">About Us</a></li>
@@ -34,15 +34,15 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h3 class="widget-title">Newsletter</h3>
-                    <form name="contact" method="post" action="#contact" class="af-form row" id="af-form">
+                    <h2 class="widget-title">Newsletter</h2>
+                    <?php echo form_open("request-news-letter", array("class" => "form-horizontal"));?>
                         <div class="col-sm-12">
                          <p>Sign-up to our newsletter and receive the latest property updates.</p>
                         </div>
                         <div class="col-sm-12 af-outer af-required">
                             <div class="form-group af-inner">
-                                <input type="text" name="email" id="email" size="30" value="" placeholder="Email *" class="form-control placeholder" />
-                                <label class="error" for="email" id="email_error">Email is required.</label>
+                                <input type="text" name="email_address" id="email_address" size="30" value="" placeholder="Email *" class="form-control placeholder" />
+                                <label class="error" for="email_address" id="email_error">Email is required.</label>
                             </div>
                         </div>
                         <div class="col-sm-12 af-outer af-required">
@@ -50,7 +50,7 @@
                                 <input type="submit" name="submit" class="form-button btn btn-success" size="30" id="submit_btn" value="Subscribe" />
                             </div>
                         </div>
-                    </form>
+                    <?php echo form_close();?>
                 </div>
             </div>
            

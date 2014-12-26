@@ -9,6 +9,8 @@ class Site extends MX_Controller {
 		$this->load->model('site/site_model');
 		$this->load->model('login/login_model');
 		$this->load->model('admin/users_model');
+		$this->load->model('admin/blog_model');
+		$this->load->model('admin/property_model');
 		
 	}
     
@@ -147,6 +149,13 @@ class Site extends MX_Controller {
 	{
 		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 1';
 		$table = 'property,location,property_type';
+
+		$search_property = $this->session->userdata('property_search');
+		
+		if(!empty($search_property))
+		{
+			$where .= $search_property;
+		}
 		//pagination
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'site/property_onsale'.$page;
@@ -284,13 +293,20 @@ class Site extends MX_Controller {
 		
 		$this->load->view('templates/general_page', $data);
 	}
-	public function blog($page = NUll) 
+	public function blog($category = NUll, $page = NUll) 
 	{
-		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1';
-		$table = 'property,location,property_type';
+		$where = 'post.blog_category_id = blog_category.blog_category_id AND post.post_status = 1';
+		$segment = 3;
+		if($category > 0)
+		{
+			$segment = 4;
+			$base_url = base_url().'blog/category/'.$category;
+			$where .= ' AND (blog_category.blog_category_id = '.$category.' OR blog_category.blog_category_parent = '.$category.')';
+		}
+		$table = 'post, blog_category';
 		//pagination
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'site/property'.$page;
+		$config['base_url'] = base_url().'news'.$page;
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
 		$config['uri_segment'] = 2;
 		$config['per_page'] = 20;
@@ -322,8 +338,7 @@ class Site extends MX_Controller {
 		
 		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         $data["links"] = $this->pagination->create_links();
-		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
-		$property_type_query = $this->property_model->get_all_active_property_type();
+		$query = $this->blog_model->get_all_posts($table, $where, $config["per_page"], $page);
 		
 		$v_data['query'] = $query;
 		$v_data['page'] = $page;
@@ -338,6 +353,7 @@ class Site extends MX_Controller {
 	}
 	public function property_detail($property_id)
 	{
+		
 		$query = $this->site_model->get_property_details($property_id);
 		$v_data['property'] = $query;
 		$v_data['gallery_images'] = $this->site_model->get_gallery_images($property_id);
@@ -346,13 +362,26 @@ class Site extends MX_Controller {
 		
 		$this->load->view('templates/general_page', $data);
 	}
-	public function blog_detail($blog_id)
+	public function blog_detail($post_id)
 	{
-		$query = $this->site_model->get_property_details($blog_id);
-		$v_data['property'] = $query;
-		$v_data['gallery_images'] = $this->site_model->get_gallery_images($blog_id);
-		$data['content'] = $this->load->view('blog/single_blog', $v_data, true);
-		$data['title'] = 'All Blogs';
+		
+
+		$this->blog_model->update_views_count($post_id);
+		$query = $this->blog_model->get_post($post_id);
+		$v_data['comments_query'] = $this->blog_model->get_post_comments($post_id);
+		
+		if ($query->num_rows() > 0)
+		{
+			$v_data['row'] = $query->row();
+			$data['content'] = $this->load->view('blog/single_blog', $v_data, true);
+		}
+		
+		else
+		{
+			$data['content'] = 'Post not found';
+		}
+		$data['title'] = 'Blog Posts';
+		
 		
 		$this->load->view('templates/general_page', $data);
 	}
@@ -646,6 +675,122 @@ class Site extends MX_Controller {
 		
 		$data['title'] = $this->site_model->display_page_title();
 		$this->load->view('templates/general_page', $data);
+	}
+	public function search_properties()
+	{
+		$location_id = $this->input->post('location_id');
+		$property_type_id = $this->input->post('property_type_id');
+		$bedroom_id = $this->input->post('bedroom_id');
+		$bathroom_id = $this->input->post('bathroom_id');
+		$max_price = $this->input->post('max_price');
+		$min_price = $this->input->post('min_price');
+		
+		if(!empty($location_id))
+		{
+			$location_id = ' AND property.location_id = '.$location_id.' ';
+		}
+		else
+		{
+			$location_id ='';
+		}
+
+		if(!empty($property_type_id))
+		{
+			$property_type_id = ' AND property.property_type_id = '.$property_type_id.' ';
+		}
+		else
+		{
+			$property_type_id ='';
+		}
+
+		if(!empty($max_price))
+		{
+			$max_price = ' AND property.property_price <= '.$max_price.' ';
+		}
+		else
+		{
+			$max_price ='';
+		}
+
+		if(!empty($min_price))
+		{
+			$min_price = ' AND property.property_price >= '.$min_price.' ';
+		}
+		else
+		{
+			$min_price = '';
+		}
+		
+		$search = $property_type_id.$location_id.$max_price.$min_price;
+		$this->session->set_userdata('property_search', $search);
+		
+		$this->property_onsale();
+	}
+	public function close_property_search()
+	{
+		$this->session->unset_userdata('property_search');
+		$this->property_onsale();
+	}
+
+	public function request_newsletter()
+	{
+		//form validation rules
+		$this->form_validation->set_rules('email_address', 'Email', 'is_numeric|xss_clean');
+		
+		//if form conatins invalid data
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->site_model->request_newsletter();
+		}
+		
+		else
+		{
+			$this->session->set_userdata("error_message","Could not send newsletter request. Please try again");	
+		}
+		redirect('home');
+	}
+	
+	public function contact_us()
+	{
+		//form validation rules
+		$this->form_validation->set_rules('first_name', 'First Name', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('phone_number', 'Phone number', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('message', 'Message', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('email_address', 'Email', 'is_numeric|xss_clean');
+		
+		//if form conatins invalid data
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->site_model->send_message();
+		}
+		
+		else
+		{
+			$this->session->set_userdata("error_message","Could not send newsletter request. Please try again");	
+		}
+		redirect('contact');
+	}
+	public function request_appraisal()
+	{
+		//form validation rules
+		$this->form_validation->set_rules('app_first_name', 'First Name', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('app_last_name', 'Last Name', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('phone_number', 'Phone number', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('address', 'Address', 'is_numeric|xss_clean');
+		$this->form_validation->set_rules('email_address', 'Email', 'is_numeric|xss_clean');
+		
+		//if form conatins invalid data
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->site_model->send_appraisal();
+		}
+		
+		else
+		{
+			$this->session->set_userdata("error_message","Could not send newsletter request. Please try again");	
+		}
+		redirect('contact');
 	}
 }
 ?>

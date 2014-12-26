@@ -327,6 +327,64 @@ class Site_model extends CI_Model
 		
 		return $range;
 	}
+	public function request_newsletter()
+	{
+		$data = array(
+			'created_on'=>date('Y-m-d'),
+			'email_address'=>$this->input->post('email_address')
+		);
+		
+		if($this->db->insert('newsletter_requests', $data))
+		{
+			return $this->db->insert_id();
+		}
+		else{
+			return FALSE;
+		}
+	}
+	public function send_message()
+	{
+		$data = array(
+			'created_on'=>date('Y-m-d'),
+			'first_name'=>$this->input->post('first_name'),
+			'last_name'=>$this->input->post('last_name'),
+			'phone_number'=>$this->input->post('phone_number'),
+			'message'=>$this->input->post('message'),
+			'email_address'=>$this->input->post('email_address')
+		);
+		
+		if($this->db->insert('clients_messages', $data))
+		{
+			return $this->db->insert_id();
+		}
+		else{
+			return FALSE;
+		}
+	}
+	public function send_appraisal()
+	{
+		$data = array(
+			'created_on'=>date('Y-m-d'),
+			'first_name'=>$this->input->post('app_first_name'),
+			'last_name'=>$this->input->post('app_last_name'),
+			'phone_number'=>$this->input->post('phone_number'),
+			'address'=>$this->input->post('address'),
+			'property_type_id'=>$this->input->post('property_type_id'),
+			'bedroom_id'=>$this->input->post('bedroom_id'),
+			'bathroom_id'=>$this->input->post('bathroom_id'),
+			'car_space_id'=>$this->input->post('car_space_id'),
+			'email_address'=>$this->input->post('email_address')
+		);
+		
+		if($this->db->insert('appraisal_requests', $data))
+		{
+			return $this->db->insert_id();
+		}
+		else{
+			return FALSE;
+		}
+
+	}
 }
 
 ?>

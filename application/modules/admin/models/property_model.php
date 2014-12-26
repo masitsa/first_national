@@ -17,7 +17,38 @@ class Property_model extends CI_Model
 		return $query;
 
 	}
-
+	public function get_all_active_bedrooms()
+	{
+		$this->db->where('bedrooms_id <> 0');
+		$this->db->order_by('bedrooms_id');
+		$query = $this->db->get('bedrooms');
+		
+		return $query;
+	}
+	public function get_all_active_bathroom()
+	{
+		$this->db->where('bathroom_id <> 0');
+		$this->db->order_by('bathroom_id');
+		$query = $this->db->get('bathroom');
+		
+		return $query;
+	}
+	public function get_all_active_prices()
+	{
+		$this->db->where('price_id <> 0');
+		$this->db->order_by('price_id');
+		$query = $this->db->get('prices');
+		
+		return $query;
+	}
+	public function get_all_active_car_spaces()
+	{
+		$this->db->where('car_space_id <> 0');
+		$this->db->order_by('car_space_id');
+		$query = $this->db->get('car_spaces');
+		
+		return $query;
+	}
 	public function get_all_active_locations()
 	{
 		$this->db->where('location_status = 1');

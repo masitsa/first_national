@@ -218,3 +218,9 @@ $route['news'] = 'site/blog';
 $route['news/view-single/(:num)'] = 'site/blog_detail/$1';
 $route['about'] = 'site/about';
 $route['service/(:num)'] = 'site/service/$1';
+$route['search-properties'] = 'site/search_properties';
+$route['close-search'] = 'site/close_property_search';
+$route['request-news-letter'] = 'site/request_newsletter';
+$route['send-message'] = 'site/contact_us';
+$route['request-an-appraisal'] = 'site/request_appraisal';
+

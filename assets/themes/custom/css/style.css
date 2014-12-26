@@ -1,4 +1,17 @@
 
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid;
+    padding: 15px 63px;
+}
+a {
+    color: #afbabd;
+    text-decoration: none;
+}
+
+
 
 .grid {
 	list-style: none;
@@ -580,7 +593,7 @@ div.wpcf7-response-output { margin-right: 0; margin-left: 0; font-size: 14px; fo
 .blog-four-cols { width: 240px; margin-right: 40px; }
 .blog-four-cols iframe { height: 240px; }
 a.continue { position:absolute; right:0; bottom:0; background:#09173c; font-size:13px; font-weight:700; color:#FFF; padding:12px 22px; }
-a.continue:hover { background:#73ae3e; opacity:1; }
+a.continue:hover { background-color:rgba(255, 255, 255, 0.9); opacity:1; }
 .single-blog .blog-list-desc, .single-blog .blist { padding-bottom:30px; }
 .blog-tags, .comments { margin-bottom:50px; }
 .blog-tags a { background:#F0F0F0; padding:10px 15px; color:#777; margin-right:10px; display:inline-block; }
@@ -800,7 +813,7 @@ a.view-property:hover { background:#FFF; color:#09173C; }
 .thumbnail .youtube .thumb{top: -34px;}
 
 .footer .widget p{text-align: justify;}
-.footer .widget-title{margin: 0 auto; text-align:center;}
+.footer .widget-title{margin: 0 auto; text-align:left;}
 
 p.meet-the-team{color: #FFFFFF; display: block; font-size: 28px; font-weight: 300; line-height: 42px; text-align:center;margin-bottom: 50px;}
 h1.meet-the-team{color: #FFFFFF; font-size: 50px; font-weight: 700; line-height: 54px; margin-bottom: 40px;}
@@ -809,13 +822,13 @@ h1.meet-the-team{color: #FFFFFF; font-size: 50px; font-weight: 700; line-height:
 5. Sidebar and Widgets
 *************************************************************************/
 
-.sidebar { float:right; width:230px; padding:20px; background:#F8F8F8; }
+.sidebar { float:right; width:270px; padding:20px; background:#F8F8F8; }
 .sidebar.left { float:left; }
 .left-container.right { float:right; }
 .sidebar .widget h5 { font-size:16px; font-weight:700; color:#384042; border-bottom:1px solid #E1E1E1; padding-bottom:15px; position:relative; }
 .sidebar .widget h5:after { 
     content: "\f111"; font-family: FontAwesome; font-style: normal; font-weight:normal; text-decoration: inherit; 
-    position:absolute; bottom:-12px; left:0; color:#E1E1E1; font-size:12px;
+    position:absolute; bottom:-8px; left:0; color:#E1E1E1; font-size:12px;
 }
 .sidebar #searchform, .dsidx-search-widget { background:#FFF; padding:6px 12px; border:1px solid #E1E1E1; }
 .sidebar #searchform input[type='text'] { background:none; width:190px; color:#AAA; }
@@ -831,7 +844,8 @@ h1.meet-the-team{color: #FFFFFF; font-size: 50px; font-weight: 700; line-height:
 .widget.widget_revslider { margin-bottom:0; }
 footer .widget h5 { font-size:24px; color:#dcdee2; text-transform:capitalize; padding-top:8px; margin-bottom:35px; }
 .widget ul li { margin-bottom:10px; }
-.widget ul li a:link, .widget ul li a:visited { color:#7c7e83; }
+.widget ul li a:link, .widget ul li a:visited { color:#7c7e83;}
+.menu-footer-menu .widget ul li:hover:before { content: "\00BB \0020";}
 .widget ul li a:hover, .widget ul li:hover:before, .copyright a, .agent-block h4 a:hover, .agent-desc h4 a:hover, .agent-social ul li a:hover, 
 .sidebar .pp-desc a:hover, .services-page-desc h5 a:hover, .agent-about-list .agent-image h4 a:hover, .blog-list-desc h4 a:hover, .blog-action ul li a:hover,
 .comment-details h5 a:hover { color:#fffff; }

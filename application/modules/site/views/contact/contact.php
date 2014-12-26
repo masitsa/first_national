@@ -1,4 +1,140 @@
 <?php echo $this->load->view('contact/contact_header', '', TRUE); ?>
+
+<?php
+$location_query = $this->property_model->get_all_active_locations();
+if($location_query->num_rows > 0)
+{
+    $locations = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="location_id">
+                  <option value="0">Select a location</option>';
+    
+    foreach($location_query->result() as $res_location)
+    {
+        $locations .= ' 
+                        <option value="'.$res_location->location_id.'">'.$res_location->location_name.'</option>
+                      ';
+    }
+    $locations .= '</select>';
+    
+    
+}
+
+else
+{
+    $locations = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="location_id">';
+    
+        $locations .= '<option value="0">No locations</option>';
+    
+    $locations .= '</select>';
+}
+
+
+// property type
+$property_type_query = $this->property_model->get_all_active_property_type();
+if($property_type_query->num_rows > 0)
+{
+    $property_types = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="property_type_id">
+                        <option value="0">Select a property Type</option>';
+    
+    foreach($property_type_query->result() as $res)
+    {
+        $property_types .= '
+                            <option value="'.$res->property_type_id.'">'.$res->property_type_name.'</option>';
+    }
+    $property_types .= '</select>';
+    
+    
+}
+
+else
+{
+    $property_types = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="property_type_id">';
+    
+        $property_types .= '<option value="0">No property types</option>';
+    
+    $property_types .= '</select>';
+}
+        
+// end of property_type
+
+// start of bedrooms selection
+$bedrooms_query = $this->property_model->get_all_active_bedrooms();
+if($bedrooms_query->num_rows > 0)
+{
+    $bedrooms_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bedroom_id">
+                    <option value="0">Select bedrooms number</option>';
+        
+    foreach($bedrooms_query->result() as $res)
+    {
+        $bedrooms_no .= '
+                            <option value="'.$res->bedrooms_id.'">'.$res->bedrooms_no.'</option>';
+    }
+    $bedrooms_no .= '</select>';
+    
+    
+}
+
+else
+{
+    $bedrooms_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bedroom_id">';
+    
+        $bedrooms_no .= '<option value="0">No bedrooms</option>';
+    
+    $bedrooms_no .= '</select>';
+}
+// end of bedrooms selection
+
+// start of bathroom selection
+$bathrooms_query = $this->property_model->get_all_active_bathroom();
+if($bathrooms_query->num_rows > 0)
+{
+    $bathroom_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bathroom_id">
+                    <option value="0">Select bathrooms number</option>';
+    
+    foreach($bathrooms_query->result() as $res)
+    {
+        $bathroom_no .= '<option value="'.$res->bathroom_id.'">'.$res->bathroom_no.'</option>';
+    }
+    $bathroom_no .= '</select>';
+    
+    
+}
+
+else
+{
+    $bathroom_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bedroom_id">';
+    
+        $bathroom_no .= '<option value="0">No bathroom</option>';
+    
+    $bathroom_no .= '</select>';
+}
+// end of bathroom selection
+
+// start of car spaces selection
+$car_spaces_query = $this->property_model->get_all_active_car_spaces();
+if($car_spaces_query->num_rows > 0)
+{
+    $car_space_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="car_space_id">
+                    <option value="0">Select Car Space</option>';
+    
+    foreach($car_spaces_query->result() as $res)
+    {
+        $car_space_no .= '<option value="'.$res->car_space_id.'">'.$res->car_space.'</option>';
+    }
+    $car_space_no .= '</select>';
+    
+    
+}
+
+else
+{
+    $car_space_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bedroom_id">';
+    
+        $car_space_no .= '<option value="0">No bathroom</option>';
+    
+    $car_space_no .= '</select>';
+}
+// end of car spaces selection
+?>
 <div class="container container-wrapper gradient top bottom">
     <div class="contact-info">
         <h2>Contact Info</h2>
@@ -9,7 +145,7 @@
     <div class="widget">
         <div class="col-xs-6">
             <h3 class="content-title">Contact Us</h3>
-            <form name="contact" method="post" action="#contact" class="af-form row" id="af-form">
+                <?php echo form_open("send-message", array("class" => "form-horizontal"));?>
 
                 <div class="col-sm-12 af-outer af-required">
                     <div class="form-group af-inner">
@@ -31,8 +167,8 @@
                 </div>
                 <div class="col-sm-12 af-outer af-required">
                     <div class="form-group af-inner">
-                        <input type="text" name="email" id="email" size="30" value="" placeholder="Email *" class="form-control placeholder" />
-                        <label class="error" for="email" id="email_error">Email is required.</label>
+                        <input type="text" name="email_address" id="email" size="30" value="" placeholder="Email *" class="form-control placeholder" />
+                        <label class="error" for="email_address" id="email_error">Email is required.</label>
                     </div>
                 </div>
 
@@ -49,21 +185,22 @@
                     </div>
                 </div>
 
-            </form>
+            <?php echo form_close();?>
         </div>
         <div class="col-xs-6">
             <h3 class="content-title">Request an appraisal</h3>
-            <form name="contact" method="post" action="#contact" class="af-form row" id="af-form">
+            <!-- // Filter Now -->
+                <?php echo form_open("request-an-appraisal", array("class" => "form-horizontal"));?>
 
                 <div class="col-sm-12 af-outer af-required">
                     <div class="form-group af-inner">
-                        <input type="text" name="first_name" id="first_name" size="30" value="" placeholder="First Name" class="form-control placeholder" />
+                        <input type="text" name="app_first_name" id="first_name" size="30" value="" placeholder="First Name" class="form-control placeholder" />
                         <label class="error" for="first_name" id="first_name_error">first name is required.</label>
                     </div>
                 </div>
                 <div class="col-sm-12 af-outer af-required">
                     <div class="form-group af-inner">
-                        <input type="text" name="last_name" id="last_name" size="30" value="" placeholder="Last Name" class="form-control placeholder" />
+                        <input type="text" name="app_last_name" id="last_name" size="30" value="" placeholder="Last Name" class="form-control placeholder" />
                         <label class="error" for="last_name" id="last_name_error">last name is required.</label>
                     </div>
                 </div>
@@ -75,8 +212,8 @@
                 </div>
                 <div class="col-sm-12 af-outer af-required">
                     <div class="form-group af-inner">
-                        <input type="text" name="email" id="email" size="30" value="" placeholder="Email *" class="form-control placeholder" />
-                        <label class="error" for="email" id="email_error">Email is required.</label>
+                        <input type="text" name="email_address" id="email" size="30" value="" placeholder="Email *" class="form-control placeholder" />
+                        <label class="error" for="email_address" id="email_error">Email is required.</label>
                     </div>
                 </div>
 
@@ -87,51 +224,44 @@
                     </div>
                 </div>
                 <div class="col-sm-12 af-outer af-required">
-                    <select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%">
-                        <option>Select Property Type</option>
-                        <option>Condominium Type</option>
-                        <option>Condominium Type</option>
-                    </select>
+                    <div class="form-group af-inner">
+                        <?php echo $property_types;?>
+                    </div>
                 </div>
                 <div class="col-sm-12 af-outer af-required">
-                    <select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%">
-                        <option>No of Bed..</option>
-                        <option>Condominium Type</option>
-                        <option>Condominium Type</option>
-                    </select>
+                    <div class="form-group af-inner">
+                        <?php echo $bedrooms_no;?>
+                    </div>
                 </div>
                 <div class="col-sm-12 af-outer af-required">
-                    <select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%">
-                        <option>No of Bathrooms</option>
-                        <option>Condominium Type</option>
-                        <option>Condominium Type</option>
-                    </select>
+                    <div class="form-group af-inner">
+                        <?php echo $bathroom_no?>
+                    </div>
                 </div>
                 <div class="col-sm-12 af-outer af-required">
-                    <select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%">
-                        <option>No of Car Spaces</option>
-                        <option>Condominium Type</option>
-                        <option>Condominium Type</option>
-                    </select>
+                    <div class="form-group af-inner">
+                        <?php echo $car_space_no;?>
+                    </div>
                 </div>
 
                 <div class="col-sm-12 af-outer af-required">
                     <div class="form-group af-inner">
-                        <input type="submit" name="submit" class="form-button btn btn-success" id="submit_btn" value="Send Message!" />
+                        <input type="submit" name="submit" class="form-button btn btn-success" id="submit_btn" value="Send Request!" />
                     </div>
                 </div>
 
-            </form>
+            <?php echo form_close();?>
         </div>
 
     </div>
     <!-- // Google Map -->
 
-    <div class="google-maps">
-        <!-- <div id="map-canvas"></div> -->
-        <iframe width="100px" height="100px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.ke/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12&amp;output=embed"></iframe><br /><small><a href="https://www.google.co.ke/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-    </div>
+   
 
     
 
+</div>
+<div class="google-maps">
+    <!-- <div id="map-canvas"></div> -->
+    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.ke/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12&amp;output=embed"></iframe><br /><small><a href="https://www.google.co.ke/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 </div>
