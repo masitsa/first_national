@@ -689,6 +689,56 @@ class Property extends admin {
 			
 			$locations .= '</select>';
 		}
+
+
+		$bedrooms_query = $this->property_model->get_all_active_bedrooms();
+		if($bedrooms_query->num_rows > 0)
+		{
+			$bedrooms_no = '<select class="form-control" name="bedroom_id">';
+			
+			foreach($bedrooms_query->result() as $res)
+			{
+				$bedrooms_no .= '<option value="'.$res->bedrooms_id.'">'.$res->bedrooms_no.'</option>';
+			}
+			$bedrooms_no .= '</select>';
+			
+			
+		}
+		
+		else
+		{
+			$bedrooms_no = '<select class="form-control" name="bedroom_id">';
+			
+				$bedrooms_no .= '<option value="0">No bedrooms</option>';
+			
+			$bedrooms_no .= '</select>';
+		}
+		
+		$bathrooms_query = $this->property_model->get_all_active_bathroom();
+		if($bathrooms_query->num_rows > 0)
+		{
+			$bathroom_no = '<select class="form-control" name="bathroom_id">';
+			
+			foreach($bathrooms_query->result() as $res)
+			{
+				$bathroom_no .= '<option value="'.$res->bathroom_id.'">'.$res->bathroom_no.'</option>';
+			}
+			$bathroom_no .= '</select>';
+			
+			
+		}
+		
+		else
+		{
+			$bathroom_no = '<select class="form-control" name="bedroom_id">';
+			
+				$bathroom_no .= '<option value="0">No bedrooms</option>';
+			
+			$bathroom_no .= '</select>';
+		}
+		
+		
+
 		//open the add new post
 		$data['title'] = 'Add New property';
 		$v_data['title'] = 'Add property';
