@@ -54,7 +54,7 @@ class Site_model extends CI_Model
                   
                 </li>
                 <li class="'.$about.'">
-                    <a href="'.base_url().'about">About Us</a>
+                    <a href="'.base_url().'about">About us</a>
                 </li>
                  <li class="'.$properties.'">
                     <a href="'.base_url().'properties">Properties</a>
@@ -65,7 +65,7 @@ class Site_model extends CI_Model
                 </li>
                 
                  <li class="'.$news.'">
-                    <a href="'.base_url().'news">News & Trends</a>
+                    <a href="'.base_url().'news">News & trends</a>
                  
                 </li>
                  <li class="'.$contact.'">

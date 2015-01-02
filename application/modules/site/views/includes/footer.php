@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h2 class="widget-title">About Us</h2>
+                    <h2 class="widget-title">About us</h2>
                     <!-- <h2 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h2> -->
                     <p>Run by Scott & Ian Haggarty, First National is a family run real estate company with over 44 years combined experience. A combination of experience, knowledge and integraty ensures that your expectations are exceeded.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h2 class="widget-title">Our Address</h2>
+                    <h2 class="widget-title">Our address</h2>
                     <ul class="fa-ul-icons">
                         <li><i class="fa fa-location-arrow"></i><span class="overflowed">12 Old Northern Road, Baulkham Hills </span></li>
                         <li><i class="fa fa-phone"></i>Call us: +0414 072 084</li>
@@ -21,10 +21,10 @@
             </div>
              <div class="col-sm-6 col-md-3">
                 <div class="widget">
-                    <h2 class="widget-title">Site Links</h2>
+                    <h2 class="widget-title">Site links</h2>
                     <ul class="fa-ul-icons">
                         <li><a href="<?php echo base_url();?>home">Home</a></li>
-                        <li><a href="<?php echo base_url();?>about">About Us</a></li>
+                        <li><a href="<?php echo base_url();?>about">About us</a></li>
                         <li><a href="<?php echo base_url();?>properties">Properties</a></li>
                         <li><a href="<?php echo base_url();?>news">News</a></li>
                         <li><a href="<?php echo base_url();?>">Request an appraisal</a></li>

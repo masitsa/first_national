@@ -133,7 +133,7 @@ else
 // end of max price selection
 
 // min price selection
-$prices_query = $this->property_model->get_all_active_prices();
+$prices_query = $this->property_model->get_all_active_prices2();
 if($prices_query->num_rows > 0)
 {
     $min_price_value = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="min_price">';
