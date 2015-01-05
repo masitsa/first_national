@@ -66,19 +66,20 @@
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Bedrooms</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_size" placeholder="Property Bedrooms" value="<?php echo set_value('property_size');?>" >
+                        	
+                            <?php echo $bedrooms;?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Bathrooms</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_bathrooms" placeholder="Property Bathrooms" value="<?php echo set_value('property_bathrooms');?>" >
+                            <?php echo $bathrooms;?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Land Size</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_land_size" placeholder="Property Name" value="<?php echo set_value('property_land_size');?>" >
+                        	<input type="text" class="form-control" name="property_land_size" placeholder="Property land size" value="<?php echo set_value('property_land_size');?>" >
                         </div>
                     </div>
                     <div class="form-group">

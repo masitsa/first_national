@@ -151,6 +151,17 @@ class Property_model extends CI_Model
 		
 		return $query;
 	}
+	public function get_all_appraisals($table, $where, $per_page, $page)
+	{
+		//retrieve all users
+		$this->db->from($table);
+		$this->db->select('*');
+		$this->db->where($where);
+		$this->db->order_by('a.created_on', 'DESC');
+		$query = $this->db->get('', $per_page, $page);
+		
+		return $query;
+	}
 
 	public function get_all_properties_types($table, $where, $per_page, $page)
 	{
@@ -381,9 +392,9 @@ class Property_model extends CI_Model
 				'location_id'=>$this->input->post('location_id'),
 				'lease_type_id'=>$this->input->post('lease_type_id'),
 				'property_video_id'=>$this->input->post('property_video_id'),
-				'property_bathrooms'=>$this->input->post('property_bathrooms'),
+				'property_bathrooms'=>$this->input->post('bathroom_id'),
 				'created_on'=>date("Y-m-d"),
-				'bedrooms'=>$this->input->post('bedrooms'),
+				'bedrooms'=>$this->input->post('bedroom_id'),
 				'land_size'=>$this->input->post('property_land_size'),
 				'property_price'=>$this->input->post('property_price'),
 				'property_size'=>$this->input->post('property_size'),

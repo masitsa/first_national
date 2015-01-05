@@ -107,25 +107,45 @@ class Login_model extends CI_Model
 	// 	return $result->total_payments;
 	// }
 	
-	// public function get_total_airlines()
-	// {
-	// 	$this->db->select('COUNT(airline_id) AS total_airlines');
-	// 	$this->db->where('airline_status = 1');
-	// 	$query = $this->db->get('airline');
+	public function get_total_appraisals()
+	{
+		$this->db->select('COUNT(request_id) AS total_appraisals');
+		$this->db->where('appraisal_status = 1');
+		$query = $this->db->get('appraisal_requests');
 		
-	// 	$result = $query->row();
+		$result = $query->row();
 		
-	// 	return $result->total_airlines;
-	// }
+		return $result->total_appraisals;
+	}
 	
-	// public function get_total_visitors()
-	// {
-	// 	$this->db->select('COUNT(visitor_id) AS total_visitors');
-	// 	$this->db->where('visitor_status = 1');
-	// 	$query = $this->db->get('visitor');
+	public function get_total_comments()
+	{
+		$this->db->select('COUNT(post_comment_id) AS total_comments');
+		$this->db->where('post_comment_status = 1');
+		$query = $this->db->get('post_comment');
 		
-	// 	$result = $query->row();
+		$result = $query->row();
 		
-	// 	return $result->total_visitors;
-	// }
+		return $result->total_comments;
+	}
+	public function get_active_properties()
+	{
+		$this->db->select('COUNT(property_id) AS total_properties');
+		$this->db->where('property_status = 1');
+		$query = $this->db->get('property');
+		
+		$result = $query->row();
+		
+		return $result->total_properties;
+	}
+	public function get_active_blogs()
+	{
+		$this->db->select('COUNT(post_id) AS total_posts');
+		$this->db->where('post_status = 1');
+		$query = $this->db->get('post');
+		
+		$result = $query->row();
+		
+		return $result->total_posts;
+	}
 }

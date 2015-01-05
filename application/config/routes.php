@@ -82,6 +82,14 @@ $route['property/edit-property/(:num)'] = 'admin/property/edit_property/$1';
 $route['property/delete-property/(:num)'] = 'admin/property/delete_property/$1';
 $route['property/activate-property/(:num)'] = 'admin/property/activate_property/$1';
 $route['property/deactivate-property/(:num)'] = 'admin/property/deactivate_property/$1';
+$route['property/customer-appraisals'] = 'admin/property/customer_appraisals';
+
+/*
+*	Slider Routes
+*/
+$route['slider'] = 'admin/slider';
+$route['add-slide'] = 'admin/add_slide';
+
 
 /*
 *	Property type Routes
@@ -109,59 +117,6 @@ $route['property/deactivate-location/(:num)'] = 'admin/property/deactivate_locat
 /*
 *	Admin Routes
 */
-
-//airlines
-$route['administration/all-airlines'] = 'admin/airlines/index';
-$route['administration/all-airlines/(:num)'] = 'admin/airlines/index/$1';//with a page number
-$route['administration/add-airline'] = 'admin/airlines/add_airline';
-$route['administration/edit-airline/(:num)'] = 'admin/airlines/edit_airline/$1';
-$route['administration/activate-airline/(:num)/(:num)'] = 'admin/airlines/activate_airline/$1/$2';
-$route['administration/deactivate-airline/(:num)/(:num)'] = 'admin/airlines/deactivate_airline/$1/$2';
-$route['administration/delete-airline/(:num)/(:num)'] = 'admin/airlines/delete_airline/$1/$2';
-
-//visitors
-$route['administration/all-visitors'] = 'admin/visitors/index';
-$route['administration/all-visitors/(:num)'] = 'admin/visitors/index/$1';//with a page number
-$route['administration/add-visitor'] = 'admin/visitors/add_visitor';
-$route['administration/edit-visitor/(:num)'] = 'admin/visitors/edit_visitor/$1';
-$route['administration/activate-visitor/(:num)/(:num)'] = 'admin/visitors/activate_visitor/$1/$2';
-$route['administration/deactivate-visitor/(:num)/(:num)'] = 'admin/visitors/deactivate_visitor/$1/$2';
-$route['administration/delete-visitor/(:num)/(:num)'] = 'admin/visitors/delete_visitor/$1/$2';
-
-//airplane types
-$route['administration/all-airplane-types'] = 'admin/airplane_types/index';
-$route['administration/all-airplane-types/(:num)'] = 'admin/airplane_types/index/$1';//with a page number
-$route['administration/add-airplane-type'] = 'admin/airplane_types/add_airplane_type';
-$route['administration/edit-airplane-type/(:num)'] = 'admin/airplane_types/edit_airplane_type/$1';
-$route['administration/activate-airplane-type/(:num)/(:num)'] = 'admin/airplane_types/activate_airplane_type/$1/$2';
-$route['administration/deactivate-airplane-type/(:num)/(:num)'] = 'admin/airplane_types/deactivate_airplane_type/$1/$2';
-$route['administration/delete-airplane-type/(:num)/(:num)'] = 'admin/airplane_types/delete_airplane_type/$1/$2';
-
-//airports
-$route['administration/all-airports'] = 'admin/airports/index';
-$route['administration/all-airports/(:num)'] = 'admin/airports/index/$1';//with a page number
-$route['administration/add-airport'] = 'admin/airports/add_airport';
-$route['administration/edit-airport/(:num)'] = 'admin/airports/edit_airport/$1';
-$route['administration/activate-airport/(:num)/(:num)'] = 'admin/airports/activate_airport/$1/$2';
-$route['administration/deactivate-airport/(:num)/(:num)'] = 'admin/airports/deactivate_airport/$1/$2';
-$route['administration/delete-airport/(:num)/(:num)'] = 'admin/airports/delete_airport/$1/$2';
-
-//flight types
-$route['administration/all-flight-types'] = 'admin/flight_types/index';
-$route['administration/all-flight-types/(:num)'] = 'admin/flight_types/index/$1';//with a page number
-$route['administration/add-flight-type'] = 'admin/flight_types/add_flight_type';
-$route['administration/edit-flight-type/(:num)'] = 'admin/flight_types/edit_flight_type/$1';
-$route['administration/activate-flight-type/(:num)/(:num)'] = 'admin/flight_types/activate_flight_type/$1/$2';
-$route['administration/deactivate-flight-type/(:num)/(:num)'] = 'admin/flight_types/deactivate_flight_type/$1/$2';
-$route['administration/delete-flight-type/(:num)/(:num)'] = 'admin/flight_types/delete_flight_type/$1/$2';
-
-//Vendor
-$route['vendor/sign-up/personal-details'] = 'vendor/vendor_signup1';
-$route['vendor/sign-up/store-details'] = 'vendor/vendor_signup2';
-$route['vendor/sign-up/subscribe'] = 'vendor/vendor_signup3';
-$route['vendor/sign-up/subscribe/free'] = 'vendor/subscribe/1';
-$route['vendor/sign-up/subscribe/basic'] = 'vendor/subscribe/2';
-$route['vendor/sign-up/subscribe/unlimited'] = 'vendor/subscribe/3';
 
 /*
 *	Admin Blog Routes

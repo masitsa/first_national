@@ -1,5 +1,6 @@
 <?php
-	// $active_flights = $this->login_model->get_active_flights();
+	$total_properties = $this->login_model->get_active_properties();
+    $total_blogs = $this->login_model->get_active_blogs();
 	// $total_payments = number_format($this->login_model->get_total_payments(), 0, '.', ',');
 ?>
             <!-- Page header start -->
@@ -30,15 +31,15 @@
                 <ul class="page-stats">
                     <li>
                         <div class="summary">
-                            <span>Total Units</span>
-                            <h3><?php echo "15";?></h3>
+                            <span>Total active property units</span>
+                            <h3><?php echo $total_properties;?></h3>
                         </div>
                         <span id="sparklines1"></span>
                     </li>
                     <li>
                         <div class="summary">
-                            <span>Total Payments</span>
-                            <h3>KES <?php echo "34";?></h3>
+                            <span>Total active blog posts</span>
+                            <h3> <?php echo $total_blogs;?></h3>
                         </div>
                         <span id="sparklines2"></span>
                     </li>

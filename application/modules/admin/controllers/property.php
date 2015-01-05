@@ -595,7 +595,8 @@ class Property extends admin {
 		$this->form_validation->set_rules('property_land_size', 'Property Land Size', 'xss_clean');
 		$this->form_validation->set_rules('lease_type_id', 'Lease Type', 'trim|xss_clean');
 		$this->form_validation->set_rules('property_description', 'Property Description', 'trim|xss_clean');
-		$this->form_validation->set_rules('property_bathrooms', 'Property Bathrooms', 'numeric|trim|xss_clean');
+		$this->form_validation->set_rules('bathroom_id', 'Property Bathrooms', 'numeric|trim|xss_clean');
+		$this->form_validation->set_rules('bedroom_id', 'Property Bedroom', 'numeric|trim|xss_clean');
 		
 		//if form has been submitted
 		if ($this->form_validation->run())
@@ -730,7 +731,7 @@ class Property extends admin {
 		
 		else
 		{
-			$bathroom_no = '<select class="form-control" name="bedroom_id">';
+			$bathroom_no = '<select class="form-control" name="bathroom_id">';
 			
 				$bathroom_no .= '<option value="0">No bedrooms</option>';
 			
@@ -744,6 +745,8 @@ class Property extends admin {
 		$v_data['title'] = 'Add property';
 		$v_data['property_types'] = $property_types;
 		$v_data['locations'] = $locations;
+		$v_data['bathrooms'] = $bathroom_no;
+		$v_data['bedrooms'] = $bedrooms_no;
 		$data['content'] = $this->load->view('properties/add_property', $v_data, true);
 		
 		$this->load->view('templates/general_admin', $data);
@@ -1567,5 +1570,55 @@ class Property extends admin {
 		$this->load->view("blog/add_slide", $data);
 		$this->load_foot();
 	}
+
+	public function customer_appraisals($page = NULL)
+	{
+		$where = 'a.request_id > 0 AND be.bedrooms_id = a.bedroom_id AND ba.bathroom_id = a.bathroom_id AND cs.car_space_id = a.car_space_id AND pt.property_type_id = a.property_type_id';
+		$table = 'appraisal_requests AS a, property_type AS pt, bedrooms AS be, bathroom AS ba, car_spaces AS cs';
+		//pagination
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'property/customer-appraisals';
+		$config['total_rows'] = $this->users_model->count_items($table, $where);
+		$config['uri_segment'] = 2;
+		$config['per_page'] = 20;
+		$config['num_links'] = 5;
+		
+		$config['full_tag_open'] = '<ul class="pagination pull-right">';
+		$config['full_tag_close'] = '</ul>';
+		
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['next_tag_open'] = '<li>';
+		$config['next_link'] = 'Next';
+		$config['next_tag_close'] = '</span>';
+		
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_link'] = 'Prev';
+		$config['prev_tag_close'] = '</li>';
+		
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $data["links"] = $this->pagination->create_links();
+		$query = $this->property_model->get_all_appraisals($table, $where, $config["per_page"], $page);
+
+		$v_data['query'] = $query;
+		$v_data['page'] = $page;
+		$data['content'] = $this->load->view('properties/customer_appraisals', $v_data, true);
+		
+		$data['title'] = 'All Appraisals';
+		
+		$this->load->view('templates/general_admin', $data);
+	}
+
 }
 ?>

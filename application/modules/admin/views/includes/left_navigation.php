@@ -39,6 +39,7 @@
                         <li><a href="<?php echo base_url()."property/all-properties";?>">Properties</a></li>
                         <li><a href="<?php echo base_url()."property/all-property-type";?>">Property Type</a></li>
                         <li><a href="<?php echo base_url()."property/all-location";?>">Locations</a></li>
+                        <li><a href="<?php echo base_url()."property/customer-appraisals";?>">Customer Appraisals</a></li>
                         
                     </ul>
                 </li>
@@ -58,7 +59,7 @@
                     </ul>
                 </li>
 				<!-- End: Blog Menu -->
-
+                <li><a href="<?php echo base_url()."slider";?>"><i class="icon-desktop"></i>Slider</a></li>
                 <!-- Start: Products Menu -->
                 <!--<li class="has_submenu">
                     <a href="#">
