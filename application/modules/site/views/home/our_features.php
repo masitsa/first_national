@@ -7,8 +7,8 @@
             </div>
         </div> -->
         <div class="row">
-           <div class="col-sm-12"> 
-                <div class="col-sm-6">
+           <div class="col-md-offset-2"> 
+                <div class="col-sm-5">
                     <div class="media">
                         <div>
                             <span class="media-icon hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
@@ -25,7 +25,7 @@
                         <p class="text-center"><a href="<?php echo base_url();?>service/2" class="btn btn-large btn-success" >More Details</a></p>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <div class="media">
                         <div>
                             <span class="media-icon hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">

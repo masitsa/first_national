@@ -84,7 +84,7 @@ class Site extends MX_Controller {
 		$config['base_url'] = base_url().'site/property'.$page;
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
 		$config['uri_segment'] = 2;
-		$config['per_page'] = 20;
+		$config['per_page'] = 2;
 		$config['num_links'] = 5;
 		
 		$config['full_tag_open'] = '<ul class="pagination ">';
