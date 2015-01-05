@@ -34,7 +34,7 @@
                     </div>
                     <div class="services_description">
                         <div class="media-body">
-                        	<h3 class="media-heading">Development Portfolio</h3>
+                        	<h3 class="media-heading">Development portfolio</h3>
     
                             <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mris. Morbi accumsan ipsum velit am nec
                                 tellus a odio. This is Photoshop's version of Lorem Ipsum.</p>

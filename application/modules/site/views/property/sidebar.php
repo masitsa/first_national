@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<div id="recent-posts-2" class="widget widget_recent_entries">		
-		<h5>Recent Posts</h5>		
+		<h5>Recent posts</h5>		
 		<ul>
 			<li>
 			<a href="">History Article 2</a>
@@ -9,7 +9,7 @@
 		</ul>
 	</div>
 	<div id="recent-comments-2" class="widget widget_recent_comments">
-		<h5>Recent Comments</h5>
+		<h5>Recent comments</h5>
 		<ul id="recentcomments">
 			<li class="recentcomments">
 				<a href="" rel="external nofollow" class="url">Mr WordPress</a> on <a href="http://101.0.112.4/~firstnat/firstnational/hello-world/#comment-1">Example Post</a>

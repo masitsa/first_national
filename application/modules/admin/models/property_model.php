@@ -41,6 +41,14 @@ class Property_model extends CI_Model
 		
 		return $query;
 	}
+	public function get_all_active_prices2()
+	{
+		$this->db->where('price_id <> 0');
+		$this->db->order_by('price', 'DESC');
+		$query = $this->db->get('prices');
+		
+		return $query;
+	}
 	public function get_all_active_car_spaces()
 	{
 		$this->db->where('car_space_id <> 0');

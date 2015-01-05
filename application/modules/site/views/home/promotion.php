@@ -6,7 +6,7 @@
 
                 <div class="hero-block text-center">
                     <div class="hero-unit">
-                        <h1 class="meet-the-team">Meet The Team</h1>
+                        <h1 class="meet-the-team">Meet the team</h1>
                         <p class="meet-the-team">With over 45 years combined experience. Wisely they listen to their clients needs.</p>
                         <a href="#" class="view-property">Find out more</a>
                     </div>

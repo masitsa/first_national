@@ -6,7 +6,7 @@
     <!-- // Recent Properties -->
    
     <div class="content-title">
-        <h2>On-sale Properties</h2>
+        <h2>Properties sold</h2>
     </div>
    
     
@@ -37,6 +37,17 @@
 							$property_type_name = $prods->property_type_name;
 							$property_bathrooms = $prods->property_bathrooms;
 							$bedrooms = $prods->bedrooms;
+							$property_video_id = $prods->property_video_id;
+								
+							if(empty($property_video_id))
+							{
+								$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="attachment-homeland_property_medium wp-post-image" alt="" style="width: 100%; height: 200px;"/>';
+							}
+							
+							else
+							{
+								$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+							}
 
 							if($lease_type_id == 1)
 							{
@@ -53,7 +64,9 @@
 										<div class="property-mask property-image">
 																<figure class="pimage">
 															<a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>">
-																<img width="330" height="230" src="<?php echo base_url();?>assets/images/property/<?php echo $property_image?>" class="attachment-homeland_property_medium wp-post-image" alt="banner 2">						</a>
+																<!--<img width="330" height="230" src="<?php echo base_url();?>assets/images/property/<?php echo $property_image?>" class="attachment-homeland_property_medium wp-post-image" alt="banner 2">-->					
+                                                                <?php echo $image;?>
+                                                            </a>
 															<figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
 															<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/sold/" rel="tag">For Sale</a></h4>	
 															<div class="property-price clear">

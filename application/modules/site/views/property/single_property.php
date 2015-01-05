@@ -18,6 +18,27 @@
             $property_description = $prods->property_description;
             $location_name = $prods->location_name;
             $property_type_name = $prods->property_type_name;
+			$property_video_id = $prods->property_video_id;
+			$sale_status = $prods->sale_status;
+				
+			if(empty($property_video_id))
+			{
+				$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="attachment-homeland_property_medium wp-post-image" alt="" style="width: 100%; height: 200px;"/>';
+			}
+			
+			else
+			{
+				$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+			}
+			
+			if($sale_status == 2)
+			{
+				$sale_status = 'Sold';
+			}
+			else
+			{
+				$sale_status = 'For Sale';
+			}
         }
     }
 
@@ -35,10 +56,16 @@
 
     <div class="content-title">
         <h2><?php echo $property_name;?></h2>
+        <?php
+			if(!empty($property_video_id))
+			{
+				echo '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 400px;"></div>';
+			}
+		?>
     </div>
     <div class="clear"></div>
     <div class="project-slider">
-        <div class="project-type">For Sale</div>
+        <div class="project-type"><?php echo $sale_status;?></div>
         <div class="caption hidden-xs hidden-sm">
             <p class="price">$ <?php echo $property_price;?></p>
             <ul class="fa-ul">
