@@ -8,18 +8,21 @@
  </head>
 <body>
 	<div class="top-navigation">
+
 	    <div class="container">
 	        <div class="top-wrapper clearfix">
 	            <div class="top-left">
-	                <ul class="social" style="margin-bottom:0px;">
+	            	Part of the Walsh & Sullivan Group
+	                
+	            </div>
+	            <div class="top-right">
+	            	<ul class="social" style="margin-bottom:0px; margin-right:2px;">
 	                    <li style="border-left:1px"><a href="#"><i class="fa fa-facebook"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 	                </ul>
-	            </div>
-	            <div class="top-right">
-	                <i class="fa fa-phone"></i> 0414 072 084
+	                <a href="#"><i class="fa fa-phone"></i></i> 0414 072 084
 	            </div>
 	        </div>
 	    </div>

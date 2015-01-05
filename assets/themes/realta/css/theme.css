@@ -330,12 +330,13 @@ a:focus {
 }
 
 .top-navigation a {color: #929A9B;}
-.top-navigation a:hover {color: #ffffff;}
+.top-navigation a:hover {color: #09173c;}
 
 .top-left {
     float: left;
     color: #09173c;
-    font-size: 23px;
+    font-size: 18px;
+    font-weight: bold;
 }
 .top-right {
     float: right;
@@ -426,8 +427,8 @@ a:focus {
 .site-navigation .sf-menu > li a {
     border: none;
     color: #09173c;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .site-navigation .sf-menu ul li,
@@ -1877,18 +1878,30 @@ a:focus {
     margin-bottom: 5px;
 }
 
-.footer a {
+
+.footer .widget .social li a {
     color: #858688;
 }
 
-.footer a:hover {
+.footer .widget .social li a:hover {
     color: #fff;
 }
 
+
 .footer .fa {
-    color: #09173c;
+    /*color: #09173c;*/
+    color: #858688;
+    margin-right: 7px;
 }
 
+.footer .social .fa {
+    /* color: #09173c; */
+    color: #858688;
+    margin-right: 7px;
+    font-size: 31px;
+    margin-top: 104px;
+    margin-left: 2px;
+}
 .footer .fa-li {
     width: auto;
 }
@@ -1901,6 +1914,11 @@ a:focus {
     color: #979797;
 }
 
+.footer-line .fa {
+    /*color: #09173c;*/
+    color: #858688;
+    margin-right: 7px;
+}
 .footer-line .container:before {
     content: '';
     display: block;
@@ -1910,6 +1928,7 @@ a:focus {
 
 .footer-line a {
     color: #979797;
+    float: right;
 }
 
 .footer-line a:hover {
@@ -2097,4 +2116,15 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: middle;
     margin-bottom: -1px;
 }
-
+.cd-top{
+    margin-top: 5px;
+}
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}

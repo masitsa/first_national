@@ -2,43 +2,33 @@
 <div id="footer" class="full-width footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-3">
+            <div class=" col-md-4">
                 <div class="widget">
                     <h2 class="widget-title">About us</h2>
                     <!-- <h2 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h2> -->
-                    <p>Run by Scott & Ian Haggarty, First National is a family run real estate company with over 44 years combined experience. A combination of experience, knowledge and integraty ensures that your expectations are exceeded.</p>
+                    <p>A father and son real estate team that gives back to the community.<br>
+                        They are proud sponsors of many local clubs and charities.<br>
+                        Part of the Walsh & Sullivan group they bring a combination of experience, knowledge and integrity.
+                        </p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-3">
+            <div class=" col-md-3">
                 <div class="widget">
                     <h2 class="widget-title">Our address</h2>
                     <ul class="fa-ul-icons">
                         <li><i class="fa fa-location-arrow"></i><span class="overflowed">12 Old Northern Road, Baulkham Hills </span></li>
-                        <li><i class="fa fa-phone"></i>Call us: +0414 072 084</li>
-                        <li><i class="fa fa-envelope-o"></i><a href="mailto:info@walshsullivan.com.au">info@walshsullivan.com.au</a></li>
+                        <li><i class="fa fa-phone"></i><a href="tel:0414072084">Call us: 0414 072 084</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></li>
                     </ul>
                 </div>
             </div>
-             <div class="col-sm-6 col-md-3">
-                <div class="widget">
-                    <h2 class="widget-title">Site links</h2>
-                    <ul class="fa-ul-icons">
-                        <li><a href="<?php echo base_url();?>home">Home</a></li>
-                        <li><a href="<?php echo base_url();?>about">About us</a></li>
-                        <li><a href="<?php echo base_url();?>properties">Properties</a></li>
-                        <li><a href="<?php echo base_url();?>news">News</a></li>
-                        <li><a href="<?php echo base_url();?>">Request an appraisal</a></li>
-                        <li><a href="<?php echo base_url();?>contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
+             <div class=" col-md-3">
                 <div class="widget">
                     <h2 class="widget-title">Newsletter</h2>
                     <?php echo form_open("request-news-letter", array("class" => "form-horizontal"));?>
-                        <div class="col-sm-12">
+                      
                          <p>Sign-up to our newsletter and receive the latest property updates.</p>
-                        </div>
+                       
                         <div class="col-sm-12 af-outer af-required">
                             <div class="form-group af-inner">
                                 <input type="text" name="email_address" id="email_address" size="30" value="" placeholder="Email *" class="form-control placeholder" />
@@ -53,6 +43,18 @@
                     <?php echo form_close();?>
                 </div>
             </div>
+            <div class=" col-md-2">
+                <div class="widget">
+                    <div class="col-sm-12 text-center"> 
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
            
         </div>
     </div>
@@ -64,12 +66,8 @@
                 <p class="copyright">&copy; Copyright First National | Your Trusted Real Estate Agent <?php echo date('Y');?> | All Rights Reserved</p>
             </div>
             <div class="col-md-6">
-                <ul class="social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                </ul>
+                <a href="#top" class="form-button btn btn-success cd-top"> <i class="fa fa-angle-up"></i>back to top</a>
+
             </div>
         </div>
     </div>

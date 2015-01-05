@@ -10,9 +10,11 @@
 <!-- // Wrapper -->
 
 <div class="container container-wrapper gradient">
-		<?php echo $this->load->view('home/our_features', '', TRUE); ?>
+		
 	<!-- get the videos -->
 		<?php echo $this->load->view('home/video', '', TRUE); ?>
+
+		<?php echo $this->load->view('home/our_features', '', TRUE); ?>
     <!-- // Recent Properties 
       <?php echo $this->load->view('home/latest', '', TRUE); ?>-->
     <!-- // Featured Properties -->

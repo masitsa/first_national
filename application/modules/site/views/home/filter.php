@@ -108,10 +108,11 @@ else
 // end of bathroom selection
 
 // max price selection
-$prices_query = $this->property_model->get_all_active_prices();
+$prices_query = $this->property_model->get_all_min_active_prices();
 if($prices_query->num_rows > 0)
 {
-    $max_price_value = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="max_price_id">';
+    $max_price_value = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="max_price_id">
+         <option value="0">Any</option>';
     
     foreach($prices_query->result() as $res)
     {
@@ -133,10 +134,11 @@ else
 // end of max price selection
 
 // min price selection
-$prices_query = $this->property_model->get_all_active_prices2();
+$prices_query = $this->property_model->get_all_max_active_prices();
 if($prices_query->num_rows > 0)
 {
-    $min_price_value = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="min_price">';
+    $min_price_value = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="min_price">
+                        <option value="0">Any</option>';
     
     foreach($prices_query->result() as $res)
     {
@@ -205,7 +207,7 @@ else
             </div>
             <div class="col-sm-4 col-xs-6">
                 <!-- <a  class="btn btn-success btn-block">Filter Now</a> -->
-                <button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search</button>
+                <button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - For Sale</button>
             </div>
             <div class="col-sm-4 col-xs-6">
             </div>

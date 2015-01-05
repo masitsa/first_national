@@ -1,6 +1,6 @@
  <div class="featured">
         <div class="content-title">
-            <h2>Recent Sales</h2>
+            <h2>Recently sold</h2>
         </div>
         <div class="featured-carousel">
             <div class="featured-control">
@@ -52,21 +52,16 @@
 						                        <h5>'.$property_name.'</h5>
 												
 												<div class="row property-info">
-													<div class="col-md-4">
-														<span style="padding-top:10px;">
-															<i class="fa fa-home"></i>
-															'.$land_size.'
-														</span>
-													</div>
 													
-													<div class="col-md-4">
+													
+													<div class="col-md-6">
 														<span>
 															<i class="fa fa-inbox-custom"></i>
 															'.$property_size.' Bedrooms
 														</span>
 													</div>
 													
-													<div class="col-md-4">
+													<div class="col-md-6">
 														<span>
 															<i class="fa fa-male-custom"></i>
 															'.$property_bathrooms.' Bathrooms
@@ -75,7 +70,7 @@
 												</div>
 												
 						                        <p>'.$mini_desc.'…</p>
-						                         <a href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">Read More</a>
+						                         <a href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">More info</a>
 						                    </div>
 						                </div>
                                        

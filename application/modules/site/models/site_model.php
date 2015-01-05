@@ -82,7 +82,7 @@ class Site_model extends CI_Model
 	*/
 	public function get_latest_properties()
 	{
-		$this->db->select('*')->from('property,location,property_type')->where("property.property_status = 1 AND location.location_id = property.location_id AND property_type.property_type_id = property.property_type_id")->order_by("property.created_on", 'DESC');
+		$this->db->select('*')->from('property,location,property_type')->where("property.property_status = 1 AND location.location_id = property.location_id AND property_type.property_type_id = property.property_type_id")->order_by("property.property_id", 'DESC');
 		$query = $this->db->get('',12);
 		
 		return $query;

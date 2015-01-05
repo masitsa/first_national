@@ -33,10 +33,18 @@ class Property_model extends CI_Model
 		
 		return $query;
 	}
-	public function get_all_active_prices()
+	public function get_all_min_active_prices()
 	{
 		$this->db->where('price_id <> 0');
 		$this->db->order_by('price_id');
+		$query = $this->db->get('prices');
+		
+		return $query;
+	}
+	public function get_all_max_active_prices()
+	{
+		$this->db->where('price_id <> 0');
+		$this->db->order_by('price desc');
 		$query = $this->db->get('prices');
 		
 		return $query;
