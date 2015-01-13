@@ -24,13 +24,58 @@
 		
 				<div class="property-list clear">
 					<div class="property-three-cols">
+						<?php
+			    	if($query->num_rows() > 0)
+					{
+						
+						$properties = $query->result();
+						
+						foreach($properties as $prods)
+						{
+							$property_price = $prods->property_price;
+							$property_image = $prods->property_image;
+							$property_id = $prods->property_id;
+							$property_name = $prods->property_name;
+							$description = $prods->property_description;
+							$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 10));
+							$price = number_format($property_price, 0, '.', ',');
+							$location_name = $prods->location_name;
+							$property_size = $prods->property_size;
+							$land_size = $prods->land_size;
+							$lease_type_id = $prods->lease_type_id;
+							$property_type_name = $prods->property_type_name;
+							$property_bathrooms = $prods->property_bathrooms;
+							$bedrooms = $prods->bedrooms;
+							$property_video_id = $prods->property_video_id;
+								
+							if(empty($property_video_id))
+							{
+								$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="attachment-homeland_property_medium wp-post-image" alt="" style="width: 100%; height: 200px;"/>';
+							}
+							
+							else
+							{
+								$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+							}
+
+							if($lease_type_id == 1)
+							{
+								$type = 'rent';
+							}
+							else
+							{
+								$type = 'sale';
+							}
+							?>
 						<div class="grid cs-style-3 masonry" style="position: relative; width: 1078px; height: 518.8125px;">	
 							<ul class="clear">
 								<li id="post-666" class="post-666 homeland_properties type-homeland_properties status-publish hentry property-cols masonry-item " style="position: absolute; left: 0px; top: 0px;">
 									<div class="property-mask">
 										<div class="pimage">
 								            <!--<a href="http://101.0.112.4/~firstnat/firstnational/property-item/726-glenrowan-avenue-kellyville/"> <embed height="330px" width="456px"  src="http://www.youtube.com/embed/mDrD_vS_Au4">-->
-								    		<div class="fluid-width-video-wrapper" style=""><iframe src="http://www.youtube.com/embed/mDrD_vS_Au4" id="fitvid847765" width="100%" height="100%"> </iframe></div>
+								    		<div class="fluid-width-video-wrapper" style="">
+								    			<?php echo $image;?>
+								    		</div>
 								                    
 														<!--</a>-->
 								            <!--<figcaption><a href="http://101.0.112.4/~firstnat/firstnational/property-item/726-glenrowan-avenue-kellyville/"><i class="fa fa-link fa-lg"></i></a></figcaption>
@@ -134,9 +179,27 @@
 								</li>
 
 							</ul>
-						</div>	
+
+
+						</div>
+				<?php
+					}
+				}
+				?>
+
+							
+
+
 					</div>
 				</div>
+				<?php
+
+			    if(isset($links))
+			    {
+			    	echo $links;
+			    }
+
+			    ?>
 			</div>
 		</div>
 	</section>
