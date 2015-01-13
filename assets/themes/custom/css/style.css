@@ -815,7 +815,15 @@ a.view-property:hover { background:#FFF; color:#09173C; }
 .footer .widget p{text-align: justify;}
 .footer .widget-title{margin: 0 auto; text-align:left;}
 
-p.meet-the-team{color: #FFFFFF; display: block; font-size: 28px; font-weight: 300; line-height: 42px; text-align:center;margin-bottom: 50px;}
+p.meet-the-team{color: #FFFFFF; display: block; font-size: 28px; font-weight: 300; line-height: 42px; text-align:center;margin-bottom: 15px;}
+p.team2 {
+color: #FFFFFF;
+display: block;
+font-size: 17px;
+line-height: normal;
+text-align: center;
+margin-bottom: 40px;
+}
 h1.meet-the-team{color: #FFFFFF; font-size: 50px; font-weight: 700; line-height: 54px; margin-bottom: 40px;}
 
 /*************************************************************************

@@ -2,7 +2,7 @@
 <div id="footer" class="full-width footer">
     <div class="container">
         <div class="row">
-            <div class=" col-md-4">
+            <div class=" col-md-3">
                 <div class="widget">
                     <h2 class="widget-title">About us</h2>
                     <!-- <h2 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h2> -->
@@ -22,13 +22,23 @@
                     </ul>
                 </div>
             </div>
-             <div class=" col-md-3">
+             <div class=" col-md-4">
                 <div class="widget">
                     <h2 class="widget-title">Newsletter</h2>
                     <?php echo form_open("request-news-letter", array("class" => "form-horizontal"));?>
                       
-                         <p>Sign-up to our newsletter and receive the latest property updates.</p>
-                       
+                        <div class="col-sm-6 af-outer af-required">
+                            <div class="form-group af-inner">
+                                <input type="text" name="first_name" id="first_name" size="30" value="" placeholder="First name *" class="form-control placeholder" />
+                                <label class="error" for="first_name" id="firstname_error">Name.</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 af-outer af-required">
+                            <div class="form-group af-inner">
+                                <input type="text" name="last_name" id="last_name" size="30" value="" placeholder="Last name *" class="form-control placeholder" />
+                                <label class="error" for="last_name" id="lastname_error">Last Name.</label>
+                            </div>
+                        </div>
                         <div class="col-sm-12 af-outer af-required">
                             <div class="form-group af-inner">
                                 <input type="text" name="email_address" id="email_address" size="30" value="" placeholder="Email *" class="form-control placeholder" />
@@ -53,6 +63,7 @@
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                         </ul>
                     </div>
+                    <a href="#top" class="form-button btn btn-success col-sm-12 cd-top"> <i class="fa fa-angle-up"></i>back to top</a>
                 </div>
             </div>
            
@@ -64,10 +75,6 @@
         <div class="row">
             <div class="col-md-6">
                 <p class="copyright">&copy; Copyright First National | Your Trusted Real Estate Agent <?php echo date('Y');?> | All Rights Reserved</p>
-            </div>
-            <div class="col-md-6">
-                <a href="#top" class="form-button btn btn-success cd-top"> <i class="fa fa-angle-up"></i>back to top</a>
-
             </div>
         </div>
     </div>

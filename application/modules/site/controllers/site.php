@@ -35,6 +35,7 @@ class Site extends MX_Controller {
 		//get page data
 		$v_data['latest'] = $this->site_model->get_latest_properties();
 		$v_data['featured'] = $this->site_model->get_featured_properties();
+		$v_data['slides'] = $this->site_model->get_slides();
 		// $v_data['brands'] = $this->brands_model->all_active_brands();
 		// $v_data['all_children'] = $this->categories_model->all_child_categories();
 		// $v_data['parent_categories'] = $this->categories_model->all_parent_categories();
