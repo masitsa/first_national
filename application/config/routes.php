@@ -87,8 +87,14 @@ $route['property/customer-appraisals'] = 'admin/property/customer_appraisals';
 /*
 *	Slider Routes
 */
-$route['slider'] = 'admin/slider';
-$route['add-slide'] = 'admin/add_slide';
+//slides
+$route['administration/all-slides'] = 'admin/slideshow/index';
+$route['administration/all-slides/(:num)'] = 'admin/slideshow/index/$1';//with a page number
+$route['administration/add-slide'] = 'admin/slideshow/add_slide';
+$route['administration/edit-slide/(:num)/(:num)'] = 'admin/slideshow/edit_slide/$1/$2';
+$route['administration/activate-slide/(:num)/(:num)'] = 'admin/slideshow/activate_slide/$1/$2';
+$route['administration/deactivate-slide/(:num)/(:num)'] = 'admin/slideshow/deactivate_slide/$1/$2';
+$route['administration/delete-slide/(:num)/(:num)'] = 'admin/slideshow/delete_slide/$1/$2';
 
 
 /*

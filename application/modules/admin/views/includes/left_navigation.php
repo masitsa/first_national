@@ -59,7 +59,7 @@
                     </ul>
                 </li>
 				<!-- End: Blog Menu -->
-                <li><a href="<?php echo base_url()."slider";?>"><i class="icon-desktop"></i>Slider</a></li>
+                <li><a href="<?php echo base_url()."administration/all-slides";?>"><i class="icon-desktop"></i>Slider</a></li>
                 <!-- Start: Products Menu -->
                 <!--<li class="has_submenu">
                     <a href="#">

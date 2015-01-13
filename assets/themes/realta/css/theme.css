@@ -333,20 +333,30 @@ a:focus {
 .top-navigation a:hover {color: #09173c;}
 
 .top-left {
-    float: left;
+   float: left;
+   color: #09173c;
+   font-size: 0.91em;
+   font-weight: bolder;
+}
+.top-center {
+    float: right;
     color: #09173c;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 23px;
+    margin-right: 25px;
 }
 .top-right {
     float: right;
     color: #09173c;
     font-size: 23px;
+    
 }
+
 
 @media (max-width: 479px) {
     .top-left {float: none;}
+    .top-center {float: none; margin-top: 10px;}
     .top-right {float: none; margin-top: 10px;}
+    
 }
 
 .top-right a {
@@ -427,7 +437,7 @@ a:focus {
 .site-navigation .sf-menu > li a {
     border: none;
     color: #09173c;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 16px;
 }
 
