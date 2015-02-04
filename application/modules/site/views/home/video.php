@@ -23,7 +23,7 @@
 								$property_id = $prods->property_id;
 								$property_name = $prods->property_name;
 								$description = $prods->property_description;
-								$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 20));
+								$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 24));
 								$price = number_format($property_price, 0, '.', ',');
 								$location_name = $prods->location_name;
 								$property_size = $prods->property_size;
@@ -54,14 +54,20 @@
 												<div class="row property-info">
 													
 													
-													<div class="col-md-6">
+													<div class="col-md-4">
 														<span>
 															<i class="fa fa-inbox-custom"></i>
 															'.$property_size.' Bedrooms
 														</span>
 													</div>
+													<div class="col-md-4">
+														<span>
+														<i class="fa fa-car-custom"></i>
+															'.$property_size.' Car space
+														</span>
+													</div>
 													
-													<div class="col-md-6">
+													<div class="col-md-4">
 														<span>
 															<i class="fa fa-male-custom"></i>
 															'.$property_bathrooms.' Bathrooms

@@ -856,6 +856,7 @@ class Property extends admin {
 			$rss  = $query->result();
 			 $property_type_idd = $rss[0]->property_type_id;
 			 $location_idd = $rss[0]->location_id;
+			 $bedroom_idd = $rss[0]->bedrooms;
 			$property_type_query = $this->property_model->get_all_active_property_type();
 			if($property_type_query->num_rows > 0)
 			{
@@ -921,7 +922,17 @@ class Property extends admin {
 				
 				$locations .= '</select>';
 			}
+
+			
+
+
+			
 		}
+
+		
+
+
+
 		$v_data['gallery_images'] = $this->property_model->get_gallery_images($property_id);
 		$v_data['property_types'] = $property_types;
 		$v_data['locations'] = $locations;

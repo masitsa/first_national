@@ -415,6 +415,8 @@ class Property_model extends CI_Model
 				'property_price'=>$this->input->post('property_price'),
 				'property_size'=>$this->input->post('property_size'),
 				'last_modified_by'=>$this->session->userdata('user_id'),
+				'actual_date'=>$this->input->post('date_posted'),
+				'car_space_id'=>$this->input->post('car_space_id'),
 				'property_thumb'=>$thumb_name,
 				'property_image'=>$image_name
 			);
@@ -443,10 +445,13 @@ class Property_model extends CI_Model
 				'property_bathrooms'=>$this->input->post('property_bathrooms'),
 				'created_on'=>date("Y-m-d"),
 				'bedrooms'=>$this->input->post('bedrooms'),
+				'bedrooms'=>$this->input->post('bedrooms'),
 				'land_size'=>$this->input->post('property_land_size'),
 				'property_price'=>$this->input->post('property_price'),
 				'property_size'=>$this->input->post('property_size'),
 				'last_modified_by'=>$this->session->userdata('user_id'),
+				'actual_date'=>$this->input->post('date_posted'),
+				'car_space_id'=>$this->input->post('car_space_id'),
 				'property_thumb'=>$thumb_name,
 				'property_image'=>$image_name
 			);

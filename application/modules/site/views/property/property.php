@@ -5,22 +5,7 @@
   <section class="theme-pages">
 		<div class="inside clear">
 			<div class="theme-fullwidth">
-				<div class="clear">
-					<div class="filter-sort-order">
-						<form action="/~firstnat/firstnational/property-listings/" method="get" class="form-sorting-order">
-
-							
-							<label for="input_order">Order</label>
-						 	<select name="filter-order" id="input_order">
-					         <option value="DESC">Descending</option><option value="ASC">Ascending</option>		
-					     	</select>
-					     	<label for="input_sort">Sort By</label>
-						 	<select name="filter-sort" id="input_sort">
-								<option value="date">Date</option><option value="title">Name</option><option value="homeland_price">Price</option>		
-							</select>                                                                                        
-					   </form>	
-					</div>
-				</div>
+			
 		
 				<div class="property-list clear">
 					<div class="property-three-cols">
