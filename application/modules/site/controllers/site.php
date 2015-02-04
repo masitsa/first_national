@@ -138,7 +138,7 @@ class Site extends MX_Controller {
 		
 		else
 		{
-			$data['content'] = 'There are no posts';
+			$data['content'] = 'There are no properties';
 		}
 		$data['title'] = 'All posts';
 		

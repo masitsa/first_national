@@ -175,7 +175,6 @@ figure.cs-hover figcaption {
     box-shadow: 0 0 0 6px #F2F2F2;
 	top: 39px;
 	background-color: #FFFFFF;
-	left:30%;
 }
 
 .hi-icon:after {
@@ -803,7 +802,7 @@ a.view-property:hover { background:#FFF; color:#09173C; }
 
 .media-body{margin-bottom: 60px;}
 .media-body h3{text-align: center;font-size: 16px; font-weight: 700;}
-.media-body p{text-align: justify;}
+.media-body p{text-align: center;}
 
 .media a.btn{position: relative; top: -21px;}
 

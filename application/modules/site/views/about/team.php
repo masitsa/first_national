@@ -3,7 +3,7 @@
      <div class="agents text-center">
         <!-- <div class="content-title">
             <h2>Our team</h2>
-        </div -->>
+        </div -->
 
         <div class="col-sm-7">
             <section class="row">
@@ -70,8 +70,8 @@
         <div class="col-sm-5">
                  <section class="row" >
                      <article class="col-sm-11" style="background: #F8F8F8; margin-left: 13px; ">
-                       <h4 style="text-align:justify "><strong>Proud sponsors of:</strong></h4>
-                        <div style="text-align:justify ">
+                       <h4 style="text-align:justify "><strong>Proud sponsors of</strong></h4>
+                        <div style="text-align:justify; padding-left: 10px;">
                             <p>The Hills Club</p>
                             <p>Waves Fitness & Aquatic Centre</p>
                             <p>Excelsior Public School</p>

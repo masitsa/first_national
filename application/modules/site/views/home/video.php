@@ -69,8 +69,8 @@
 													</div>
 												</div>
 												
-						                        <p>'.$mini_desc.'…</p>
-						                         <a href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">More info</a>
+						                        <p style="text-align:center;">'.$mini_desc.'</p>
+												<a href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">More info</a>
 						                    </div>
 						                </div>
                                        
