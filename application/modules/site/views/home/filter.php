@@ -158,6 +158,7 @@ else
     $min_price_value .= '</select>';
 }
 // end of min price selection
+$min_price_value = $max_price_value;
 ?>
 
 
@@ -207,7 +208,7 @@ else
             </div>
             <div class="col-sm-4 col-xs-6">
                 <!-- <a  class="btn btn-success btn-block">Filter Now</a> -->
-                <button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - For Sale</button>
+                <button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - For sale</button>
             </div>
             <div class="col-sm-4 col-xs-6">
             </div>

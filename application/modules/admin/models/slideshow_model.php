@@ -19,10 +19,10 @@ class Slideshow_model extends CI_Model
 					$image = $edit;
 				}
 				//delete any other uploaded image
-				$this->file_model->delete_file($service_path."\\".$image);
+				$this->file_model->delete_file($slideshow_path."\\".$image);
 				
 				//delete any other uploaded thumbnail
-				$this->file_model->delete_file($service_path."\\thumbnail_".$image);
+				$this->file_model->delete_file($slideshow_path."\\thumbnail_".$image);
 			}
 			//Upload image
 			$response = $this->file_model->upload_file($slideshow_path, 'slideshow_image', $resize);

@@ -6,25 +6,24 @@
                 <div class="widget">
                     <h2 class="widget-title">About us</h2>
                     <!-- <h2 class="widget-title"><a href=""><img src="<?php echo base_url();?>assets/themes/realta/img/logo-realta-cropped.png" alt="First National | Real Estate"/></a></h2> -->
-                    <p>A father and son real estate team that gives back to the community.<br>
-                        They are proud sponsors of many local clubs and charities.<br>
-                        Part of the Walsh & Sullivan group they bring a combination of experience, knowledge and integrity.
-                        </p>
+                    <p>A father and son real estate team whose legacy is to give back to the community through sponsorship of many local clubs and charities.</p>
+                        <p>Part of the Walsh & Sullivan group they bring a combination of experience, knowledge and integrity.</p>
                 </div>
             </div>
-            <div class=" col-md-3">
+            <div class=" col-md-4">
                 <div class="widget">
-                    <h2 class="widget-title">Our address</h2>
+                    <h2 class="widget-title">Contact</h2>
                     <ul class="fa-ul-icons">
                         <li><i class="fa fa-location-arrow"></i><span class="overflowed">12 Old Northern Road, Baulkham Hills </span></li>
-                        <li><i class="fa fa-phone"></i><a href="tel:0414072084">Call us: 0414 072 084</a></li>
+                        <li><i class="fa fa-phone"></i><a href="tel:0414072084">0414 072 084</a></li>
                         <li><i class="fa fa-envelope-o"></i><a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></li>
                     </ul>
                 </div>
             </div>
-             <div class=" col-md-4">
+             <div class=" col-md-3">
                 <div class="widget">
                     <h2 class="widget-title">Newsletter</h2>
+                    <p>Receive the latest property & community news.</p>
                     <?php echo form_open("request-news-letter", array("class" => "form-horizontal"));?>
                       
                         <div class="col-sm-6 af-outer af-required">
@@ -57,10 +56,10 @@
                 <div class="widget">
                     <div class="col-sm-12 text-center"> 
                         <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="http://facebook.com/https://www.facebook.com/firstnationalbaulkhamhills" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="http://twitter.com/https://twitter.com/FirstNationalBH" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCMWrW1z0TK1s-jrrXx2UVQg" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://plus.google.com/114966265112746135848/posts" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                         </ul>
                     </div>
                     <a href="#top" class="form-button btn btn-success col-sm-12 cd-top"> <i class="fa fa-angle-up"></i>back to top</a>
@@ -70,7 +69,7 @@
         </div>
     </div>
 </div>
-<div class="full-width footer-line">
+<!--<div class="full-width footer-line">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -78,7 +77,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <script src="<?php echo base_url();?>assets/themes/realta/plugins/jquery/jquery-1.11.0.min.js"></script>
 <script src="<?php echo base_url();?>assets/themes/realta/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
@@ -105,6 +104,34 @@
             keyboardNav: true
         });
     });
+	jQuery(document).ready(function($){
+	// browser window scroll (in pixels) after which the "back to top" link is shown
+	var offset = 300,
+		//browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+		offset_opacity = 1200,
+		//duration of the top scrolling animation (in ms)
+		scroll_top_duration = 700,
+		//grab the "back to top" link
+		$back_to_top = $('.cd-top');
+
+	//hide or show the "back to top" link
+	$(window).scroll(function(){
+		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+		if( $(this).scrollTop() > offset_opacity ) { 
+			$back_to_top.addClass('cd-fade-out');
+		}
+	});
+
+	//smooth scroll to top
+	$back_to_top.on('click', function(event){
+		event.preventDefault();
+		$('body,html').animate({
+			scrollTop: 0 ,
+		 	}, scroll_top_duration
+		);
+	});
+
+});
 </script>
 
         

@@ -437,7 +437,7 @@ a:focus {
 .site-navigation .sf-menu > li a {
     border: none;
     color: #09173c;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 16px;
 }
 
@@ -830,9 +830,9 @@ a:focus {
     margin: 0;
     padding: 40px 0 0 0;
     border: none;
-    min-height: 150px;
+    min-height: 280px;
 
-    background-image: url('../img/page-title-bg.jpg');
+    background-image: url(../../../images/property.png);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1909,7 +1909,7 @@ a:focus {
     color: #858688;
     margin-right: 7px;
     font-size: 31px;
-    margin-top: 104px;
+    margin-top: 47px;
     margin-left: 2px;
 }
 .footer .fa-li {
@@ -2127,7 +2127,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: -1px;
 }
 .cd-top{
-    margin-top: 5px;
+    margin-top: 130px;
 }
 .cd-top.cd-is-visible {
   /* the button becomes visible */

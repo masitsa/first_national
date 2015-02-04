@@ -18,8 +18,8 @@
                             <div class="slide-description">
                                 <h3><a href="#"><?php echo $slide_name;?></a></h3>
                                 <p><?php echo $description;?></p>
-                                <span>$300,000/year</span>
-                                <a class="read-more" href="#">Read More</a>
+                                <!--<span>$300,000/year</span>
+                                <a class="read-more" href="#">Read More</a>-->
                             </div>
                         </div>
                         <a href="#"><img src="<?php echo base_url();?>assets/slideshow/<?php echo $slide_image;?>" alt=""/></a>
