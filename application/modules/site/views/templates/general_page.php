@@ -16,7 +16,7 @@
 	                
 	            </div>
 	            <div class="top-center">
-	            	<ul class="social" style="margin-bottom:0px; margin-right:2px; margin-left: -411px;">
+	            	<ul class="social" style="">
 	                    <li style="border-left:1px"><a href="#"><i class="fa fa-facebook"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 	                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>

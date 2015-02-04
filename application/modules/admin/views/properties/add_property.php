@@ -61,6 +61,19 @@
                         	<input type="text" class="form-control" name="property_price" placeholder="Property Name" value="<?php echo set_value('property_price');?>" >
                         </div>
                     </div>
+                     <div class="form-group">
+                            <label class="col-lg-4 control-label">Date posted: </label>
+                            
+                            <div class="col-lg-7">
+                                <div id="datetimepicker1" class="input-append">
+                                    <input data-format="yyyy-MM-dd" class="form-control" type="text" id="datepicker" name="date_posted" placeholder="Visit Date" value="<?php echo date('Y-m-d');?>">
+                                    <span class="add-on" style="cursor:pointer;">
+                                        &nbsp;<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                        </i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -76,6 +89,41 @@
                             <?php echo $bathrooms;?>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Property Bathrooms</label>
+                        <div class="col-lg-7">
+                            <?php
+                            $car_spaces_query = $this->property_model->get_all_active_car_spaces();
+                            if($car_spaces_query->num_rows > 0)
+                            {
+                                $car_space_no = '<select class="form-control" name="car_space_id">
+                                                <option value="0">Select Car Space</option>';
+                                
+                                foreach($car_spaces_query->result() as $res)
+                                {
+                                    
+                                            $car_space_no .= '<option value="'.$res->car_space_id.'">'.$res->car_space.'</option>';
+                                        
+                                }
+                                $car_space_no .= '</select>';
+                                
+                                
+                            }
+
+                            else
+                            {
+                                $car_space_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bedroom_id">';
+                                
+                                    $car_space_no .= '<option value="0">No bathroom</option>';
+                                
+                                $car_space_no .= '</select>';
+                            }
+                            echo $car_space_no;
+                            ?>
+                        </div>
+                    </div>
+                    
+
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Land Size</label>
                         <div class="col-lg-7">

@@ -1,4 +1,4 @@
- <div class="our-features">
+ <div class="our-features" style="margin-top: -8%;">
         <!-- <div class="row">
             <div class="col-sm-12">
                 <div class="content-title">
@@ -12,7 +12,7 @@
                     <div class="media">
                         <div style="text-align:center;">
                             <span class="media-icon hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
-                                <i class="hi-icon fa fa-search-custom"></i>
+                             <a href="<?php echo base_url();?>service/2"  >   <i class="hi-icon fa fa-search-custom"></i></a>
                             </span>
                         </div>
                         <div class="services_description">
@@ -29,7 +29,7 @@
                     <div class="media">
                         <div style="text-align:center;">
                             <span class="media-icon hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
-                                <i class="hi-icon fa fa-camera-custom"></i>
+                               <a href="<?php echo base_url();?>service/3"  > <i class="hi-icon fa fa-camera-custom"></i></a>
                             </span>
                         </div>
                         <div class="services_description">

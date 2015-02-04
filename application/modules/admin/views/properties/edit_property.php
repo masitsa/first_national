@@ -17,7 +17,7 @@
 		$property_name = $property[0]->property_name;
 		$property_status = $property[0]->property_status;
 		$property_price = $property[0]->property_price;
-		$bedrooms = $property[0]->bedrooms;
+		$bedrooms_idd = $property[0]->bedrooms;
 		$property_size = $property[0]->property_size;
 		$land_size = $property[0]->land_size;
 		$lease_type_id = $property[0]->lease_type_id;
@@ -25,6 +25,8 @@
 		$property_image = $property[0]->property_image;
 		$property_video_id = $property[0]->property_video_id;
 		$property_bathrooms = $property[0]->property_bathrooms;
+        $car_space_id = $property[0]->car_space_id;
+        $actual_date = $property[0]->actual_date;
         if(isset($error)){
             echo '<div class="alert alert-danger">'.$error.'</div>';
         }
@@ -74,18 +76,137 @@
                         	<input type="text" class="form-control" name="property_price" placeholder="Property Price" value="<?php echo $property_price;?>" >
                         </div>
                     </div>
+                     <div class="form-group">
+                            <label class="col-lg-4 control-label">Date posted: </label>
+                            
+                            <div class="col-lg-7">
+                                <div id="datetimepicker1" class="input-append">
+                                    <input data-format="yyyy-MM-dd" class="form-control" type="text" id="datepicker" name="date_posted" placeholder="<?php echo $actual_date;?>" value="">
+                                    <span class="add-on" style="cursor:pointer;">
+                                        &nbsp;<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                        </i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Bedrooms</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_size" placeholder="Property Bedrooms" value="<?php echo $property_size;?>" >
+                        	<!-- <input type="text" class="form-control" name="property_size" placeholder="Property Bedrooms" value="<?php echo $property_size;?>" > -->
+                            <?php
+                                $bedrooms_query = $this->property_model->get_all_active_bedrooms();
+                                if($bedrooms_query->num_rows > 0)
+                                {
+                                    $bedrooms = '<select class="form-control" name="bedrooms">';
+                                    
+                                    foreach($bedrooms_query->result() as $res_bedroom)
+                                    {
+                                        $bedroom_id = $res_bedroom->bedrooms_id;
+
+                                        if($bedroom_id == $bedrooms_idd)
+                                        {
+                                            $bedrooms .= '<option value="'.$res_bedroom->bedrooms_id.'" selected>'.$res_bedroom->bedrooms_no.'</option>';
+                                        }
+                                        else
+                                        {
+                                            $bedrooms .= '<option value="'.$res_bedroom->bedrooms_id.'">'.$res_bedroom->bedrooms_no.'</option>';
+                                        }
+                                        
+                                    }
+                                    $bedrooms .= '</select>';
+                                    
+                                    
+                                }
+                                
+                                else
+                                {
+                                    $bedrooms = '<select class="form-control" name="location_id">';
+                                    
+                                        $bedrooms .= '<option value="0">No bedrooms</option>';
+                                    
+                                    $bedrooms .= '</select>';
+                                }
+                                echo $bedrooms;
+                            ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Property Bathrooms</label>
                         <div class="col-lg-7">
-                        	<input type="text" class="form-control" name="property_bathrooms" placeholder="Property Bathrooms" value="<?php echo $property_bathrooms;?>" >
+                        	<!-- <input type="text" class="form-control" name="property_bathrooms" placeholder="Property Bathrooms" value="<?php echo $property_bathrooms;?>" > -->
+                            
+                            <?php
+                                $bathrooms_query = $this->property_model->get_all_active_bathroom();
+                                if($bathrooms_query->num_rows > 0)
+                                {
+                                    $bathroom_no = '<select class="form-control" name="property_bathrooms">';
+                                    
+                                    foreach($bathrooms_query->result() as $res)
+                                    {
+                                         if($res->bathroom_id == $property_bathrooms)
+                                        {
+                                            $bathroom_no .= '<option value="'.$res->bathroom_id.'" selected>'.$res->bathroom_no.'</option>';
+                                        }
+                                        else
+                                        {
+                                            $bathroom_no .= '<option value="'.$res->bathroom_id.'">'.$res->bathroom_no.'</option>';
+                                        }
+                                    }
+                                    $bathroom_no .= '</select>';
+                                    
+                                    
+                                }
+                                
+                                else
+                                {
+                                    $bathroom_no = '<select class="form-control" name="bathroom_id">';
+                                    
+                                        $bathroom_no .= '<option value="0">No bedrooms</option>';
+                                    
+                                    $bathroom_no .= '</select>';
+                                }
+                                echo $bathroom_no;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Car spaces</label>
+                        <div class="col-lg-7">
+                            <?php
+                            $car_spaces_query = $this->property_model->get_all_active_car_spaces();
+                            if($car_spaces_query->num_rows > 0)
+                            {
+                                $car_space_no = '<select class="form-control" name="car_space_id">
+                                                <option value="0">Select Car Space</option>';
+                                
+                                foreach($car_spaces_query->result() as $res)
+                                {
+                                    if($res->car_space_id == $car_space_id)
+                                        {
+                                            $car_space_no .= '<option value="'.$res->car_space_id.'" selected>'.$res->car_space.'</option>';
+                                        }
+                                        else
+                                        {
+                                            $car_space_no .= '<option value="'.$res->car_space_id.'">'.$res->car_space.'</option>';
+                                        }
+                                }
+                                $car_space_no .= '</select>';
+                                
+                                
+                            }
+
+                            else
+                            {
+                                $car_space_no = '<select class="selectpicker show-menu-arrow show-tick" data-live-search="true" data-width="100%" name="bedroom_id">';
+                                
+                                    $car_space_no .= '<option value="0">No bathroom</option>';
+                                
+                                $car_space_no .= '</select>';
+                            }
+                            echo $car_space_no;
+                            ?>
                         </div>
                     </div>
                     <div class="form-group">

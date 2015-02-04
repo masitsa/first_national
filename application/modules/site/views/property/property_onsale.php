@@ -67,14 +67,12 @@
                                                                 <?php echo $image;?>
                                                                 </a>
 																<figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
-																<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/sold/" rel="tag">For Sale</a></h4>	
+																<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/for-sale/" rel="tag">$ <?php echo number_format($property_price,0);?>	</a></h4>	
 																<div class="property-price clear">
 																	<div class="cat-price">
-																		<span class="pcategory">
-																			 <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" rel="tag"><?php echo $property_type_name;?></a>								</span>
-																												<span class="price">
-																					$<?php echo $property_price;?>										</span>							</div>
-																	<span class="picon"><i class="fa fa-tag"></i></span>
+																		<span class="pcategory"></span>
+																		<span class="price">For sale</span>							
+																	</div>
 																</div>
 															</figure>
 																	

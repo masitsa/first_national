@@ -11,27 +11,19 @@
                     <div class="thumbnail">
                         <a href="#"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Bryn Haggarty-8.jpg" class="img-responsive" alt=""></a>
 
-                        <div class="caption text-center">
-                            <h4 class="agent-title">Ian Haggarty</h4>
-
-
-                            <p>info@walshsullivan.com.au<br/>
-                               </p>
-                        </div>
+                       <!--  <div class="caption text-center">
+                            <p>info@walshsullivan.com.au</p>
+                        </div> -->
                     </div>
                 </article>
                 <article class="col-sm-8">
-                    <h4 class="text-center">Ian Haggarty</h4>
+                    <h4 class="text-left">Ian Haggarty</h4>
                     <div style="text-align:justify">
-                <p>One of the longest serving agents in the Hills District, Ian is involved in all facets of real estate including planning, development and sales. Through his hard work, strong values and impeccable sense of integrity he has built a successful business based largely on referrals and repeat customers.</p>
-
-                <p>Having helped generations of families sell and buy properties in the Hills District, Ian Haggarty is a well-known and trusted professional renowned for providing service of the very highest standard.</p>
-
-                <p>He has been serving the area since 1980 with all their real estate needs and is an integral part of the community not only on a business level, but also through his involvement with several charities and sponsorships including many of the local sporting clubs.</p>
-
-                <p>Having sold some of the original subdivisions, he can provide first-hand knowledge of the establishment of these areas. Highly respected for his business ethics and kind nature, Ian is admired for providing clients with reliable, well-informed advice and honest guidance based on his unrivalled real estate experience.</p>
-
-                <p>Ian’s finely tuned negotiation skills, intimate area knowledge and attention to detail ensure he provides expert advice to both buyers and sellers alike. Well respected in the local community, Ian is an approachable and friendly agent who takes the time to understand people needs.</p>
+                   <p> One of the longest serving agents in the Hills District, Ian is involved in all facets of real estate including planning, acquisitions, development and sales.</p>
+                   <p>Ian Haggarty is a well-known and trusted professional renowned for having an impeccable sense of integrity, he has built a successful business based largely on referrals and repeat customers.</p>
+<p>With unrivalled experience, he has been serving generations of families in the area since 1980 and is an integral part of the community not only on a business level, but also through his involvement with several charities and sponsorships including many of the local sporting clubs.</p>
+                    <p>Highly respected for his business ethics and kind nature, Ian is admired for providing clients with reliable and well-informed advice.
+</p>
                     </div>
                 
                 </article>
@@ -42,18 +34,17 @@
                     <div class="thumbnail">
                         <a href="#"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Scott Haggarty-6.jpg" class="img-responsive" alt=""></a>
 
-                        <div class="caption text-center">
-                            <h4 class="agent-title">Scott Haggarty</h4>
+                        <!-- <div class="caption text-center">
 
 
                             <p>info@walshsullivan.com.au<br/>
                                 0414 072 084</p>
-                        </div>
+                        </div> -->
                     </div>
 
                 </article>
                  <article class="col-sm-8 ">
-                   <h4 class="text-center">Scott Haggarty</h4>
+                   <h4 class="text-left">Scott Haggarty</h4>
                     <div style="text-align:justify">
                         <p>As a local resident Scott Haggarty has a strong understanding of the Hills District and has developed a phenomenal reputation as a trusted advisor.</p>
 
@@ -70,8 +61,8 @@
         <div class="col-sm-5">
                  <section class="row" >
                      <article class="col-sm-11" style="background: #F8F8F8; margin-left: 13px; ">
-                       <h4 style="text-align:justify "><strong>Proud sponsors of</strong></h4>
-                        <div style="text-align:justify; padding-left: 10px;">
+                       <h4 style="text-align:justify "><strong>Proud sponsors</strong></h4>
+                        <div style="text-align:justify;">
                             <p>The Hills Club</p>
                             <p>Waves Fitness & Aquatic Centre</p>
                             <p>Excelsior Public School</p>
@@ -81,7 +72,7 @@
                 <br>
                 <section class="row">
                      <article class="col-sm-12">
-                     	<div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div>
+                     	<div class="youtube" id="sjQShSoR7e4?loop=1" style="width: 100%; height: 249px;"></div>
                     </article>
                 </section>
                 <br>

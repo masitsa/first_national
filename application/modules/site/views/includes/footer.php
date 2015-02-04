@@ -10,7 +10,7 @@
                         <p>Part of the Walsh & Sullivan group they bring a combination of experience, knowledge and integrity.</p>
                 </div>
             </div>
-            <div class=" col-md-4">
+            <div class=" col-md-3">
                 <div class="widget">
                     <h2 class="widget-title">Contact</h2>
                     <ul class="fa-ul-icons">
@@ -52,7 +52,7 @@
                     <?php echo form_close();?>
                 </div>
             </div>
-            <div class=" col-md-2">
+            <div class=" col-md-3">
                 <div class="widget">
                     <div class="col-sm-12 text-center"> 
                         <ul class="social">

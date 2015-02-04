@@ -339,16 +339,16 @@ a:focus {
    font-weight: bolder;
 }
 .top-center {
-    float: right;
     color: #09173c;
-    font-size: 23px;
-    margin-right: 25px;
+font-size: 23px;
+margin-left: 62%;
+    
 }
 .top-right {
     float: right;
     color: #09173c;
     font-size: 23px;
-    
+    margin-right: 2%;
 }
 
 
@@ -830,9 +830,9 @@ a:focus {
     margin: 0;
     padding: 40px 0 0 0;
     border: none;
-    min-height: 280px;
+    min-height: 350px;
 
-    background-image: url(../../../images/property.png);
+    background-image: url(../../../images/property_knees.png);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -844,7 +844,7 @@ a:focus {
     margin: 0;
     padding: 40px 0 0 0;
     border: none;
-    min-height: 320px;
+    min-height: 350px;
 
 
     background: url('../../../images/welcome-bg.jpg') no-repeat -380px -13px fixed;
@@ -2138,3 +2138,6 @@ input[type=number]::-webkit-outer-spin-button {
   /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
   opacity: .5;
 }
+
+
+

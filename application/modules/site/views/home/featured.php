@@ -1,4 +1,4 @@
- <div class="featured">
+ <div class="featured" >
         <div class="content-title">
             <h2>Featured Properties</h2>
         </div>
