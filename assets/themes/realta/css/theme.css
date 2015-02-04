@@ -710,12 +710,12 @@ margin-left: 62%;
 /* ========================================================================== */
 
 .google-maps {
-    position: relative;
-    height: 415px;
-    text-align: right;
-    overflow: hidden;
-	width: 86.6%;
-	margin: 0 6.7%;
+   position: relative;
+height: 415px;
+text-align: right;
+ overflow: hidden; 
+width: 97.6%;
+margin: 0px 10px;
 }
 
 .google-maps.small-map {
