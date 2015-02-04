@@ -83,7 +83,14 @@
 				//comments
 				$comments = 'No Comments';
 				$total_comments = $comments_query->num_rows();
-				$title = 'Comments';
+				if($total_comments == 1)
+				{
+					$title = 'comment';
+				}
+				else
+				{
+					$title = 'comments';
+				}
 				
 				if($comments_query->num_rows() > 0)
 				{
@@ -129,7 +136,7 @@
 									<li><i class="fa fa-calendar"></i>'.$day.' '.$month.'</li>
 									<li><i class="fa fa-user"></i>admin</li>
 									<li><i class="fa fa-folder-o"></i>'.$categories.'</li>
-									<li><i class="fa fa-comment"></i><a href="'.site_url().'news/view-single/'.$post_id.'#comments">'.$total_comments.' Comments</a></li>				
+									<li><i class="fa fa-comment"></i><a href="'.site_url().'news/view-single/'.$post_id.'#comments">'.$total_comments.' '.$title.'</a></li>				
 								</ul>			
 							</div>		
 						</div>

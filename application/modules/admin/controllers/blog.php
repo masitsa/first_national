@@ -4,7 +4,7 @@ require_once "./application/modules/admin/controllers/admin.php";
 
 class Blog extends admin {
 	var $posts_path;
-	var $posts_location;
+	var $post_location;
 	
 	function __construct()
 	{
@@ -17,7 +17,7 @@ class Blog extends admin {
 		
 		//path to image directory
 		$this->posts_path = realpath(APPPATH . '../assets/images/posts');
-		$this->posts_location = base_url().'assets/images/posts';
+		$this->post_location = base_url().'assets/images/posts';
 	}
     
 	/*
@@ -69,6 +69,7 @@ class Blog extends admin {
 		{
 			$v_data['query'] = $query;
 			$v_data['page'] = $page;
+			$v_data['post_location'] = $this->post_location;
 			$data['content'] = $this->load->view('blog/all_posts', $v_data, true);
 		}
 		

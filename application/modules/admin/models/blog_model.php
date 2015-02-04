@@ -100,7 +100,7 @@ class Blog_model extends CI_Model
 	public function add_post($image_name, $thumb_name)
 	{
 		$data = array(
-				'post_title'=>ucwords(strtolower($this->input->post('post_title'))),
+				'post_title'=>$this->input->post('post_title'),
 				'post_status'=>$this->input->post('post_status'),
 				'post_content'=>$this->input->post('post_content'),
 				'blog_category_id'=>$this->input->post('blog_category_id'),
@@ -129,7 +129,7 @@ class Blog_model extends CI_Model
 	public function update_post($image_name, $thumb_name, $post_id)
 	{
 		$data = array(
-				'post_title'=>ucwords(strtolower($this->input->post('post_title'))),
+				'post_title'=>$this->input->post('post_title'),
 				'post_status'=>$this->input->post('post_status'),
 				'post_content'=>$this->input->post('post_content'),
 				'blog_category_id'=>$this->input->post('blog_category_id'),
@@ -293,7 +293,7 @@ class Blog_model extends CI_Model
 				'comment_created'=>date('Y-m-d H:i:s'),
 				'post_comment_user'=>$this->input->post('name'),
 				'post_comment_email'=>$this->input->post('email'),
-				'post_comment_status'=>0,
+				'post_comment_status'=>1,
 				'post_id'=>$post_id
 			);
 			
@@ -443,7 +443,7 @@ class Blog_model extends CI_Model
 	public function add_blog_category()
 	{
 		$data = array(
-				'blog_category_name'=>ucwords(strtolower($this->input->post('blog_category_name'))),
+				'blog_category_name'=>$this->input->post('blog_category_name'),
 				'blog_category_status'=>$this->input->post('blog_category_status'),
 				'blog_category_parent'=>$this->input->post('blog_category_parent'),
 				'created'=>date('Y-m-d H:i:s'),
@@ -468,7 +468,7 @@ class Blog_model extends CI_Model
 	public function update_blog_category($blog_category_id)
 	{
 		$data = array(
-				'blog_category_name'=>ucwords(strtolower($this->input->post('blog_category_name'))),
+				'blog_category_name'=>$this->input->post('blog_category_name'),
 				'blog_category_status'=>$this->input->post('blog_category_status'),
 				'blog_category_parent'=>$this->input->post('blog_category_parent'),
 				'modified_by'=>$this->session->userdata('user_id')
@@ -510,15 +510,24 @@ class Blog_model extends CI_Model
 		$this->db->where(array('blog_category_id' => $blog_category_id));
 		$this->db->select('post_id');
 		$query = $this->db->get('post');
-		$row = $query->row();
-		$post_id = $row->post_id;
 		
-		if($this->db->delete('post_comment', array('post_id' => $post_id)))
+		if($query->num_rows() > 0)
+		{
+			$row = $query->row();
+			$post_id = $row->post_id;
+			
+			if($this->db->delete('post_comment', array('post_id' => $post_id)))
+			{
+				return TRUE;
+			}
+			else{
+				return FALSE;
+			}
+		}
+		
+		else
 		{
 			return TRUE;
-		}
-		else{
-			return FALSE;
 		}
 	}
 	
@@ -714,6 +723,23 @@ class Blog_model extends CI_Model
 			$this->session->set_userdata('blog_error_message', '');
 			return FALSE;
 		}
+	}
+	
+	/*
+	*	Retrieve latest comments
+	*
+	*/
+	public function get_latest_comments()
+	{
+		//retrieve alatest comments
+		$this->db->from('post_comment');
+		$this->db->select('post_comment.*');
+		$this->db->where('post_comment_status = 1');
+		$this->db->limit(10);
+		$this->db->order_by('comment_created', 'DESC');
+		$query = $this->db->get();
+		
+		return $query;
 	}
 }
 ?>

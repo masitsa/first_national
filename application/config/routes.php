@@ -158,8 +158,8 @@ $route['blog'] = 'blog';
 $route['blog/(:num)'] = 'blog/index/$1';
 $route['blog/(:num)/(:num)'] = 'blog/index/$1/$2';
 $route['blog/post/(:num)'] = 'blog/view_post/$1';
-$route['blog/category/(:num)'] = 'blog/index/$1';
-$route['blog/category/(:num)/(:num)'] = 'blog/index/$1/$2';
+$route['blog/category/(:num)'] = 'site/blog_category/$1';
+$route['blog/category/(:num)/(:num)'] = 'site/blog_category/$1/$2';
 
 
 /* End of file routes.php */
@@ -169,13 +169,16 @@ $route['blog/category/(:num)/(:num)'] = 'blog/index/$1/$2';
 
 $route['home'] = 'site/home_page';
 $route['properties'] = 'site/property';
-$route['properties/for-sale'] = 'site/property_onsale';
-$route['properties/sold'] = 'site/property_sold';
 $route['properties/(:num)'] = 'site/property/$1';
+$route['properties/for-sale'] = 'site/property_onsale';
+$route['properties/for-sale/(:num)'] = 'site/property_onsale/$1';
+$route['properties/sold'] = 'site/property_sold';
+$route['properties/sold/(:num)'] = 'site/property_sold/$1';
 $route['properties/view-single/(:num)'] = 'site/property_detail/$1';
 $route['request'] = 'site/contact';
 $route['contact'] = 'site/contact';
 $route['news'] = 'site/blog';
+$route['news/(:num)'] = 'site/blog/$1';
 $route['news/view-single/(:num)'] = 'site/blog_detail/$1';
 $route['about'] = 'site/about';
 $route['service/(:num)'] = 'site/service/$1';
@@ -184,4 +187,5 @@ $route['close-search'] = 'site/close_property_search';
 $route['request-news-letter'] = 'site/request_newsletter';
 $route['send-message'] = 'site/contact_us';
 $route['request-an-appraisal'] = 'site/request_appraisal';
+$route['blog/add-comment/(:num)'] = 'site/add_blog_comment/$1';
 

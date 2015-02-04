@@ -714,6 +714,8 @@ a:focus {
     height: 415px;
     text-align: right;
     overflow: hidden;
+	width: 86.6%;
+	margin: 0 6.7%;
 }
 
 .google-maps.small-map {
@@ -861,7 +863,7 @@ a:focus {
     display: inline-block;
     margin: 0;
     padding: 15px 30px;
-    font-size: 24px;
+    font-size: 12px;
     line-height: 1;
     background-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.9);

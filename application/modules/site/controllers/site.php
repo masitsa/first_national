@@ -69,7 +69,7 @@ class Site extends MX_Controller {
 		//$data['title'] = $this->site_model->display_page_title();
 		$this->load->view('templates/general_page', $data);
 	}
-	public function property($page = NUll) 
+	public function property() 
 	{
 		//get page data
 		// $v_data['latest'] = $this->site_model->get_latest_properties();
@@ -82,7 +82,7 @@ class Site extends MX_Controller {
 		$table = 'property,location,property_type';
 		//pagination
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'site/property'.$page;
+		$config['base_url'] = base_url().'site/property';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
 		$config['uri_segment'] = 2;
 		$config['per_page'] = 2;
@@ -146,11 +146,11 @@ class Site extends MX_Controller {
 
 	}
 
-	public function property_onsale($page = NUll)
+	public function property_onsale()
 	{
 		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 1';
 		$table = 'property,location,property_type';
-
+		$segment = 3;
 		$search_property = $this->session->userdata('property_search');
 		
 		if(!empty($search_property))
@@ -159,9 +159,9 @@ class Site extends MX_Controller {
 		}
 		//pagination
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'site/property_onsale'.$page;
+		$config['base_url'] = base_url().'site/property_onsale';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
-		$config['uri_segment'] = 2;
+		$config['uri_segment'] = $segment;
 		$config['per_page'] = 20;
 		$config['num_links'] = 5;
 		
@@ -189,7 +189,7 @@ class Site extends MX_Controller {
 		$config['num_tag_close'] = '</li>';
 		$this->pagination->initialize($config);
 		
-		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
         $data["links"] = $this->pagination->create_links();
 		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
 		$property_type_query = $this->property_model->get_all_active_property_type();
@@ -224,15 +224,16 @@ class Site extends MX_Controller {
 		$this->load->view('templates/general_page', $data);
 	}
 
-	public function property_sold($page = NUll)
+	public function property_sold()
 	{
 		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 2';
 		$table = 'property,location,property_type';
+		$segment = 3;
 		//pagination
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'site/property_sold'.$page;
+		$config['base_url'] = base_url().'site/property_sold';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
-		$config['uri_segment'] = 2;
+		$config['uri_segment'] = $segment;
 		$config['per_page'] = 20;
 		$config['num_links'] = 5;
 		
@@ -260,7 +261,7 @@ class Site extends MX_Controller {
 		$config['num_tag_close'] = '</li>';
 		$this->pagination->initialize($config);
 		
-		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
         $data["links"] = $this->pagination->create_links();
 		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
 		$property_type_query = $this->property_model->get_all_active_property_type();
@@ -294,20 +295,15 @@ class Site extends MX_Controller {
 		
 		$this->load->view('templates/general_page', $data);
 	}
-	public function blog($category = NUll, $page = NUll) 
+	
+	public function blog() 
 	{
 		$where = 'post.blog_category_id = blog_category.blog_category_id AND post.post_status = 1';
 		$segment = 3;
-		if($category > 0)
-		{
-			$segment = 4;
-			$base_url = base_url().'blog/category/'.$category;
-			$where .= ' AND (blog_category.blog_category_id = '.$category.' OR blog_category.blog_category_parent = '.$category.')';
-		}
 		$table = 'post, blog_category';
 		//pagination
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'news'.$page;
+		$config['base_url'] = base_url().'news';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
 		$config['uri_segment'] = 2;
 		$config['per_page'] = 20;
@@ -347,7 +343,7 @@ class Site extends MX_Controller {
 		
 		
 	
-		$data['title'] = 'All blogs';
+		$data['title'] = 'All posts';
 		
 		$this->load->view('templates/general_page', $data);
 
@@ -792,6 +788,87 @@ class Site extends MX_Controller {
 			$this->session->set_userdata("error_message","Could not send newsletter request. Please try again");	
 		}
 		redirect('contact');
+	}
+	
+	public function blog_category($category = NULL) 
+	{
+		$where = 'post.blog_category_id = blog_category.blog_category_id AND post.post_status = 1';
+		$where .= ' AND (blog_category.blog_category_id = '.$category.' OR blog_category.blog_category_parent = '.$category.')';
+		$segment = 4;
+		$table = 'post, blog_category';
+		//pagination
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'blog/category/'.$category;
+		$config['total_rows'] = $this->users_model->count_items($table, $where);
+		$config['uri_segment'] = $segment;
+		$config['per_page'] = 20;
+		$config['num_links'] = 5;
+		
+		$config['full_tag_open'] = '<ul class="pagination ">';
+		$config['full_tag_close'] = '</ul>';
+		
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['next_tag_open'] = '<li><a href="#">';
+		$config['next_link'] = 'Newer';
+		$config['next_tag_close'] = '</a></li>';
+		
+		$config['prev_tag_open'] = ' <li><a href="#">';
+		$config['prev_link'] = 'Older';
+		$config['prev_tag_close'] = '</a></li>';
+		
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
+        $data["links"] = $this->pagination->create_links();
+		$query = $this->blog_model->get_all_posts($table, $where, $config["per_page"], $page);
+		
+		$v_data['query'] = $query;
+		$v_data['page'] = $page;
+		$data['content'] = $this->load->view('blog/blog', $v_data, true);
+	
+		$data['title'] = 'All posts';
+		
+		$this->load->view('templates/general_page', $data);
+
+	}
+	
+	public function add_blog_comment($post_id)
+	{
+		//form validation rules
+		$this->form_validation->set_rules('post_comment_description', 'Comment', 'required|xss_clean');
+		$this->form_validation->set_rules('name', 'Name', 'required|xss_clean');
+		$this->form_validation->set_rules('email', 'Email', 'valid_email|xss_clean');
+		
+		//if form has been submitted
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->blog_detail($post_id);
+		}
+		
+		else
+		{
+			if($this->blog_model->add_comment_user($post_id))
+			{
+				$this->session->set_userdata('success_message', 'Comment added successfully');
+				redirect('news/view-single/'.$post_id);
+			}
+			
+			else
+			{
+				$this->session->set_userdata('error_message', 'Could not add comment. Please try again');
+				$this->view_post($post_id);
+			}
+		}
 	}
 }
 ?>
