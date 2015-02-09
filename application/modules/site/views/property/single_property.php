@@ -27,6 +27,7 @@ $property_bathrooms = $prods->bathroom_no;
 $property_bedroom = $prods->bedrooms_no;
 $car_space_no = $prods->car_space;
 $actual_date = $prods->actual_date;
+$property_image = $prods->property_image;
 
 if(empty($property_video_id))
 {
