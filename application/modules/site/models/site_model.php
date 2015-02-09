@@ -152,9 +152,9 @@ class Site_model extends CI_Model
 	public function get_property_details($property_id)
 	{
 		//retrieve all users
-		$this->db->from('property,location,property_type');
+		$this->db->from('property,location,property_type,bathroom,bedrooms,car_spaces');
 		$this->db->select('*');
-		$this->db->where('location.location_id = property.location_id AND property_type.property_type_id = property.property_type_id AND property.property_id = '.$property_id);
+		$this->db->where('property.property_bathrooms = bathroom.bathroom_id AND property.bedrooms = bedrooms.bedrooms_id AND property.car_space_id = car_spaces.car_space_id AND location.location_id = property.location_id AND property_type.property_type_id = property.property_type_id AND property.property_id = '.$property_id);
 		$this->db->order_by('property.created_on', 'DESC');
 		$query = $this->db->get();
 		

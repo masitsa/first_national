@@ -671,9 +671,119 @@ $sale_status = 'For Sale';
   	</div>
   </div>
  </div>
- 
-  
- 
+   <div class="clear"></div>
+  <div class="content-title">
+    <h2>
+      <?php echo $property_name;?>
+    </h2>
+    <?php
+if(!empty($property_video_id))
+{
+echo '
+<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 400px;">
+</div>
+';
+}
+?>
+  </div>
+  <div class="clear">
+  </div>
+  <div class="project-slider">
+    <div class="project-type">
+      <?php echo $sale_status;?>
+    </div>
+    <div class="caption hidden-xs hidden-sm">
+      <p class="price">
+        $ 
+        <?php echo $property_price;?>
+      </p>
+      <ul class="fa-ul">
+        <li>
+          <i class="fa fa-li fa-location-arrow">
+          </i>
+          <?php echo $location_name;?>
+          , NY
+        </li>
+        <li>
+          <i class="fa fa-li fa-home">
+          </i>
+          <?php echo $property_size;?>
+          sqft
+        </li>
+        <li>
+          <i class="fa fa-li fa-globe">
+          </i>
+          <?php echo $land_size;?>
+          acres
+        </li>
+      </ul>
+    </div>
+    
+    <div class="flexslider single">
+      <ul class="slides">
+        <?php
+if($gallery_images->num_rows() >0)
+{
+	$galleries = $gallery_images->result();
+
+	foreach($galleries as $gal)
+	{
+		$thumb = $gal->property_image_thumb;
+		echo $property_image = $gal->property_image;
+		$product_image_id = $gal->image_id;
+		?>
+		   <li data-thumb="<?php echo base_url();?>assets/images/property/<?php echo $thumb?>">
+		  	<img src="<?php echo base_url();?>assets/images/property/<?php echo $thumb?>" />
+	       </li>
+	        <?php
+		}
+	}
+	?>
+        
+      </ul>
+    </div>
+    
+  </div>
+  <article>
+    <div class="content-title sub-title">
+      <h4>
+        Property Description
+      </h4>
+    </div>
+    
+    <div class="information pull-left">
+      <ul>
+        <li>
+          <i class="fa fa-dollar">
+          </i>
+          6,000
+        </li>
+        <li>
+          <i class="fa fa-location-arrow">
+          </i>
+          Castile, NY
+        </li>
+        <li>
+          <i class="fa fa-home">
+          </i>
+          1200 sqft
+        </li>
+        <li>
+          <i class="fa fa-globe">
+          </i>
+          3 acres
+        </li>
+      </ul>
+    </div>
+    
+    <?php echo $property_description;?>
+    
+    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+      Get Quote
+    </a>
+    
+   
+  </article>
   
 </div>
 <script type="text/javascript">
