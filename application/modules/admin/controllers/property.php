@@ -33,8 +33,8 @@ class Property extends admin {
 	*/
 	public function index() 
 	{
-		$where = 'property.location_id = location.location_id AND property.property_type_id = property_type.property_type_id';
-		$table = 'property, property_type, location ';
+		$where = 'property.location_id = location.location_id AND property.property_type_id = property_type.property_type_id  AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$table = 'property, property_type, location,bedrooms, bathroom ';
 		//pagination
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'all-properties';
@@ -495,8 +495,8 @@ class Property extends admin {
     ////////////////////////////////////////////////////////////////////////////////////////////
 	public function properties()
 	{
-		$where = 'property_id > 0';
-		$table = 'property';
+		$where = 'property_id > 0 AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$table = 'property,bathroom,bedrooms,car_spaces';
 		//pagination
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'property/properties';

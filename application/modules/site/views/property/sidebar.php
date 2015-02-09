@@ -79,14 +79,6 @@ else
 			<?php echo $comments;?>
 		</ul>
 	</div>
-	<div id="archives-2" class="widget widget_archive">
-		<h5>Archives</h5>		
-		<ul>
-			<li><a href="">October 2014</a></li>
-			<li><a href="">September 2014</a></li>
-			<li><a href="">August 2014</a></li>
-		</ul>
-	</div>
 	<div id="categories-2" class="widget widget_categories"><h5>Categories</h5>		
 		<ul>
         	<?php echo $categories;?>

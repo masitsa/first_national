@@ -27,6 +27,7 @@
 		$property_bathrooms = $property[0]->property_bathrooms;
         $car_space_id = $property[0]->car_space_id;
         $actual_date = $property[0]->actual_date;
+         $sold_status = $property[0]->sale_status;
         if(isset($error)){
             echo '<div class="alert alert-danger">'.$error.'</div>';
         }
@@ -220,18 +221,18 @@
                         <label class="col-lg-4 control-label">Sold?</label>
                         <div class="col-lg-7">
                         	<?php
-                        	if($lease_type_id == 1)
+                        	if($sold_status == 2)
                         	{
                         		?>
-	                        	 <input type="radio" name="lease_type_id"  checked value="1"> Yes
-	                             <input type="radio" name="lease_type_id"  value="2"> No
+	                        	 <input type="radio" name="sold_status"  checked value="2"> Yes
+	                             <input type="radio" name="sold_status"  value="1"> No
 	                             <?php
                         	}
                         	else
                         	{
                         		?>
-	                        	 <input type="radio" name="lease_type_id"   value="1"> Yes
-	                             <input type="radio" name="lease_type_id" checked value="2"> No
+	                        	 <input type="radio" name="sold_status"   value="2"> Yes
+	                             <input type="radio" name="sold_status" checked value="1"> No
 	                             <?php
                         	}
                         	?>

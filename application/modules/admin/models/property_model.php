@@ -162,7 +162,7 @@ class Property_model extends CI_Model
 		$this->db->from($table);
 		$this->db->select('*');
 		$this->db->where($where);
-		$this->db->order_by('created_on', 'DESC');
+		$this->db->order_by('property.actual_date', 'DESC');
 		$query = $this->db->get('', $per_page, $page);
 		
 		return $query;
@@ -443,6 +443,7 @@ class Property_model extends CI_Model
 				'lease_type_id'=>$this->input->post('lease_type_id'),
 				'property_video_id'=>$this->input->post('property_video_id'),
 				'property_bathrooms'=>$this->input->post('property_bathrooms'),
+				'sale_status'=>$this->input->post('sold_status'),
 				'created_on'=>date("Y-m-d"),
 				'bedrooms'=>$this->input->post('bedrooms'),
 				'bedrooms'=>$this->input->post('bedrooms'),

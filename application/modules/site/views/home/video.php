@@ -31,7 +31,9 @@
 								$lease_type_id = $prods->lease_type_id;
 								$property_type_name = $prods->property_type_name;
 								$property_video_id = $prods->property_video_id;
-								$property_bathrooms = $prods->property_bathrooms;
+								$property_bathrooms = $prods->bathroom_no;
+								$property_bedroom = $prods->bedrooms_no;
+								$car_space_no = $prods->car_space;
 								
 								if(empty($property_video_id))
 								{
@@ -40,7 +42,7 @@
 								
 								else
 								{
-									$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+									$image = '<div class="youtube" id="'.$property_video_id.'&playlist='.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
 								}
 
                                 echo '
@@ -57,15 +59,10 @@
 													<div class="col-md-4">
 														<span>
 															<i class="fa fa-inbox-custom"></i>
-															'.$property_size.' Bedrooms
+															'.$property_bedroom.' Bedrooms
 														</span>
 													</div>
-													<div class="col-md-4">
-														<span>
-														<i class="fa fa-car-custom"></i>
-															'.$property_size.' Car space
-														</span>
-													</div>
+
 													
 													<div class="col-md-4">
 														<span>
@@ -73,9 +70,16 @@
 															'.$property_bathrooms.' Bathrooms
 														</span>
 													</div>
+													<div class="col-md-4">
+														<span>
+														
+														<i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i>
+															'.$car_space_no.' Car space
+														</span>
+													</div>
 												</div>
 												
-						                        <p style="text-align:center;">'.$mini_desc.'</p>
+						                        <p style="text-align:justfied;">'.$mini_desc.'</p>
 												<a href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">More info</a>
 						                    </div>
 						                </div>

@@ -3,6 +3,7 @@
 		$result = '';
 		
 		//if users exist display them
+	
 		if ($query->num_rows() > 0)
 		{	
 			//get all administrators
@@ -152,18 +153,19 @@
 		}
 ?>
 
-<div class="col-xs-12">
+<div class="col-sm-12 col-md-12 col-xs-12">
 	<section class="theme-pages">
 		<div class="inside clear">
 			<!--LEFT CONTAINER-->			
-			<div class="left-container">				
+			<div class="col-sm-9 col-md-9 col-xs-9">				
 				<div class="blog-list clear">
 					<?php echo $result;?>			
 				</div>
 			</div>
-
+			<div class="col-sm-3 col-md-3 col-xs-3">
 			<!--SIDEBAR-->	
 			<?php echo $this->load->view('property/sidebar.php', '', TRUE); ?>
+			</div>
 	
 		</div>
 	</section>

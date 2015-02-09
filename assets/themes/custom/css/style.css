@@ -19,7 +19,7 @@ a {
 
 .grid li {
 	display: inline-block;
-	width: 330px;
+	width: 340px;
 	text-align: left;
 	position: relative;
 }
@@ -256,7 +256,7 @@ figure.cs-hover figcaption {
 .blog-flexslider ul li, .agent-form ul li, .dsidx-results li, .featured-flexslider ul li { 
     list-style:none; padding-left:0; text-indent:0; 
 }
-.fluid-width-video-wrapper { margin-bottom:30px; }
+.fluid-width-video-wrapper { margin-bottom:4px; }
 .top-toggle { position: relative; }
 .header-widgets { width: 105%; }
 .sliding-bar { background: #171C26; display:none; padding: 30px 0 0; }
@@ -721,7 +721,7 @@ a:hover#toTop, .nsu-submit:hover { background-color:#67a233; }
 .property-desc { text-align:center; }
 .property-desc h4, .property-desc h4 a:link, .property-desc h4 a:visited { font-size:18px; color:#384042; }
 .property-desc h4 a:hover { color:#09173C; }
-.property-info, .property-list-page .property-info-agent { background:#F2F2F2; margin-bottom:30px; margin-left:0; margin-right:0;}
+.property-info, .property-list-page .property-info-agent { background:#F2F2F2; margin-bottom:0px; margin-left:0; margin-right:0;}
 .property-info div {padding-left:0; padding-right:0;}
 .hero-unit:hover .property-info{background:#09173C; cursor:pointer; color:#fff;}
 .property-info span, .property-info-agent span { font-size:11px; padding:6px; display: inline-block; }
@@ -750,9 +750,9 @@ a:hover#toTop, .nsu-submit:hover { background-color:#67a233; }
 	border-radius:2px; -webkit-border-radius:2px; -moz-border-radius:2px; 
 }
 .pimage figcaption i:hover, .feat-thumb figcaption i:hover, .feat-medium figcaption i:hover { background:#d1d1d1; }
-.property-two-cols, .property-three-cols, .property-four-cols { padding-top:0px; /*border-top:1px solid #E1E1E1;*/ }
+.property-two-cols, .property-three-cols, .property-four-cols { padding-top:0px; margin-left: 2%;/*border-top:1px solid #E1E1E1;*/ }
 .property-two-cols .property-cols { float:left; width:520px; }
-.property-two-cols ul li, .property-four-cols ul li { float:left; margin-right:40px; margin-bottom:20px; }
+.property-two-cols ul li, .property-four-cols ul li { float:left; margin-right:2%; margin-bottom:20px; }
 .property-two-cols .property-desc, .property-three-cols .property-desc { text-align:left; }
 .property-three-cols .property-cols, .blist-fullwidth { float:left; width:330px; }
 .property-three-cols ul li, .blist-fullwidth { margin-right:44px; margin-bottom:24px; }
@@ -760,10 +760,11 @@ a:hover#toTop, .nsu-submit:hover { background-color:#67a233; }
 .property-three-cols .property-desc span i { margin-right:8px; }
 .property-four-cols ul li { margin-bottom:40px; }
 .property-four-cols .property-cols { float:left; width:240px; }
-.property-four-cols .property-desc { text-align:left; padding:20px; border-bottom:3px double #E1E1E1; border-left:1px solid #E1E1E1; border-right:1px solid #E1E1E1; position:relative; }
+.property-four-cols .property-desc { text-align: justify;
+padding: 13px; border-bottom:3px double #E1E1E1; border-left:1px solid #E1E1E1; border-right:1px solid #E1E1E1; position:relative; }
 .property-four-cols .property-desc h4 { margin-bottom:0; }
 .property-four-cols .property-desc h5 { color:#AAA; font-size:12px; margin-bottom:10px; }
-.property-four-cols .price { font-weight:500; font-size:16px; color:#384042; }
+.property-four-cols .price { font-weight:500; font-size:16px; color:#fff; }
 .property-four-cols .view-details a { font-weight:500; font-size:11px; color:#FFF; display: block; background: #09173C; padding: 6px 16px; text-align: center; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; margin-top: 10px; text-transform: uppercase; }
 .property-four-cols .view-details a:hover { background: #669824; }
 .pinfo { margin-bottom:10px; }
@@ -829,7 +830,7 @@ h1.meet-the-team{color: #FFFFFF; font-size: 50px; font-weight: 700; line-height:
 5. Sidebar and Widgets
 *************************************************************************/
 
-.sidebar { float:right; width:270px; padding:20px; background:#F8F8F8; }
+.sidebar { /*float:right;*/ width:270px; padding:20px; background:#F8F8F8; }
 .sidebar.left { float:left; }
 .left-container.right { float:right; }
 .sidebar .widget h5 { font-size:16px; font-weight:700; color:#384042; border-bottom:1px solid #E1E1E1; padding-bottom:15px; position:relative; }

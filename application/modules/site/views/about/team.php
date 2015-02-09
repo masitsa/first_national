@@ -72,11 +72,19 @@
                 <br>
                 <section class="row">
                      <article class="col-sm-12">
-                     	<div class="youtube" id="sjQShSoR7e4?loop=1" style="width: 100%; height: 249px;"></div>
+                     	<iframe  height="249px" width="98%" style="margin-left:-2%" src="https://www.youtube.com/embed/72pb7klBTDE?loop=1&playlist=72pb7klBTDE" frameborder="0" allowfullscreen></iframe>
                     </article>
                 </section>
                 <br>
                  <section class="row">
+                     <article class="col-sm-12">
+                     	<!-- <div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div> -->
+                       <iframe height="249px" width="98%" style="margin-left:-2%" src="https://www.youtube.com/embed/9gnXba2_CNo?loop=1&playlist=9gnXba2_CNo" frameborder="0" allowfullscreen></iframe>
+
+                    </article>
+                </section>
+                <br>
+                <!--  <section class="row">
                      <article class="col-sm-12">
                      	<div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div>
                     </article>
@@ -86,13 +94,7 @@
                      <article class="col-sm-12">
                      	<div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div>
                     </article>
-                </section>
-                <br>
-                 <section class="row">
-                     <article class="col-sm-12">
-                     	<div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div>
-                    </article>
-                </section>
+                </section> -->
         </div>
     </div>
 </div>

@@ -78,14 +78,15 @@ class Site extends MX_Controller {
 		// $v_data['all_children'] = $this->categories_model->all_child_categories();
 		// $v_data['parent_categories'] = $this->categories_model->all_parent_categories();
 
-		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1';
-		$table = 'property,location,property_type';
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$table = 'property,location,property_type,bedrooms,bathroom,car_spaces';
 		//pagination
 		$this->load->library('pagination');
+		$segment = 3;
 		$config['base_url'] = base_url().'site/property';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
-		$config['uri_segment'] = 2;
-		$config['per_page'] = 2;
+		$config['uri_segment'] = $segment;
+		$config['per_page'] = 6;
 		$config['num_links'] = 5;
 		
 		$config['full_tag_open'] = '<ul class="pagination ">';
@@ -98,11 +99,11 @@ class Site extends MX_Controller {
 		$config['last_tag_close'] = '</li>';
 		
 		$config['next_tag_open'] = '<li><a href="#">';
-		$config['next_link'] = 'Newer';
+		$config['next_link'] = 'Older';
 		$config['next_tag_close'] = '</a></li>';
 		
 		$config['prev_tag_open'] = ' <li><a href="#">';
-		$config['prev_link'] = 'Older';
+		$config['prev_link'] = 'Newer';
 		$config['prev_tag_close'] = '</a></li>';
 		
 		$config['cur_tag_open'] = '<li class="active"><a href="#">';
@@ -112,8 +113,8 @@ class Site extends MX_Controller {
 		$config['num_tag_close'] = '</li>';
 		$this->pagination->initialize($config);
 		
-		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
-        $data["links"] = $this->pagination->create_links();
+		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
+        $v_data["links"] = $this->pagination->create_links();
 		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
 		$property_type_query = $this->property_model->get_all_active_property_type();
 		if($property_type_query->num_rows > 0)
@@ -145,11 +146,10 @@ class Site extends MX_Controller {
 		$this->load->view('templates/general_page', $data);
 
 	}
-
-	public function property_onsale()
+	public function properties()
 	{
-		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 1';
-		$table = 'property,location,property_type';
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id   AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$table = 'property,location,property_type,bedrooms,bathroom,car_spaces';
 		$segment = 3;
 		$search_property = $this->session->userdata('property_search');
 		
@@ -206,6 +206,8 @@ class Site extends MX_Controller {
 			
 		}
 		$v_data['property_types'] = $property_types;
+		$v_data['title'] = 'Properties found';
+
 		if ($query->num_rows() > 0)
 		{
 			$v_data['query'] = $query;
@@ -219,15 +221,90 @@ class Site extends MX_Controller {
 			$v_data['page'] = $page;
 			$data['content'] = $this->load->view('property/property_onsale', $v_data, true);
 		}
-		$data['title'] = 'All posts';
+		
+		$this->load->view('templates/general_page', $data);
+	}
+
+
+	public function property_onsale()
+	{
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.sale_status = 1   AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$table = 'property,location,property_type,bedrooms,bathroom,car_spaces';
+		$segment = 3;
+		
+		//pagination
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'site/property_onsale';
+		$config['total_rows'] = $this->users_model->count_items($table, $where);
+		$config['uri_segment'] = $segment;
+		$config['per_page'] = 20;
+		$config['num_links'] = 5;
+		
+		$config['full_tag_open'] = '<ul class="pagination ">';
+		$config['full_tag_close'] = '</ul>';
+		
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['next_tag_open'] = '<li><a href="#">';
+		$config['next_link'] = 'Newer';
+		$config['next_tag_close'] = '</a></li>';
+		
+		$config['prev_tag_open'] = ' <li><a href="#">';
+		$config['prev_link'] = 'Older';
+		$config['prev_tag_close'] = '</a></li>';
+		
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
+        $data["links"] = $this->pagination->create_links();
+		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
+		$property_type_query = $this->property_model->get_all_active_property_type();
+		if($property_type_query->num_rows > 0)
+		{
+			$property_types = '';
+			
+			foreach($property_type_query->result() as $res)
+			{
+				$property_types .= '<li class="'.$res->property_type_name.'"><a href="#" data-filter=".'.$res->property_type_name.'">'.$res->property_type_name.'</a></li>';
+			}
+			$property_types .= '';
+			
+			
+		}
+		$v_data['property_types'] = $property_types;
+		$v_data['title'] = 'Properties for sale';
+		if ($query->num_rows() > 0)
+		{
+			$v_data['query'] = $query;
+			$v_data['page'] = $page;
+			$data['content'] = $this->load->view('property/property_onsale', $v_data, true);
+		}
+		
+		else
+		{
+			$v_data['query'] = $query;
+			$v_data['page'] = $page;
+			$data['content'] = $this->load->view('property/property_onsale', $v_data, true);
+		}
+	
 		
 		$this->load->view('templates/general_page', $data);
 	}
 
 	public function property_sold()
 	{
-		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND sale_status = 2';
-		$table = 'property,location,property_type';
+		$this->session->unset_userdata('property_search');
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.sale_status = 2   AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$table = 'property,location,property_type,bathroom, bedrooms, car_spaces';
 		$segment = 3;
 		//pagination
 		$this->load->library('pagination');
@@ -278,6 +355,7 @@ class Site extends MX_Controller {
 			
 		}
 		$v_data['property_types'] = $property_types;
+		$v_data['title'] = 'Properties sold';
 		if ($query->num_rows() > 0)
 		{
 			$v_data['query'] = $query;
@@ -291,7 +369,7 @@ class Site extends MX_Controller {
 			$v_data['page'] = $page;
 			$data['content'] = $this->load->view('property/property_sold', $v_data, true);
 		}
-		$data['title'] = 'All posts';
+		
 		
 		$this->load->view('templates/general_page', $data);
 	}
@@ -721,12 +799,12 @@ class Site extends MX_Controller {
 		$search = $property_type_id.$location_id.$max_price.$min_price;
 		$this->session->set_userdata('property_search', $search);
 		
-		$this->property_onsale();
+		$this->properties();
 	}
 	public function close_property_search()
 	{
 		$this->session->unset_userdata('property_search');
-		$this->property_onsale();
+		$this->properties();
 	}
 
 	public function request_newsletter()

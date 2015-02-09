@@ -6,11 +6,11 @@
     <!-- // Recent Properties -->
    
     <div class="content-title">
-        <h2>Properties sold</h2>
+        <h2><?php echo $title;?></h2>
     </div>
    
     
-    <div class="col-xs-9">
+    <div class="col-sm-9 col-md-9 col-xs-9">
     
 	    <div class="agent-properties property-list clear">
 			<div class="grid">
@@ -38,6 +38,10 @@
 							$property_bathrooms = $prods->property_bathrooms;
 							$bedrooms = $prods->bedrooms;
 							$property_video_id = $prods->property_video_id;
+
+							$property_bathrooms = $prods->bathroom_no;
+							$property_bedroom = $prods->bedrooms_no;
+							$car_space_no = $prods->car_space;
 								
 							if(empty($property_video_id))
 							{
@@ -86,12 +90,20 @@
 										
 											</div>
 											<div class="property-info-agent">
-																	<span>
-															<i class="fa fa-inbox"></i>
-															<?php echo $bedrooms;?>						Bedrooms					</span>					<span>
-															<i class="fa fa-male"></i>
-															<?php echo $property_bathrooms;?> 
-															Bathrooms					</span>		</div>
+													<span>
+														<i class="fa fa-inbox"></i>
+														<?php echo $bedrooms ?> Bedrooms
+													</span>				
+													<span>
+														<i class="fa fa-male"></i>
+														<?php echo $property_bathrooms;?> Bathrooms					
+													</span>	
+													<span>
+														<i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i>
+
+														<?php echo $property_bathrooms;?> Car spaces					
+													</span>		
+											</div>
 											<div class="agent-info">
 												<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> admin</label>
 											</div>
@@ -118,7 +130,7 @@
 			</div>						
 		</div>
     </div>
-    <div class="col-xs-3">
+    <div class="col-sm-3 col-md-3 col-xs-3">
     	<?php echo $this->load->view('property/sidebar', '', TRUE); ?>
     </div>
   

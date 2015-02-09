@@ -8,7 +8,7 @@
     <div class="row">
 	    <div class="col-xs-9">
 	    	<div class="content-title pull left">
-		        <h4>Properties for sale</h4>
+		        <h4><?php echo $title;?></h4>
 		    </div>
 		    <div class="agent-properties property-list clear">
 				<div class="grid">
@@ -37,6 +37,10 @@
 								$bedrooms = $prods->bedrooms;
 								
 								$property_video_id = $prods->property_video_id;
+
+								$property_bathrooms = $prods->bathroom_no;
+								$property_bedroom = $prods->bedrooms_no;
+								$car_space_no = $prods->car_space;
 									
 								if(empty($property_video_id))
 								{
@@ -67,7 +71,7 @@
                                                                 <?php echo $image;?>
                                                                 </a>
 																<figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
-																<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/for-sale/" rel="tag">$ <?php echo number_format($property_price,0);?>	</a></h4>	
+																<h4> <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" rel="tag">$ <?php echo number_format($property_price,0);?>	</a></h4>	
 																<div class="property-price clear">
 																	<div class="cat-price">
 																		<span class="pcategory"></span>
@@ -85,12 +89,20 @@
 											
 												</div>
 												<div class="property-info-agent">
-																		<span>
-																<i class="fa fa-inbox"></i>
-																<?php echo $bedrooms;?>						Bedrooms					</span>					<span>
-																<i class="fa fa-male"></i>
-																<?php echo $property_bathrooms;?> 
-																Bathrooms					</span>		</div>
+													<span>
+														<i class="fa fa-inbox"></i>
+														<?php echo $bedrooms ?> Bedrooms
+													</span>				
+													<span>
+														<i class="fa fa-male"></i>
+														<?php echo $property_bathrooms;?> Bathrooms					
+													</span>	
+													<span>
+														<i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i>
+
+														<?php echo $property_bathrooms;?> Car spaces					
+													</span>		
+												</div>
 												<div class="agent-info">
 													<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> admin</label>
 												</div>
