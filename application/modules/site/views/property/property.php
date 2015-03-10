@@ -1,4 +1,3 @@
-
 <?php echo $this->load->view('property/property_header', '', TRUE); ?>
 <?php echo $this->load->view('home/filter', '', TRUE); ?>
 <div class="container container-wrapper gradient projects">
@@ -7,9 +6,12 @@
 			
 		
 				<div class="property-list ">
+				
+<a style="text-align:justfied; margin-bottom:10px; z-index: 2;
+position: relative; width:15%; float:right;" href="http://101.0.112.4/~firstnat/first_national/properties/sold" class="btn btn-large btn-success">More Recent Sales</a> 
 					<div class="property-four-cols">
 							<div class="grid  masonry" >	
-											<ul class="clear">
+						<ul class="clear">
 						<?php
 							$x = $query->num_rows();
 					    	if($query->num_rows() > 0)
@@ -59,8 +61,8 @@
 
 								
 										?>
-									
-												<li >
+									<li >
+												
 													<div class="property-mask">
 														<div class="pimage">
 												            <!--<a href="http://101.0.112.4/~firstnat/firstnational/property-item/726-glenrowan-avenue-kellyville/"> <embed height="330px" width="456px"  src="http://www.youtube.com/embed/mDrD_vS_Au4">-->
@@ -68,8 +70,9 @@
 												    			<?php echo $image;?>
 												    		</div>
 												                    
+												                    
 																<figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
-																<h4> <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" rel="tag">$ <?php echo $price;?>	</a></h4>
+																<h4> <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" rel="tag">$ <?php echo $price;?> ---<?php echo 'vvv'.$p++;?>	</a></h4>
 																<div class="property-price clear">
 																	<div class="cat-price">	
 																		<span class="price">
@@ -80,7 +83,7 @@
 														</div>
 																		
 													</div>
-													<div class="property-info">
+												<!--	<div class="property-info">
 														<span><i class="fa fa-inbox-custom"></i><?php echo $property_bedroom;?> Bedrooms		</span>
 														<span><i class="fa fa-male-custom"></i><?php echo $property_bathrooms;?> Bathrooms</span>
 														<span><i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i> <?php echo $car_space_no;?> Car space</span>
@@ -88,24 +91,22 @@
 													<div class="property-desc">
 														<h4><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><?php echo $property_name;?></a></h4><p><?php echo $mini_desc;?></p>
 													
-													</div>
+													</div>-->
+													
+													
 												</li>
 												
-
-
-						<?php
-								
-							}
-						}
+												<?php   
+												
+												 } } 
+													
 						?>
-
+<a style="text-align:justfied;  margin-top:-20px; cursor: pointer; width:15%; float:right;" href="http://101.0.112.4/~firstnat/first_national/properties/sold" class="btn btn-large btn-success">Next Page</a>
 											</ul>
 
 
 									</div>
-
 					</div>
-
 				</div>
 				<?php
 					    if(isset($links))

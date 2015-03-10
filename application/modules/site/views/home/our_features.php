@@ -1,12 +1,5 @@
- <div class="our-features" style="margin-top: -8%;">
-        <!-- <div class="row">
-            <div class="col-sm-12">
-                <div class="content-title">
-                    <h2>Our Features</h2>
-                </div>
-            </div>
-        </div> -->
-        <div class="row">
+ <div class="our-features">
+       <div class="row">
            <div class="col-md-offset-2"> 
                 <div class="col-sm-5">
                     <div class="media">
@@ -29,7 +22,7 @@
                     <div class="media">
                         <div style="text-align:center;">
                             <span class="media-icon hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
-                               <a href="<?php echo base_url();?>service/3"  > <i class="hi-icon fa fa-camera-custom"></i></a>
+                               <a href="<?php echo base_url();?>news"  > <i class="hi-icon fa fa-camera-custom"></i></a>
                             </span>
                         </div>
                         <div class="services_description">
@@ -39,7 +32,7 @@
                                 <p>The latest property and community news</p>
                             </div>
     					</div>
-                        <p class="text-center"><a href="<?php echo base_url();?>service/3" class="btn btn-large btn-success" >More Details</a></p>
+                        <p class="text-center"><a href="<?php echo base_url();?>news" class="btn btn-large btn-success" >More Details</a></p>
                     </div>
                 </div>
             </div>

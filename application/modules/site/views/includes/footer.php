@@ -14,7 +14,7 @@
                 <div class="widget">
                     <h2 class="widget-title">Contact</h2>
                     <ul class="fa-ul-icons">
-                        <li><i class="fa fa-location-arrow"></i><span class="overflowed">12 Old Northern Road, Baulkham Hills </span></li>
+                        <li><i class="fa fa-location-arrow"></i><span class="overflowed">12 Old Northern Road, <br/> Baulkham Hills </span></li>
                         <li><i class="fa fa-phone"></i><a href="tel:0414072084">0414 072 084</a></li>
                         <li><i class="fa fa-envelope-o"></i><a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></li>
                     </ul>
@@ -23,7 +23,7 @@
              <div class=" col-md-3">
                 <div class="widget">
                     <h2 class="widget-title">Newsletter</h2>
-                    <p>Receive the latest property & community news.</p>
+                    <p>Latest property & community news.</p>
                     <?php echo form_open("request-news-letter", array("class" => "form-horizontal"));?>
                       
                         <div class="col-sm-6 af-outer af-required">

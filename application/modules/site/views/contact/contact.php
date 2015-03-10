@@ -140,7 +140,7 @@ else
         <h2>Contact info</h2>
         <label><i class="fa fa-phone"></i><span>Phone:</span> <a href="tel:0414 072 084">0414 072 084</a></label>
         <label><i class="fa fa-paperclip"></i><span>email:</span> <a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></label>
-        <label><i class="fa fa-map-marker"></i><span>Address:</span> 12 Old Northern Road, Baulkham Hills</label>
+        <label><i class="fa fa-map-marker"></i><span>Address:</span><a href="#"> 12 Old Northern Road, Baulkham Hills</a></label>
     </div>
     <div class="widget">
     <div class="col-xs-12">

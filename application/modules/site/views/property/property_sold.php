@@ -10,11 +10,11 @@
     </div>
    
     
-    <div class="col-sm-9 col-md-9 col-xs-9">
+    <div class="col-sm-12 col-md-12 col-xs-12">
     
 	    <div class="agent-properties property-list clear">
 			<div class="grid">
-				<ul class="clear">
+				<ul class="clear" style="text-align: center;">
 				<?php
 			    	if($query->num_rows() > 0)
 					{
@@ -108,7 +108,7 @@
 												<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> admin</label>
 											</div>
 											<a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" class="view-profile">
-												View More Details		</a>
+												 More Details		</a>
 										</div>
 									</div>
 								</div>
@@ -130,9 +130,7 @@
 			</div>						
 		</div>
     </div>
-    <div class="col-sm-3 col-md-3 col-xs-3">
-    	<?php echo $this->load->view('property/sidebar', '', TRUE); ?>
-    </div>
+  
   
   
 

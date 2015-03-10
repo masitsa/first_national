@@ -42,7 +42,7 @@
 								
 								else
 								{
-									$image = '<div class="youtube" id="'.$property_video_id.'&playlist='.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+									$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
 								}
 
                                 echo '
@@ -51,7 +51,7 @@
                                         
 										<div class="hero-block">
 						                    <div class="hero-unit text-center">
-						                        <h5>'.$property_name.'</h5>
+						                      <a href="'.base_url().'properties/view-single/'.$property_id.'">  <h5>'.$property_name.'</h5> </a>
 												
 												<div class="row property-info">
 													
@@ -59,7 +59,7 @@
 													<div class="col-md-4">
 														<span>
 															<i class="fa fa-inbox-custom"></i>
-															'.$property_bedroom.' Bedrooms
+															'.$property_bedroom.' 
 														</span>
 													</div>
 
@@ -67,20 +67,20 @@
 													<div class="col-md-4">
 														<span>
 															<i class="fa fa-male-custom"></i>
-															'.$property_bathrooms.' Bathrooms
+															'.$property_bathrooms.' 
 														</span>
 													</div>
 													<div class="col-md-4">
 														<span>
 														
 														<i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i>
-															'.$car_space_no.' Car space
+															'.$car_space_no.' 
 														</span>
 													</div>
 												</div>
-												
-						                        <p style="text-align:justfied;">'.$mini_desc.'</p>
-												<a href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">More info</a>
+												<br/>
+						                     <article style="text-align:justfied; max-height:60px;height:60px; overflow:hidden;">'.$mini_desc.'</article><br/>
+												<a style="text-align:justfied;" href="'.base_url().'properties/view-single/'.$property_id.'" class="btn btn-large btn-success">More info</a>
 						                    </div>
 						                </div>
                                        

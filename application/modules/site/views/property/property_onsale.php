@@ -6,7 +6,7 @@
     <!-- // Recent Properties -->
   
     <div class="row">
-	    <div class="col-xs-9">
+	    <div class="col-xs-12">
 	    	<div class="content-title pull left">
 		        <h4><?php echo $title;?></h4>
 		    </div>
@@ -129,8 +129,6 @@
 				</div>						
 			</div>
 	    </div>
-	    <div class="col-xs-3">
-	    	<?php echo $this->load->view('property/sidebar', '', TRUE); ?>
-	    </div>
+	
 	 </div>   
 </div>

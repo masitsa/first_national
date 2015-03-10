@@ -62,7 +62,7 @@ body {
     position: relative;
     background-color: #ffffff;
     border: solid 1px #dedede;
-    padding: 30px;
+    padding: 13px 0px 6px 0px;
 }
 
 @media (max-width: 459px) {
@@ -321,7 +321,7 @@ a:focus {
 
 .top-navigation .top-wrapper {
     /*border-bottom: solid 1px #343A3B;*/
-    padding: 10px 0;
+    padding-top: 2px;
 }
 
 .top-navigation .fa,
@@ -341,7 +341,7 @@ a:focus {
 .top-center {
     color: #09173c;
 font-size: 23px;
-margin-left: 62%;
+margin-left: 68.2%;
     
 }
 .top-right {
@@ -349,6 +349,37 @@ margin-left: 62%;
     color: #09173c;
     font-size: 23px;
     margin-right: 2%;
+}
+
+@media (max-width: 1920px) {
+    .top-center {margin-left: 77.5%;}   
+}
+
+@media (max-width: 1680px) {
+    .top-center {margin-left: 74.3%;}   
+}
+
+@media (max-width: 1600px) {
+    .top-center {margin-left: 73.1%;}   
+}
+
+@media (max-width: 1440px) {
+    .top-center {margin-left: 70.1%;}   
+}
+
+@media (max-width: 1366px) {
+    .top-center {margin-left: 68.5%;}   
+}
+
+@media (max-width: 1280px) {
+    .top-center {margin-left: 66.4%;}
+}
+
+@media (max-width: 1024px) {
+    .top-center {margin-left: 58%;}
+}
+@media (max-width: 493px) {
+    .top-center {margin-left: 0;}   
 }
 
 
@@ -438,7 +469,7 @@ margin-left: 62%;
     border: none;
     color: #09173c;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .site-navigation .sf-menu ul li,
@@ -861,9 +892,9 @@ margin: 0px 10px;
 .page-header-about h1,
 .page-header-about h2 {
     display: inline-block;
-    margin: 0;
+    margin-top: 10%;
     padding: 15px 30px;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1;
     background-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.9);
@@ -1045,9 +1076,8 @@ margin: 0px 10px;
 
 /* Featured Properties
 /* ========================================================================== */
-
+.thumbnail {margin-bottom:0;}
 .featured {
-    margin-bottom: 40px;
     position: relative;
 }
 
@@ -1753,10 +1783,6 @@ margin: 0px 10px;
 /* Hero block
 /* ========================================================================== */
 
-.hero-block {
-    margin-bottom: 30px;
-}
-
 /* Partners
 /* ========================================================================== */
 
@@ -1888,6 +1914,8 @@ margin: 0px 10px;
 
 .footer .widget li {
     margin-bottom: 5px;
+    margin-right: 19px;
+    margin-left: 5px;
 }
 
 

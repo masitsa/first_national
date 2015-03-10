@@ -9,7 +9,7 @@
             <section class="row">
                 <article class="col-sm-4" style="margin-top:45px;">
                     <div class="thumbnail">
-                        <a href="#"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Bryn Haggarty-8.jpg" class="img-responsive" alt=""></a>
+                        <a href="#"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Portrait Dad.jpg" class="img-responsive" alt=""></a>
 
                        <!--  <div class="caption text-center">
                             <p>info@walshsullivan.com.au</p>
@@ -32,7 +32,7 @@
             <section class="row">
                 <article class="col-sm-4 " style="margin-top:45px;">
                     <div class="thumbnail">
-                        <a href="#"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Scott Haggarty-6.jpg" class="img-responsive" alt=""></a>
+                        <a href="#"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Portrait Scott.jpg" class="img-responsive" alt=""></a>
 
                         <!-- <div class="caption text-center">
 
@@ -60,7 +60,7 @@
         </div>
         <div class="col-sm-5">
                  <section class="row" >
-                     <article class="col-sm-11" style="background: #F8F8F8; margin-left: 13px; ">
+                     <article class="col-sm-11" style="background: #F8F8F8; margin-left: 13px; padding-left:60px; ">
                        <h4 style="text-align:justify "><strong>Proud sponsors</strong></h4>
                         <div style="text-align:justify;">
                             <p>The Hills Club</p>

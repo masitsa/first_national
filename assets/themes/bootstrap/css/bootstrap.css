@@ -1438,7 +1438,6 @@ pre code {
 }
 .col-xs-10 {
   width: 83.33333333%;
-  margin-left:160px;
 }
 .col-xs-9 {
   width: 75%;
@@ -1587,7 +1586,6 @@ pre code {
 @media (min-width: 768px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
-
   }
   .col-sm-12 {
     width: 100%;
@@ -1597,7 +1595,6 @@ pre code {
   }
   .col-sm-10 {
     width: 83.33333333%;
-
   }
   .col-sm-9 {
     width: 75%;

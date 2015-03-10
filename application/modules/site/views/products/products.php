@@ -150,3 +150,4 @@ $(document).on("change","select#sort_products",function()
 	window.location.href = '<?php echo site_url();?>products/sort-by/'+order_by;
 });
 </script>
+

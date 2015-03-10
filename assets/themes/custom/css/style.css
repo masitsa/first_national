@@ -918,4 +918,5 @@ footer .sub-menu li a:link, footer .sub-menu li a:visited, .sidebar .sub-menu li
 
 .sliding-bar .widget { width: 247px; float: left; margin-right: 30px; }
 .sliding-bar .widget h5 { color: #FFF; }
+.container {width: 90%; padding:0;}
 
