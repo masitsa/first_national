@@ -31,7 +31,7 @@ class Blog_model extends CI_Model
 	public function get_all_active_category_parents()
 	{
 		$this->db->where('blog_category_status = 1 AND blog_category_parent = 0');
-		$this->db->order_by('blog_category_name');
+		$this->db->order_by('blog_category_order');
 		$query = $this->db->get('blog_category');
 		
 		return $query;

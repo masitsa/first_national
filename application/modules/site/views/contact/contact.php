@@ -138,13 +138,13 @@ else
 <div class="container container-wrapper gradient top bottom">
     <div class="contact-info">
         <h2>Contact info</h2>
-        <label><i class="fa fa-phone"></i><span>Phone:</span> <a href="tel:0414 072 084">0414 072 084</a></label>
-        <label><i class="fa fa-paperclip"></i><span>email:</span> <a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></label>
-        <label><i class="fa fa-map-marker"></i><span>Address:</span><a href="#"> 12 Old Northern Road, Baulkham Hills</a></label>
+        <label><!--<i class="fa fa-phone"></i>--><span>Phone:</span> <a href="tel:0414 072 084">0414 072 084</a></label>
+        <label><!--<i class="fa fa-paperclip"></i>--><span>email:</span> <a href="mailto:s.haggarty@walshsullivan.com.au">s.haggarty@walshsullivan.com.au</a></label>
+        <label><!--<i class="fa fa-map-marker"></i>--><span>Address:</span><a href="#"> 12 Old Northern Road, Baulkham Hills</a></label>
     </div>
     <div class="widget">
-    <div class="col-xs-12">
-            <div class="col-xs-6">
+    	<div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <h3 class="content-title">Contact us</h3>
                     <?php echo form_open("send-message", array("class" => "form-horizontal"));?>
 
@@ -188,7 +188,7 @@ else
 
                 <?php echo form_close();?>
             </div>
-            <div class="col-xs-6">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <h3 class="content-title">Request an appraisal</h3>
                 <!-- // Filter Now -->
                     <?php echo form_open("request-an-appraisal", array("class" => "form-horizontal"));?>
@@ -205,6 +205,7 @@ else
                             <label class="error" for="last_name" id="last_name_error">last name is required.</label>
                         </div>
                     </div>
+
                     <div class="col-sm-12 af-outer af-required">
                         <div class="form-group af-inner">
                             <input type="text" name="phone_number" id="phone_number" size="30" value="" placeholder="Phone Number" class="form-control placeholder" />
@@ -254,13 +255,15 @@ else
                 <?php echo form_close();?>
             </div>
         </div>
-        <div class="col-xs-12">
-            <div class="google-maps">
-                <!-- <div id="map-canvas"></div> -->
-                <!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.ke/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12&amp;output=embed"></iframe><br /><small><a href="https://www.google.co.ke/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12" style="color:#0000FF;text-align:left">View Larger Map</a></small>-->
-                
-                <!-- Generated from: http://www.trivoo.net/google-maps/ -->
-                <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:100%;width:100%;"><div id="gmap_canvas" style="height:100%;width:100%;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.trivoo.net/google-maps/" id="get-map-data">trivoo.net</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(-33.760893,150.99268699999993),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-33.760893, 150.99268699999993)});infowindow = new google.maps.InfoWindow({content:"<b>First National</b><br/>12 Old Northern Road<br/>2153 Baulkham Hills" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});}google.maps.event.addDomListener(window, 'load', init_map);</script>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="google-maps">
+                    <!-- <div id="map-canvas"></div> -->
+                    <!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.ke/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12&amp;output=embed"></iframe><br /><small><a href="https://www.google.co.ke/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Baulkham+Hills,+New+South+Wales,+Australia&amp;aq=0&amp;oq=baul&amp;sll=0.413842,37.903968&amp;sspn=12.411854,21.643066&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Baulkham+Hills+New+South+Wales,+Australia&amp;ll=-33.760672,150.993018&amp;spn=0.161533,0.338173&amp;z=12" style="color:#0000FF;text-align:left">View Larger Map</a></small>-->
+                    
+                    <!-- Generated from: http://www.trivoo.net/google-maps/ -->
+                    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:100%;width:100%;"><div id="gmap_canvas" style="height:100%;width:100%;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.trivoo.net/google-maps/" id="get-map-data">trivoo.net</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(-33.760893,150.99268699999993),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-33.760893, 150.99268699999993)});infowindow = new google.maps.InfoWindow({content:"<b>First National</b><br/>12 Old Northern Road<br/>2153 Baulkham Hills" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});}google.maps.event.addDomListener(window, 'load', init_map);</script>
+                </div>
             </div>
         </div>
 

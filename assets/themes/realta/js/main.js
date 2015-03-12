@@ -149,11 +149,16 @@ $(window).load(function () {
 
 $(document).ready(function () {
     $("#featured").owlCarousel({
-        items: 3,
+        /*items: 3,
         itemsDesktop: false,
         itemsDesktopSmall: [991, 2],
         itemsTablet: false,
-        itemsMobile: [479, 1],
+        itemsMobile: [479, 1],*/
+		items : 4, //4 items above 1824px browser width
+		itemsDesktop : [1823,3], //3 items between 1823px and 1024px
+		itemsDesktopSmall : [1023,2], // betweem 1023px and 601px
+		itemsTablet: [603,1], //2 items between 603 and 0
+		itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
         autoPlay: false,
         pagination: false
     });

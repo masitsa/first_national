@@ -5,7 +5,7 @@
             <h2>Our team</h2>
         </div -->
 
-        <div class="col-sm-7">
+        <div class="col-md-8 col-lg-9">
             <section class="row">
                 <article class="col-sm-4" style="margin-top:45px;">
                     <div class="thumbnail">
@@ -58,29 +58,32 @@
             </section>
            
         </div>
-        <div class="col-sm-5">
+        <div class="col-md-4 col-lg-3">
                  <section class="row" >
-                     <article class="col-sm-11" style="background: #F8F8F8; margin-left: 13px; padding-left:60px; ">
-                       <h4 style="text-align:justify "><strong>Proud sponsors</strong></h4>
-                        <div style="text-align:justify;">
-                            <p>The Hills Club</p>
-                            <p>Waves Fitness & Aquatic Centre</p>
-                            <p>Excelsior Public School</p>
+                     <article class="col-md-12">
+                     	<div class="categories">
+                       		<h4 style="text-align:justify "><strong>Proud sponsors</strong></h4>
+                            <div style="text-align:justify;">
+                                <p>The Hills Club</p>
+                                <p>Waves Fitness & Aquatic Centre</p>
+                                <p>Excelsior Public School</p>
+                            </div>
                         </div>
                     </article>
                 </section>
                 <br>
                 <section class="row">
-                     <article class="col-sm-12">
-                     	<iframe  height="249px" width="98%" style="margin-left:-2%" src="https://www.youtube.com/embed/72pb7klBTDE?loop=1&playlist=72pb7klBTDE" frameborder="0" allowfullscreen></iframe>
+                     <article class="col-md-12">
+                     	<!-- <iframe  height="249px" width="98%" style="margin-left:-2%" src="https://www.youtube.com/embed/72pb7klBTDE?loop=1&playlist=72pb7klBTDE" frameborder="0" allowfullscreen></iframe> -->
+                       <div class="youtube" id="72pb7klBTDE"></div>
                     </article>
                 </section>
                 <br>
                  <section class="row">
-                     <article class="col-sm-12">
-                     	<!-- <div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div> -->
-                       <iframe height="249px" width="98%" style="margin-left:-2%" src="https://www.youtube.com/embed/9gnXba2_CNo?loop=1&playlist=9gnXba2_CNo" frameborder="0" allowfullscreen></iframe>
-
+                     <article class="col-md-12">
+                     	<!-- <div class="youtube" id="sjQShSoR7e4" style="width: 100%; height: 249px;"></div>
+                       <iframe height="249px" width="98%" style="margin-left:-2%" src="https://www.youtube.com/embed/9gnXba2_CNo?loop=1&playlist=9gnXba2_CNo" frameborder="0" allowfullscreen></iframe> -->
+                       <div class="youtube" id="9gnXba2_CNo"></div>
                     </article>
                 </section>
                 <br>

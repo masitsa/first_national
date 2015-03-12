@@ -6,12 +6,15 @@
 			
 		
 				<div class="property-list ">
-				
-<a style="text-align:justfied; margin-bottom:10px; z-index: 2;
-position: relative; width:15%; float:right;" href="http://101.0.112.4/~firstnat/first_national/properties/sold" class="btn btn-large btn-success">More Recent Sales</a> 
+					<div class="row">
+                    	<div class="col-md-12">
+                        	<a style="text-align:justfied; margin-bottom:10px; z-index: 2;
+position: relative; width:15%; float:right;" href="<?php echo site_url();?>properties/sold" class="btn btn-large btn-success">More Recent Sales</a> 
+                        </div>
+                    </div>
 					<div class="property-four-cols">
 							<div class="grid  masonry" >	
-						<ul class="clear">
+						<div class="row">
 						<?php
 							$x = $query->num_rows();
 					    	if($query->num_rows() > 0)
@@ -42,12 +45,12 @@ position: relative; width:15%; float:right;" href="http://101.0.112.4/~firstnat/
 											
 										if(empty($property_video_id))
 										{
-											$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="attachment-homeland_property_medium wp-post-image" alt="" style="width: 100%; height: 200px;"/>';
+											$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive property-image" alt="'.$property_name.'"/>';
 										}
 										
 										else
 										{
-											$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+											$image = '<div class="youtube" id="'.$property_video_id.'"></div>';
 										}
 
 										if($lease_type_id == 1)
@@ -61,7 +64,7 @@ position: relative; width:15%; float:right;" href="http://101.0.112.4/~firstnat/
 
 								
 										?>
-									<li >
+									<div class="col-sm-6 col-md-4">
 												
 													<div class="property-mask">
 														<div class="pimage">
@@ -72,7 +75,8 @@ position: relative; width:15%; float:right;" href="http://101.0.112.4/~firstnat/
 												                    
 												                    
 																<figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
-																<h4> <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" rel="tag">$ <?php echo $price;?> ---<?php echo 'vvv'.$p++;?>	</a></h4>
+                                                                <div class="clear-both"></div>
+																<h4> <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" rel="tag">$ <?php echo $price;?>	</a></h4>
 																<div class="property-price clear">
 																	<div class="cat-price">	
 																		<span class="price">
@@ -83,30 +87,49 @@ position: relative; width:15%; float:right;" href="http://101.0.112.4/~firstnat/
 														</div>
 																		
 													</div>
-												<!--	<div class="property-info">
-														<span><i class="fa fa-inbox-custom"></i><?php echo $property_bedroom;?> Bedrooms		</span>
-														<span><i class="fa fa-male-custom"></i><?php echo $property_bathrooms;?> Bathrooms</span>
-														<span><i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i> <?php echo $car_space_no;?> Car space</span>
+													<div class="row property-info">
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <span><i class="fa fa-inbox-custom"></i><?php echo $property_bedroom;?>		</span>
+                                                        </div>
+                                                        
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <span><i class="fa fa-male-custom"></i><?php echo $property_bathrooms;?> </span>
+                                                        </div>
+                                                        
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                           <span><i class="fa fa-car"></i> <?php echo $car_space_no;?> </span>
+                                                        </div>
+                                                            
+														
+														
 													</div>
 													<div class="property-desc">
-														<h4><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><?php echo $property_name;?></a></h4><p><?php echo $mini_desc;?></p>
+														<h4><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><?php echo $property_name;?></a></h4>
+                                                        <!-- <p><?php echo $mini_desc;?></p> -->
 													
-													</div>-->
+													</div>
 													
-													
-												</li>
+												</div>
+                                                
 												
 												<?php   
 												
-												 } } 
+												 } 
+												} 
 													
 						?>
-<a style="text-align:justfied;  margin-top:-20px; cursor: pointer; width:15%; float:right;" href="http://101.0.112.4/~firstnat/first_national/properties/sold" class="btn btn-large btn-success">Next Page</a>
-											</ul>
+											</div>
 
 
 									</div>
 					</div>
+					<div class="row">
+                    	<div class="col-md-12">
+                        	<a style="text-align:justfied;  margin-top:-20px; cursor: pointer; width:15%; float:right;" href="<?php echo site_url();?>properties/sold" class="btn btn-large btn-success">Next Page</a>
+                        </div>
+                    </div>
+                                            
+                                            
 				</div>
 				<?php
 					    if(isset($links))

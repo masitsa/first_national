@@ -58,7 +58,17 @@ html[xmlns] .slides {display: block;}
 .loading .flex-viewport { max-height: 300px; }
 .flexslider .slides { zoom: 1; 
 overflow: hidden;
-height: 338px;
+height: 398px;
+}
+
+@media (max-width: 800px) {
+	.flexslider .slides {height: 214px;}
+}
+@media (max-width: 414px) {
+	.flexslider .slides {height: 148px;}
+}
+@media (max-width: 320px) {
+	.flexslider .slides {height: 120px;}
 }
 .carousel li { margin-right: 5px; }
 

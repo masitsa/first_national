@@ -44,12 +44,12 @@
 									
 								if(empty($property_video_id))
 								{
-									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="attachment-homeland_property_medium wp-post-image" alt="" style="width: 100%; height: 200px;"/>';
+									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive property-image" alt="'.$property_name.'"/>';
 								}
 								
 								else
 								{
-									$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+									$image = '<div class="youtube" id="'.$property_video_id.'"></div>';
 								}
 
 								if($lease_type_id == 1)
@@ -98,7 +98,7 @@
 														<?php echo $property_bathrooms;?> Bathrooms					
 													</span>	
 													<span>
-														<i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i>
+														<i class="fa fa-car"></i>
 
 														<?php echo $property_bathrooms;?> Car spaces					
 													</span>		

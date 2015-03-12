@@ -168,49 +168,37 @@ $min_price_value = $max_price_value;
     <?php echo form_open("search-properties", array("class" => "form-horizontal"));?>
 
     <div class="row">
-       <div class="col-sm-12 col-xs-12"> 
-            <div class="col-sm-4 col-xs-6">
-                <label> Location </label>
-
-                <?php echo $locations;?>
-            </div>
-            <div class="col-sm-4 col-xs-6">
-                <label> Property Type </label>
-                    <?php echo $property_types;?>
-            </div>
-            <div class="col-sm-4 col-xs-6">
-                <label> Bedrooms </label>
-                <?php echo $bedrooms_no;?>
-            </div>
+       <div class="col-sm-4 col-xs-12">
+            <label> Location </label>
+            <?php echo $locations;?>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <label> Property Type </label>
+            <?php echo $property_types;?>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <label> Bedrooms </label>
+            <?php echo $bedrooms_no;?>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-xs-12"> 
-            <div class="col-sm-4 col-xs-6">
-                <label> Bathrooms </label>
-                <?php echo $bathroom_no;?>
-            </div>
-            <div class="col-sm-4 col-xs-6">
-                <label> Minimum Price </label>
-                <?php echo $max_price_value;?>
-            </div>
-            <div class="col-sm-4 col-xs-6">
-                <label> Maximum Prices </label>
-                 <?php echo $min_price_value;?>
-            </div>
-            
+        <div class="col-sm-4 col-xs-12">
+            <label> Bathrooms </label>
+            <?php echo $bathroom_no;?>
         </div>
-        
+        <div class="col-sm-4 col-xs-12">
+            <label> Minimum Price </label>
+            <?php echo $max_price_value;?>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <label> Maximum Prices </label>
+            <?php echo $min_price_value;?>
+        </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-xs-12"> 
-            <div class="col-sm-4 col-xs-6">
-            </div>
-            <div class="col-sm-4 col-xs-6">
-                <!-- <a  class="btn btn-success btn-block">Filter Now</a> -->
-                <button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - For sale</button>
-            </div>
-            <div class="col-sm-4 col-xs-6">
+        <div class="col-sm-4 col-xs-12 col-sm-offset-4 col-md-offset-4"> 
+            <div class="center-align">
+            	<button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - For sale</button>
             </div>
         </div>
     </div>

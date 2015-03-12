@@ -742,11 +742,10 @@ margin-left: 68.2%;
 
 .google-maps {
    position: relative;
-height: 415px;
-text-align: right;
- overflow: hidden; 
-width: 97.6%;
-margin: 0px 10px;
+	height: 415px;
+	text-align: right;
+ 	overflow: hidden; 
+	width: 100%;
 }
 
 .google-maps.small-map {
@@ -864,23 +863,17 @@ margin: 0px 10px;
     padding: 40px 0 0 0;
     border: none;
     min-height: 350px;
-
     background-image: url(../../../images/property_knees.png);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-
-
-    
 }
 .page-header-about {
     margin: 0;
     padding: 40px 0 0 0;
     border: none;
     min-height: 350px;
-
-
-    background: url('../../../images/welcome-bg.jpg') no-repeat -380px -13px fixed;
+	background: url('../../../images/welcome-bg.jpg') no-repeat 100% -13px fixed;
     -webkit-background-size: width;
     -moz-background-size: width;
     -o-background-size: width;
@@ -897,8 +890,16 @@ margin: 0px 10px;
     font-size: 15px;
     line-height: 1;
     background-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.6);
 }
+
+@media (max-width: 800px) {
+	.page-header-about h1,
+	.page-header-about h2 {
+		margin-top: 33%;
+	}
+}
+
 .page-header > .container {
     padding: 0;
 }

@@ -37,16 +37,16 @@
 								
 								if(empty($property_video_id))
 								{
-									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive" alt="" style="width: 100%; height: 200px;"/>';
+									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive property-image" alt="'.$property_name.'"/>';
 								}
 								
 								else
 								{
-									$image = '<div class="youtube" id="'.$property_video_id.'" style="width: 100%; height: 200px;"></div>';
+									$image = '<div class="youtube" id="'.$property_video_id.'"></div>';
 								}
 
                                 echo '
-                                    <div class="thumbnail" style="">
+                                    <div class="thumbnail">
 										'.$image.'
                                         
 										<div class="hero-block">
@@ -56,24 +56,24 @@
 												<div class="row property-info">
 													
 													
-													<div class="col-md-4">
+													<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 														<span>
 															<i class="fa fa-inbox-custom"></i>
 															'.$property_bedroom.' 
 														</span>
 													</div>
-
 													
-													<div class="col-md-4">
+													<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 														<span>
 															<i class="fa fa-male-custom"></i>
 															'.$property_bathrooms.' 
 														</span>
 													</div>
-													<div class="col-md-4">
+													
+													<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 														<span>
 														
-														<i class="fa-icon-truck"><img src="http://s2.rea.reastatic.net/rs/img/icons/parking_spaces.png$$3000.165-18" alt="Car Spaces"></i>
+														<i class="fa fa-car"></i>
 															'.$car_space_no.' 
 														</span>
 													</div>
