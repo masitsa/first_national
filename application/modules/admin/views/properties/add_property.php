@@ -131,6 +131,26 @@
                         </div>
                     </div>
                     <div class="form-group">
+                     <strong class="col-lg-4 control-label" > </strong>  
+                       <div class="col-lg-7">
+                      <a href="http://www.latlong.net/" target="_blank" class="btn btn-primary" > Click here to search location </a>
+                    
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Longitude</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="longitude" placeholder="Property Lognitude" value="<?php echo set_value('longitude');?>" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Latitude </label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="latitude" placeholder="Property Latitude" value="<?php echo set_value('latitude');?>" >
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
                         <label class="col-lg-4 control-label">Sold?</label>
                         <div class="col-lg-7">
                         	 <input type="radio" name="lease_type_id" checked  value="1"> Yes

@@ -28,6 +28,8 @@
         $car_space_id = $property[0]->car_space_id;
         $actual_date = $property[0]->actual_date;
          $sold_status = $property[0]->sale_status;
+        $longitude = $property[0]->longitude;
+         $latitude = $property[0]->latitude;
         if(isset($error)){
             echo '<div class="alert alert-danger">'.$error.'</div>';
         }
@@ -216,7 +218,27 @@
                         	<input type="text" class="form-control" name="property_land_size" placeholder="Property Land Size" value="<?php echo $land_size;?>" >
                         </div>
                     </div>
-
+        <div class="form-group">
+                     <strong class="col-lg-4 control-label" > </strong>  
+                       <div class="col-lg-7">
+                      <a href="http://www.latlong.net/" target="_blank" class="btn btn-primary" > Click here to search location </a>
+                    
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Longitude</label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="longitude" placeholder="Property Lognitude" value="<?php echo $longitude;?>" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label">Latitude </label>
+                        <div class="col-lg-7">
+                        	<input type="text" class="form-control" name="latitude" placeholder="Property Latitude" value="<?php echo $latitude;?>" >
+                        </div>
+                    </div>
+                    
+                    
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Sold?</label>
                         <div class="col-lg-7">
@@ -238,6 +260,7 @@
                         	?>
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Activate Property Post?</label>
                         <div class="col-lg-8">

@@ -598,6 +598,9 @@ class Property extends admin {
 		$this->form_validation->set_rules('bathroom_id', 'Property Bathrooms', 'numeric|trim|xss_clean');
 		$this->form_validation->set_rules('bedroom_id', 'Property Bedroom', 'numeric|trim|xss_clean');
 		
+		$this->form_validation->set_rules('latitude', 'Latitude', 'xss_clean');
+		$this->form_validation->set_rules('lognitude', 'Longitude', 'xss_clean');
+		
 		//if form has been submitted
 		if ($this->form_validation->run())
 		{
@@ -797,6 +800,8 @@ class Property extends admin {
 		$this->form_validation->set_rules('property_description', 'Property Description', 'trim|xss_clean');
 		$this->form_validation->set_rules('property_bathrooms', 'Property Bathrooms', 'numeric|trim|xss_clean');
 		
+		$this->form_validation->set_rules('latitude', 'Latitude', 'xss_clean');
+		$this->form_validation->set_rules('lognitude', 'Longitude', 'xss_clean');
 		//if form has been submitted
 		if ($this->form_validation->run())
 		{
