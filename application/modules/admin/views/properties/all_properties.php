@@ -15,9 +15,9 @@
 					<tr>
 					  <th>#</th>
 					  <th>Property  Name</th>
+					  <th>Location</th>
 					  <th>Date Created</th>
 					  <th>Last Modified</th>
-					  <th>Properties</th>
 					  <th>Status</th>
 					  <th colspan="3">Actions</th>
 					</tr>
@@ -41,10 +41,11 @@
 			{
 				$property_id = $row->property_id;
 				$property_name = $row->property_name;
+				$location_name = $row->location_name;
 				$property_status = $row->property_status;
 				$created_by = $row->created_by;
 				$modified_by = $row->last_modified_by;
-				$posts = $this->users_model->count_items('property', 'property_id = '.$property_id);
+				//$posts = $this->users_model->count_items('property', 'property_id = '.$property_id);
 				
 				
 				//status
@@ -98,9 +99,9 @@
 					<tr>
 						<td>'.$count.'</td>
 						<td>'.$property_name.'</td>
+						<td>'.$location_name.'</td>
 						<td>'.date('jS M Y H:i a',strtotime($row->created_on)).'</td>
 						<td>'.date('jS M Y H:i a',strtotime($row->last_modified_on)).'</td>
-						<td>0</td>
 						<td>'.$status.'</td>
 						<td><a href="'.site_url().'property/edit-property/'.$property_id.'" class="btn btn-sm btn-success">Edit</a></td>
 						<td>'.$button.'</td>

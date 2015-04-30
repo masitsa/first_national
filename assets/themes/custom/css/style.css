@@ -11,8 +11,6 @@ a {
     text-decoration: none;
 }
 
-
-
 .grid {
 	list-style: none;
 }
@@ -808,9 +806,10 @@ a.view-property:hover { background:#FFF; color:#09173C; }
 .hero-unit p{text-align:justify;}
 
 .thumbnail .youtube .thumb{top: -34px;}
-
 .youtube, img.property-image{width: 100%; height: 200px;}
 
+.single-project .youtube, .single-project img.wp-post-image{width: 100%; height: 373px;}
+.single-project .youtube .thumb{top: -25px;}
 @media (max-width: 1024px) {
 	.thumbnail .youtube .thumb{top: -12px;}
 	.youtube, img.property-image{width: 100%; height: 197px;}
@@ -969,4 +968,9 @@ footer .sub-menu li a:link, footer .sub-menu li a:visited, .sidebar .sub-menu li
 
 .fluid-width-video-wrapper .youtube .thumb {top: -29px;width: 100%;}
 .fluid-width-video-wrapper .youtube {height: 200px;}
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+}
+.single-property-image{}
 
