@@ -4,7 +4,6 @@ class Site_model extends CI_Model
 {
 	public function get_navigation()
 	{
-
 		$page = explode("/",uri_string());
 		$total = count($page);
 		
@@ -16,6 +15,7 @@ class Site_model extends CI_Model
 		$request = '';
 		$news = '';
 		$properties = '';
+		$development = '';
 		
 		if($name == 'Home')
 		{
@@ -47,14 +47,16 @@ class Site_model extends CI_Model
 			$properties = 'active';
 		}
 		
+		if($name == 'Development')
+		{
+			$development = 'active';
+		}
+		
 		$navigation = 
 		'
 		  <li class="'.$home.'">
                     <a href="'.base_url().'home">Home</a>
                   
-                </li>
-                <li class="'.$about.'">
-                    <a href="'.base_url().'about">About us</a>
                 </li>
                  <li class="'.$properties.'">
                     <a href="'.base_url().'properties">Properties</a>
@@ -63,11 +65,15 @@ class Site_model extends CI_Model
                         <li><a href="'.base_url().'properties/sold">Sold</a></li>
                     </ul>
                 </li>
-                
-                 <li class="'.$news.'">
-                    <a href="'.base_url().'news">News & trends</a>
-                 
+                <li class="'.$development.'">
+                    <a href="'.base_url().'development">Development portfolio</a>
                 </li>
+                <li class="'.$about.'">
+                    <a href="'.base_url().'about">About us</a>
+                </li>
+                <!--<li class="'.$news.'">
+                    <a href="'.base_url().'news">News & trends</a>
+                </li>-->
                  <li class="'.$contact.'">
                     <a href="'.base_url().'request">Request an appraisal</a>
                 </li>
@@ -133,6 +139,17 @@ class Site_model extends CI_Model
 		$this->db->where($where);
 		$this->db->order_by('property.actual_date', 'DESC');
 		$query = $this->db->get('', $per_page, $page);
+		
+		return $query;
+	}
+	public function get_properties($table, $where, $per_page, $page)
+	{
+		//retrieve all users
+		$this->db->from($table);
+		$this->db->select('*');
+		$this->db->where($where);
+		$this->db->order_by('property.sale_status', 'ASC');
+		$query = $this->db->get('', 6);
 		
 		return $query;
 	}

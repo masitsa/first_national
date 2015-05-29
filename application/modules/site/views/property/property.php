@@ -37,11 +37,12 @@ position: relative; width:15%; float:right;" href="<?php echo site_url();?>prope
 										$lease_type_id = $prods->lease_type_id;
 										$property_type_name = $prods->property_type_name;
 										$property_bathrooms = $prods->property_bathrooms;
-										$bedrooms = $prods->bedrooms;
+										$bedrooms = $prods->bedrooms_no;
 										$property_video_id = $prods->property_video_id;
 										$property_bathrooms = $prods->bathroom_no;
 										$property_bedroom = $prods->bedrooms_no;
 										$car_space_no = $prods->car_space;
+										$sale_status = $prods->sale_status;
 											
 										if(empty($property_video_id))
 										{
@@ -53,7 +54,7 @@ position: relative; width:15%; float:right;" href="<?php echo site_url();?>prope
 											$image = '<div class="youtube" id="'.$property_video_id.'"></div>';
 										}
 
-										if($lease_type_id == 1)
+										if($sale_status == 2)
 										{
 											$type = 'sold';
 										}
@@ -123,21 +124,11 @@ position: relative; width:15%; float:right;" href="<?php echo site_url();?>prope
 
 									</div>
 					</div>
-					<div class="row">
-                    	<div class="col-md-12">
-                        	<a style="text-align:justfied;  margin-top:-20px; cursor: pointer; width:15%; float:right;" href="<?php echo site_url();?>properties/sold" class="btn btn-large btn-success">Next Page</a>
-                        </div>
-                    </div>
+					
                                             
                                             
 				</div>
-				<?php
-					    if(isset($links))
-					    {
-					    	echo $links;
-					    }
-
-					    ?>
+				
 			</div>
 	</section>
 </div>

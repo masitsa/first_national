@@ -73,7 +73,21 @@
                                     </span>
                                 </div>
                             </div>
+                     </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="image">Brochure</label>
+                        <div class="col-lg-7" style="height:auto;">
+                    		<div class="alert alert-warning">Must be in PDF format</div>
+                        	<?php echo form_upload(array( 'name'=>'property_brochure', 'class'=>'btn btn-info'));?>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="image">Sale contract</label>
+                        <div class="col-lg-7" style="height:auto;">
+                    		<div class="alert alert-warning">Must be in PDF format</div>
+                        	<?php echo form_upload(array( 'name'=>'property_sale_contract', 'class'=>'btn btn-info'));?>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -180,6 +194,15 @@
                 </div>
             </div>
             <div class="row">
+                <!-- post content -->
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Inspection times</label>
+                    <div class="col-lg-8" style="height:auto;">
+                        <textarea class="cleditor" name="property_inspection_time" placeholder="Inspection times"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
             	<div class="col-lg-6">
             	 <div class="form-group">
                         <label class="col-lg-4 control-label">Post Image</label>
@@ -204,7 +227,7 @@
                     </div>
                   </div>
                   <div class="col-lg-6">
-                  <div class="form-group">
+                  		<div class="form-group">
 		                   <label class="col-lg-2 control-label" for="image">Gallery Images</label>
 		                   <div class="col-lg-8" style="height:auto;">
 		                       <?php echo form_upload(array( 'name'=>'gallery[]', 'multiple'=>true, 'class'=>'btn'));?>

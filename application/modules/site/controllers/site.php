@@ -1,6 +1,10 @@
 <?php   if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Site extends MX_Controller {
+
+	var $property_brochure_location;
+
+	var $property_sale_contract_location;
 	
 	function __construct()
 	{
@@ -71,19 +75,12 @@ class Site extends MX_Controller {
 	}
 	public function property() 
 	{
-		//get page data
-		// $v_data['latest'] = $this->site_model->get_latest_properties();
-		// $v_data['featured'] = $this->site_model->get_featured_properties();
-		// $v_data['brands'] = $this->brands_model->all_active_brands();
-		// $v_data['all_children'] = $this->categories_model->all_child_categories();
-		// $v_data['parent_categories'] = $this->categories_model->all_parent_categories();
-
-		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.property_status = 1 AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
 		$table = 'property,location,property_type,bedrooms,bathroom,car_spaces';
 		//pagination
 		$this->load->library('pagination');
-		$segment = 3;
-		$config['base_url'] = base_url().'site/property';
+		$segment = 2;
+		$config['base_url'] = base_url().'properties';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
 		$config['uri_segment'] = $segment;
 		$config['per_page'] = 6;
@@ -115,7 +112,7 @@ class Site extends MX_Controller {
 		
 		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
         $v_data["links"] = $this->pagination->create_links();
-		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
+		$query = $this->site_model->get_properties($table, $where, $config["per_page"], $page);
 		$property_type_query = $this->property_model->get_all_active_property_type();
 		if($property_type_query->num_rows > 0)
 		{
@@ -150,7 +147,7 @@ class Site extends MX_Controller {
 	{
 		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id   AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
 		$table = 'property,location,property_type,bedrooms,bathroom,car_spaces';
-		$segment = 3;
+		$segment = 2;
 		$search_property = $this->session->userdata('property_search');
 		
 		if(!empty($search_property))
@@ -159,7 +156,7 @@ class Site extends MX_Controller {
 		}
 		//pagination
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'site/property_onsale';
+		$config['base_url'] = base_url().'properties';
 		$config['total_rows'] = $this->users_model->count_items($table, $where);
 		$config['uri_segment'] = $segment;
 		$config['per_page'] = 20;
@@ -191,7 +188,7 @@ class Site extends MX_Controller {
 		
 		$page = ($this->uri->segment($segment)) ? $this->uri->segment($segment) : 0;
         $data["links"] = $this->pagination->create_links();
-		$query = $this->site_model->get_all_properties($table, $where, $config["per_page"], $page);
+		$query = $this->site_model->get_properties($table, $where, $config["per_page"], $page);
 		$property_type_query = $this->property_model->get_all_active_property_type();
 		if($property_type_query->num_rows > 0)
 		{
@@ -228,9 +225,16 @@ class Site extends MX_Controller {
 
 	public function property_onsale()
 	{
-		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.sale_status = 1   AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
+		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.sale_status = 1 AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
 		$table = 'property,location,property_type,bedrooms,bathroom,car_spaces';
 		$segment = 3;
+		
+		$search = $this->session->userdata('property_sold_search');
+		
+		if(!empty($search))
+		{
+			$where .= $search;
+		}
 		
 		//pagination
 		$this->load->library('pagination');
@@ -302,10 +306,16 @@ class Site extends MX_Controller {
 
 	public function property_sold()
 	{
-		$this->session->unset_userdata('property_search');
 		$where = 'property.property_type_id = property_type.property_type_id AND property.location_id = location.location_id AND property.sale_status = 2   AND bathroom.bathroom_id = property.property_bathrooms AND bedrooms.bedrooms_id = property.bedrooms AND car_spaces.car_space_id = property.car_space_id';
 		$table = 'property,location,property_type,bathroom, bedrooms, car_spaces';
 		$segment = 3;
+		
+		$search = $this->session->userdata('property_search');
+		
+		if(!empty($search))
+		{
+			$where .= $search;
+		}
 		//pagination
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'site/property_sold';
@@ -430,12 +440,27 @@ class Site extends MX_Controller {
 	{
 		
 		$query = $this->site_model->get_property_details($property_id);
+		$v_data['property_brochure_location'] = $this->property_brochure_location;
+		$v_data['property_sale_contract_location'] = $this->property_sale_contract_location;
 		$v_data['property'] = $query;
 		$v_data['gallery_images'] = $this->site_model->get_gallery_images($property_id);
 		$data['content'] = $this->load->view('property/single_property', $v_data, true);
 		$data['title'] = 'All posts';
 		
 		$this->load->view('templates/general_page', $data);
+	}
+	public function brochure($property_id)
+	{
+		$query = $this->site_model->get_property_details($property_id);
+		$v_data['property_brochure_location'] = $this->property_brochure_location;
+		$v_data['property_sale_contract_location'] = $this->property_sale_contract_location;
+		$v_data['property'] = $query;
+		$v_data['brochure'] = 1;
+		$v_data['gallery_images'] = $this->site_model->get_gallery_images($property_id);
+		$data['content'] = $this->load->view('property/brochure', $v_data, true);
+		$data['title'] = 'Print brochure';
+		
+		$this->load->view('templates/brochure', $data);
 	}
 	public function blog_detail($post_id)
 	{
@@ -751,7 +776,7 @@ class Site extends MX_Controller {
 		$data['title'] = $this->site_model->display_page_title();
 		$this->load->view('templates/general_page', $data);
 	}
-	public function search_properties()
+	public function search_properties($source)
 	{
 		$location_id = $this->input->post('location_id');
 		$property_type_id = $this->input->post('property_type_id');
@@ -767,6 +792,24 @@ class Site extends MX_Controller {
 		else
 		{
 			$location_id ='';
+		}
+		
+		if(!empty($bathroom_id))
+		{
+			$bathroom_id = ' AND property.property_bathrooms = '.$bathroom_id.' ';
+		}
+		else
+		{
+			$bathroom_id ='';
+		}
+		
+		if(!empty($bedroom_id))
+		{
+			$bedroom_id = ' AND property.bedrooms = '.$bedroom_id.' ';
+		}
+		else
+		{
+			$bedroom_id ='';
 		}
 
 		if(!empty($property_type_id))
@@ -796,10 +839,19 @@ class Site extends MX_Controller {
 			$min_price = '';
 		}
 		
-		$search = $property_type_id.$location_id.$max_price.$min_price;
-		$this->session->set_userdata('property_search', $search);
+		$search = $property_type_id.$location_id.$max_price.$min_price.$bedroom_id.$bathroom_id;
 		
-		$this->properties();
+		if($source == 1)
+		{
+			$this->session->set_userdata('property_sold_search', $search);
+			$this->property_onsale();
+		}
+		
+		else
+		{
+			$this->session->set_userdata('property_search', $search);
+			$this->property_sold();
+		}
 	}
 	public function close_property_search()
 	{

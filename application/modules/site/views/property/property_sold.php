@@ -1,6 +1,5 @@
-
 <?php echo $this->load->view('property/property_header', '', TRUE); ?>
-<?php echo $this->load->view('home/filter', '', TRUE); ?>
+<?php echo $this->load->view('property/filter_sale', '', TRUE); ?>
 <div class="container container-wrapper gradient projects">
 
     <!-- // Recent Properties -->
@@ -28,15 +27,15 @@
 							$property_id = $prods->property_id;
 							$property_name = $prods->property_name;
 							$description = $prods->property_description;
-							$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 10));
-							$price = number_format($property_price, 0, '.', ',');
+							$mini_desc = implode(' ', array_slice(explode(' ', $description), 0, 40));
+							$price = number_format($property_price, 2);
 							$location_name = $prods->location_name;
 							$property_size = $prods->property_size;
 							$land_size = $prods->land_size;
 							$lease_type_id = $prods->lease_type_id;
 							$property_type_name = $prods->property_type_name;
 							$property_bathrooms = $prods->property_bathrooms;
-							$bedrooms = $prods->bedrooms;
+							$bedrooms = $prods->bedrooms_no;
 							$property_video_id = $prods->property_video_id;
 
 							$property_bathrooms = $prods->bathroom_no;
@@ -66,46 +65,45 @@
 								<div class="row">
 									<div class="col-xs-5">
 										<div class="property-mask property-image">
-																<figure class="pimage">
-															<a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>">
-																<!--<img width="330" height="230" src="<?php echo base_url();?>assets/images/property/<?php echo $property_image?>" class="attachment-homeland_property_medium wp-post-image" alt="banner 2">-->					
-                                                                <?php echo $image;?>
-                                                            </a>
-															<figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
-															<h4> <a href="http://101.0.112.4/~firstnat/firstnational/property-status/sold/" rel="tag">$ <?php echo number_format($property_price,0);?>	</a></h4>	
-																<div class="property-price clear">
-																	<div class="cat-price">
-																		<span class="pcategory"></span>
-																		<span class="price">Sold</span>							
-																	</div>
-																</div>
-														</figure>
+                                        	<figure class="pimage">
+                                                <a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>">
+                                                    <!--<img width="330" height="230" src="<?php echo base_url();?>assets/images/property/<?php echo $property_image?>" class="attachment-homeland_property_medium wp-post-image" alt="banner 2">-->					
+                                                    <?php echo $image;?>
+                                                </a>
+                                                <figcaption><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><i class="fa fa-link fa-lg"></i></a></figcaption>
+                                                <h4> <a href="#" rel="tag">$ <?php echo $price;?>	</a></h4>	
+                                                    <div class="property-price clear">
+                                                        <div class="cat-price">
+                                                            <span class="pcategory"></span>
+                                                            <span class="price">Sold</span>							
+                                                        </div>
+                                                    </div>
+                                            </figure>
 																
 										</div>
 									</div>
 									<div class="col-xs-7">
 										<div class="agent-property-desc">
 											<div class="property-desc">
-												<h4><a href=""><?php echo $property_name;?></a></h4><label></label><p>Testimonial:&nbsp;They listened to our needs and kept us well informed.&nbsp; Peacefully set, this renovated full-brick villa has been tastefully updated with easy living in mind. &nbsp;Located within a boutique Over …</p>
+												<h4><a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>"><?php echo $property_name;?>, <?php echo $location_name;?></a></h4><label></label><p><?php echo $mini_desc;?></p>
 										
 											</div>
 											<div class="property-info-agent">
 													<span>
-														<i class="fa fa-inbox"></i>
+														<i class="fa fa-bed"></i>
 														<?php echo $bedrooms ?> Bedrooms
 													</span>				
 													<span>
-														<i class="fa fa-male"></i>
+														<i class="fa icon-bath"></i>
 														<?php echo $property_bathrooms;?> Bathrooms					
 													</span>	
 													<span>
 														<i class="fa fa-car"></i>
-
 														<?php echo $property_bathrooms;?> Car spaces					
 													</span>		
 											</div>
 											<div class="agent-info">
-												<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> admin</label>
+												<img alt="" src="http://0.gravatar.com/avatar/40b602e6564375ffd02925dd8a94af99?s=24&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D24&amp;r=G" class="avatar avatar-24 photo" height="24" width="24">			<label><span>Agent:</span> Scott Haggarty</label>
 											</div>
 											<a href="<?php echo base_url();?>properties/view-single/<?php echo $property_id;?>" class="view-profile">
 												 More Details		</a>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="property.php" server="101.0.112.4/public_html/development/" local="130704729079203288" remote="130705017000000000" Dst="0" />
+<file name="property.php" server="101.0.112.4/public_html/development/" local="130765991649187316" remote="130766244600000000" Dst="0" />
 <file name="property_header.php" server="101.0.112.4/public_html/development/" local="130675493856699670" remote="130675787400000000" Dst="0" />
-<file name="property_onsale.php" server="101.0.112.4/public_html/development/" local="130704657299333799" remote="130704946200000000" Dst="0" />
-<file name="single_property.php" server="101.0.112.4/public_html/development/" local="130712313622150497" remote="130712601600000000" Dst="0" />
-<file name="property_sold.php" server="101.0.112.4/public_html/development/" local="130704657456792805" remote="130704946200000000" Dst="0" />
+<file name="property_onsale.php" server="101.0.112.4/public_html/development/" local="130765963530067025" remote="130766215800000000" Dst="0" />
+<file name="single_property.php" server="101.0.112.4/public_html/development/" local="130766699934443889" remote="130766952000000000" Dst="0" />
+<file name="property_sold.php" server="101.0.112.4/public_html/development/" local="130766723022948360" remote="130766976600000000" Dst="0" />
 <file name="sidebar.php" server="101.0.112.4/public_html/development/" local="130675394619227622" remote="130675682400000000" Dst="0" />
 <file name="single_property_header.php" server="101.0.112.4/public_html/development/" local="130627774645842220" remote="130637370600000000" Dst="0" />
 <file name="property_old.php" server="101.0.112.4/public_html/development/" local="130640676108580045" remote="130641001200000000" Dst="0" />
+<file name="filter_sale.php" server="101.0.112.4/public_html/development/" local="130765979286079396" remote="130766230800000000" Dst="0" />
+<file name="brochure.php" server="101.0.112.4/public_html/development/" local="130766716132076792" remote="130766968200000000" Dst="0" />
+<file name="single_property.php" server="ftp.haggarty.net.au/public_html/" local="130770135397860182" remote="130770325200000000" Dst="0" />
 </dwsync>

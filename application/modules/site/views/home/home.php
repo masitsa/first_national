@@ -13,7 +13,7 @@
 		
 	<!-- get the videos -->
 		<?php echo $this->load->view('home/video', '', TRUE); ?>
-
+<div class="clear-both"></div>
 		<?php echo $this->load->view('home/our_features', '', TRUE); ?>
     <!-- // Recent Properties 
       <?php echo $this->load->view('home/latest', '', TRUE); ?>-->

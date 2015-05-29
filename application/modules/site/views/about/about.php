@@ -16,7 +16,7 @@
 
 
     <!-- // Hero unit-->
-    <?php echo $this->load->view('about/testimonials', '', TRUE); ?>
+    <?php //echo $this->load->view('about/testimonials', '', TRUE); ?>
    
 
 </div>

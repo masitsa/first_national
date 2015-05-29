@@ -165,7 +165,7 @@ $min_price_value = $max_price_value;
 <div class="container container-wrapper filters">
         
     <!-- // Filter Now -->
-    <?php echo form_open("search-properties", array("class" => "form-horizontal"));?>
+    <?php echo form_open("search-properties-sold", array("class" => "form-horizontal"));?>
 
     <div class="row">
        <div class="col-sm-4 col-xs-12">
@@ -198,7 +198,7 @@ $min_price_value = $max_price_value;
     <div class="row">
         <div class="col-sm-4 col-xs-12 col-sm-offset-4 col-md-offset-4"> 
             <div class="center-align">
-            	<button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - For sale</button>
+            	<button type="submit"  class="btn btn-success btn-block" style="margin-top:8px;"> Search - sold</button>
             </div>
         </div>
     </div>

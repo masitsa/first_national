@@ -8,6 +8,12 @@ class Property extends admin {
 
 	var $property_path;
 	var $property_location;
+
+	var $property_brochure_path;
+	var $property_brochure_location;
+
+	var $property_sale_contract_path;
+	var $property_sale_contract_location;
 	
 	function __construct()
 	{
@@ -24,6 +30,12 @@ class Property extends admin {
 
 		$this->property_path = realpath(APPPATH . '../assets/images/property');
 		$this->property_location = base_url().'assets/images/property';
+
+		$this->property_brochure_path = realpath(APPPATH . '../assets/brochures');
+		$this->property_brochure_location = base_url().'assets/brochures/';
+
+		$this->property_sale_contract_path = realpath(APPPATH . '../assets/sale_contracts');
+		$this->property_sale_contract_location = base_url().'assets/sale_contracts/';
 	}
     
 	/*
@@ -551,10 +563,6 @@ class Property extends admin {
 		$this->load->view('templates/general_admin', $data);
 	}
 
-
-
-	
-
 	/*
 	*
 	*	Add a new post
@@ -619,12 +627,45 @@ class Property extends admin {
 			{
 				$resize['width'] = 1170;
 				$resize['height'] = 423;
-				$response = $this->file_model->upload_gallery($property_id, $this->property_path, $resize);
+				
+				//upload brochure
+				if(is_uploaded_file($_FILES['property_brochure']['tmp_name']))
+				{
+					$response2 = $this->upload_file('property_brochure', $this->property_brochure_path);
+					if($response2['check'])
+					{
+						$this->db->where('property_id', $property_id);
+						$this->db->update('property', array('property_brochure' => $response2['file_name']));
+					}
 					
+					else
+					{var_dump($response2['error']);die();
+						$this->session->set_userdata('error_message', $response2['error']);
+					}
+				}
+				
+				//upload sale contract
+				if(is_uploaded_file($_FILES['property_sale_contract']['tmp_name']))
+				{
+					$response3 = $this->upload_file('property_sale_contract', $this->property_sale_contract_path);
+					if($response3['check'])
+					{
+						$this->db->where('property_id', $property_id);
+						$this->db->update('property', array('property_sale_contract' => $response3['file_name']));
+					}
+					
+					else
+					{
+						$this->session->set_userdata('error_message', $response3['error']);
+					}
+				}
+				
+				$response = $this->file_model->upload_gallery($property_id, $this->property_path, $resize);
+				
 				if($response)
 				{
-					$this->session->set_userdata('success_message', 'Property type added successfully');
-					redirect('property/all-properties');
+					$this->session->set_userdata('success_message', 'Property added successfully');
+					redirect('property/edit-property/'.$property_id);
 				}
 				
 				else
@@ -755,6 +796,21 @@ class Property extends admin {
 		$this->load->view('templates/general_admin', $data);
 	}
 
+	function upload_file($file_name, $path)
+	{
+		//upload brochure
+		if(isset($_FILES[$file_name]) && is_uploaded_file($_FILES[$file_name]['tmp_name']))
+		{
+			$response = $this->file_model->upload_downloadable_file($path, $file_name);
+			
+			return $response;
+		}
+		
+		else
+		{
+			return FALSE;
+		}
+	}
 
 	/*
 	*
@@ -815,17 +871,51 @@ class Property extends admin {
 				$file_name = $this->input->post('current_image');
 				$thumb_name = 'thumbnail_'.$this->input->post('current_image');
 			}
-			$property_id = $this->property_model->update_property($file_name,$thumb_name,$property_id);
+			
+			$this->property_model->update_property($file_name,$thumb_name,$property_id);
 			if($property_id > 0)
 			{
 				$resize['width'] = 1170;
 				$resize['height'] = 423;
-				$response = $this->file_model->upload_gallery($property_id, $this->property_path, $resize);
+				
+				//upload brochure
+				if(is_uploaded_file($_FILES['property_brochure']['tmp_name']))
+				{
+					$response2 = $this->upload_file('property_brochure', $this->property_brochure_path);
+					if($response2['check'])
+					{
+						$this->db->where('property_id', $property_id);
+						$this->db->update('property', array('property_brochure' => $response2['file_name']));
+					}
 					
+					else
+					{
+						$this->session->set_userdata('error_message', $response2['error']);
+					}
+				}
+				
+				//upload sale contract
+				if(is_uploaded_file($_FILES['property_sale_contract']['tmp_name']))
+				{
+					$response3 = $this->upload_file('property_sale_contract', $this->property_sale_contract_path);
+					if($response3['check'])
+					{
+						$this->db->where('property_id', $property_id);
+						$this->db->update('property', array('property_sale_contract' => $response3['file_name']));
+					}
+					
+					else
+					{
+						$this->session->set_userdata('error_message', $response3['error']);
+					}
+				}
+				
+				$response = $this->file_model->upload_gallery($property_id, $this->property_path, $resize);
+									
 				if($response)
 				{
-					$this->session->set_userdata('success_message', 'Property type added successfully');
-					redirect('property/all-properties');
+					$this->session->set_userdata('success_message', 'Property updated successfully');
+					//redirect('property/edit-property/'.$property_id);
 				}
 				
 				else
@@ -927,17 +1017,10 @@ class Property extends admin {
 				
 				$locations .= '</select>';
 			}
-
-			
-
-
-			
 		}
 
-		
-
-
-
+		$v_data['property_brochure_location'] = $this->property_brochure_location;
+		$v_data['property_sale_contract_location'] = $this->property_sale_contract_location;
 		$v_data['gallery_images'] = $this->property_model->get_gallery_images($property_id);
 		$v_data['property_types'] = $property_types;
 		$v_data['locations'] = $locations;
@@ -1635,6 +1718,71 @@ class Property extends admin {
 		
 		$this->load->view('templates/general_admin', $data);
 	}
-
+	
+	public function delete_gallery_image($image, $thumb, $image_id, $property_id)
+	{
+		$property_path = $this->property_path;	
+		//delete any other uploaded image
+		$this->file_model->delete_file($property_path."\\".$image);
+		
+		//delete any other uploaded thumbnail
+		$this->file_model->delete_file($property_path."\\".$thumb);
+		
+		//delete from db
+		$this->db->where('image_id', $image_id);
+		if($this->db->delete('property_image'))
+		{
+			$this->session->set_userdata('success_message', 'Property image deleted successfully');
+		}
+		
+		else
+		{
+			$this->session->set_userdata('error_message', 'Unable to delete property image. Please try again');
+		}
+		
+		redirect('property/edit-property/'.$property_id);
+	}
+	
+	public function delete_brochure($property_id, $property_brochure)
+	{
+		$property_path = $this->property_brochure_path;	
+		//delete any other uploaded image
+		$this->file_model->delete_file($property_path."\\".$property_brochure);
+		
+		//delete from db
+		$this->db->where('property_id', $property_id);
+		if($this->db->update('property', array('property_brochure' => NULL)))
+		{
+			$this->session->set_userdata('success_message', 'Brochure deleted successfully');
+		}
+		
+		else
+		{
+			$this->session->set_userdata('error_message', 'Unable to delete brochure. Please try again');
+		}
+		
+		redirect('property/edit-property/'.$property_id);
+	}
+	
+	public function delete_sale_contract($property_id, $property_sale_contract)
+	{
+		$property_path = $this->property_brochure_path;	
+		//delete any other uploaded image
+		$this->file_model->delete_file($property_path."\\".$property_sale_contract);
+		
+		//delete from db
+		$this->db->where('property_id', $property_id);
+		if($this->db->update('property', array('property_sale_contract' => NULL)))
+		{
+			$this->session->set_userdata('success_message', 'Sale contract deleted successfully');
+		}
+		
+		else
+		{
+			$this->session->set_userdata('error_message', 'Unable to delete sale contact. Please try again');
+		}
+		
+		redirect('property/edit-property/'.$property_id);
+	}
 }
 ?>

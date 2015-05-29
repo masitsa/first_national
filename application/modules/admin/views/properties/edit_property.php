@@ -30,6 +30,9 @@
          $sold_status = $property[0]->sale_status;
         $longitude = $property[0]->longitude;
          $latitude = $property[0]->latitude;
+		$property_inspection_time = $property[0]->property_inspection_time;
+		$property_brochure = $property[0]->property_brochure;
+		$property_sale_contract = $property[0]->property_sale_contract;
         if(isset($error)){
             echo '<div class="alert alert-danger">'.$error.'</div>';
         }
@@ -80,18 +83,40 @@
                         </div>
                     </div>
                      <div class="form-group">
-                            <label class="col-lg-4 control-label">Date posted: </label>
-                            
-                            <div class="col-lg-7">
-                                <div id="datetimepicker1" class="input-append">
-                                    <input data-format="yyyy-MM-dd" class="form-control" type="text" id="datepicker" name="date_posted" placeholder="<?php echo $actual_date;?>" value="">
-                                    <span class="add-on" style="cursor:pointer;">
-                                        &nbsp;<i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                                        </i>
-                                    </span>
-                                </div>
+                        <label class="col-lg-4 control-label">Date posted: </label>
+                        
+                        <div class="col-lg-7">
+                            <div id="datetimepicker1" class="input-append">
+                                <input data-format="yyyy-MM-dd" class="form-control" type="text" id="datepicker" name="date_posted" placeholder="<?php echo $actual_date;?>" value="">
+                                <span class="add-on" style="cursor:pointer;">
+                                    &nbsp;<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                    </i>
+                                </span>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="image">Brochure</label>
+                        <div class="col-lg-7" style="height:auto;">
+                    		<div class="alert alert-warning">Must be in PDF format</div>
+                        	<?php echo form_upload(array( 'name'=>'property_brochure', 'class'=>'btn btn-info'));?>
+                            <?php if(!empty($property_brochure)){?>
+                            <a href="<?php echo $property_brochure_location.$property_brochure;?>" class="submit btn btn-warning" >Download brochure</a>
+                            <a href="<?php echo base_url()."admin/property/delete_brochure/".$property_id.'/'.$property_brochure;?>" class="submit btn btn-danger" >Delete brochure</a>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label" for="image">Sale contract</label>
+                        <div class="col-lg-7" style="height:auto;">
+                    		<div class="alert alert-warning">Must be in PDF format</div>
+                        	<?php echo form_upload(array( 'name'=>'property_sale_contract', 'class'=>'btn btn-info'));?>
+                            <?php if(!empty($property_sale_contract)){?>
+                            <a href="<?php echo $property_sale_contract_location.$property_sale_contract;?>" class="submit btn btn-warning" >Download sale contract</a>
+                            <a href="<?php echo base_url()."admin/property/delete_sale_contract/".$property_id.'/'.$property_sale_contract;?>" class="submit btn btn-danger" >Delete sale contract</a>
+                            <?php }?>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -299,6 +324,15 @@
                 </div>
             </div>
             <div class="row">
+                <!-- post content -->
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Inspection times</label>
+                    <div class="col-lg-8" style="height:auto;">
+                        <textarea class="cleditor" name="property_inspection_time" placeholder="Inspection times"><?php echo $property_inspection_time;?></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
             	 <div class="form-group">
                         <label class="col-lg-4 control-label">Post Image</label>
                          <input type="hidden" value="<?php echo $property_image;?>" name="current_image"/>
@@ -337,8 +371,9 @@
 									
 									foreach($galleries as $gal)
 									{
-										$thumb = 'thumb_'.$gal->property_image_thumb;
-										$product_image_id = $gal->image_id;
+										$image = $gal->property_image_thumb;
+										$thumb = 'thumb_'.$image;
+										$image_id = $gal->image_id;
 										?>
                                         <div class="col-md-4">
                                         	<div class="col-md-12">
@@ -346,7 +381,7 @@
                                         	</div>
                                         	<br>
                                         	<div class="col-md-12">
-                                        		<a href="<?php echo base_url()."property/delete_gallery_image/".$product_image_id.'/'.$property_id;?>" class="submit btn btn-danger" >Delete</a>
+                                        		<a href="<?php echo base_url()."admin/property/delete_gallery_image/".$image.'/'.$thumb.'/'.$image_id.'/'.$property_id;?>" class="submit btn btn-danger" >Delete</a>
                                         	</div>
                                         </div>
                                         <?php

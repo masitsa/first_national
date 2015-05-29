@@ -39,7 +39,8 @@ a {
 	background: #000;
 	background:rgba(0,0,0,0.3);
 	color: #ed4e6e;
-	width:auto;
+	height:100%;
+	width:100%;
 	text-align:center;
 }
 
@@ -54,8 +55,8 @@ a {
 }
 
 .grid figcaption a {
+	height:100%;
 	text-align:center;
-	width:330px; height:230px;
 	display:block;
 	background: #000;
 	background:rgba(0,0,0,0.3);
@@ -443,20 +444,23 @@ a.view-property:hover { background:#FFF; color:#09173c; }
 .agent-desc label.listed { font-size:14px; font-weight:700; }
 .agent-desc label.listed i { color:#222; background:#F2F2F2; padding:5px 4px; font-size:13px; margin-right:10px; border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%; }
 .agent-desc label.listed span { color:#8CC55A; }
-a.view-profile { border:3px solid #AAA; padding:8px 25px; font-size:13px; font-weight:500; color:#777; position:absolute; right:0; bottom:-15px; background:#FFF; display:inline-block; }
+a.view-profile { border:3px solid #AAA; padding:8px 25px; font-size:13px; font-weight:500; color:#777; float:right; bottom:-15px; background:#FFF; display:inline-block;}
 a.view-profile:hover, a.read-more:hover { background:#AAA; color:#FFF; }
+.pimage img.thumb{top: -47px;}
 .agent-social { background:#F2F2F2; padding:10px 20px; }
 .agent-social ul li { float:left; margin-right:30px; }
 .agent-social ul li a { color:#9B9B9B; }
 .agent-properties { border-top:1px solid #E1E1E1; padding-top:40px; }
 .agent-properties h3 { font-size:24px; margin-bottom:40px; }
-.agent-properties ul li { float:none; width:auto; margin:0 0 50px 0; }
+.agent-properties ul li { float:none; width:100%; margin:0 0 50px 0; }
 .property-image { float:left; margin-right:30px; width:330px; }
-.agent-property-desc { float:left; width:410px; border-bottom:1px solid #E1E1E1; padding-bottom:15px; }
+.homeland_properties .property-image { width:100%; }
+.agent-property-desc { float:left; border-bottom:1px solid #E1E1E1; padding-bottom:15px; }
 .agent-property-desc h4 a { font-size:20px; }
 .agent-property-desc .property-desc { text-align:left; }
 .agent-property-desc .property-desc label { font-size:12px; color:#AAA; display:block; margin-bottom:15px; }
 .agent-property-desc a.view-profile { bottom:0; }
+.property-desc p{text-align:justify;}
 .agent-info { margin-top:30px; }
 .agent-info img.avatar { margin-right:10px; }
 .agent-info label { color:#09173c; }
@@ -718,13 +722,16 @@ a:hover#toTop, .nsu-submit:hover { background-color:#67a233; }
 .property-desc { text-align:center; }
 .property-desc h4, .property-desc h4 a:link, .property-desc h4 a:visited { font-size:18px; color:#384042; }
 .property-desc h4 a:hover { color:#09173C; }
-.property-info, .property-list-page .property-info-agent { background:#F2F2F2; margin-bottom:0px; margin-left:0; margin-right:0;}
+
+.icon-bath{background: url("../../../images/bath.svg") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 15px; width: 20px;}
+.property-info, .property-list-page .property-info-agent { background:#F2F2F2; margin-bottom:0px; margin-left:0; margin-right:0; color:#09173c;}
 .property-info div {padding-left:0; padding-right:0;}
 .hero-unit:hover .property-info:hover{background:#09173C; cursor:pointer; color:#fff;}
+.property-info:hover .icon-bath{background: url("../../../images/bath-white.svg") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 15px; width: 20px;}
 .property-info span, .property-info-agent span { font-size:11px; padding:6px; display: inline-block; }
 .property-list-page .property-info-agent span { padding: 10px; margin-right: 0; }
 .property-info-agent span { margin-right: 15px; padding: 0; }
-.property-info i, .property-info-agent i { margin-right:10px; font-size:14px; }
+.property-info i, .property-info-agent i, .icon-bath { margin-right:10px; font-size:14px;color: #09173c;}
 .property-mask { position:relative; }
 .property-mask h4, .feat-thumb h4 { 
 	position:absolute; bottom:0; left:0; font-size:14px; font-weight:500; text-transform:uppercase; color:#FFF; 
@@ -807,25 +814,66 @@ a.view-property:hover { background:#FFF; color:#09173C; }
 
 .thumbnail .youtube .thumb{top: -34px;}
 .youtube, img.property-image{width: 100%; height: 200px;}
+.homeland_properties .youtube { height: 265px; }
 
 .single-project .youtube, .single-project img.wp-post-image{width: 100%; height: 373px;}
 .single-project .youtube .thumb{top: -25px;}
+@media (max-width: 1920px) {
+	.homeland_properties .youtube { height: 377px; }
+	.single-project .youtube .thumb{top: -69px;}
+}
+@media (max-width: 1680px) {
+	.homeland_properties .youtube { height: 328px; }
+	.single-project .youtube .thumb{top: -60px;}
+}
+@media (max-width: 1600px) {
+	.homeland_properties .youtube { height: 311px; }
+	.single-project .youtube .thumb{top: -57px;}
+}
+@media (max-width: 1440px) {
+	.homeland_properties .youtube { height: 277px; }
+	.single-project .youtube .thumb{top: -52px;}
+}
+@media (max-width: 1366px) {
+	.homeland_properties .youtube { height: 265px; }
+	.single-project .youtube .thumb{top: -25px;}
+}
+@media (max-width: 1280px) {
+	.homeland_properties .youtube { height: 246px; }
+	.pimage img.thumb {top: -45px;}
+}
 @media (max-width: 1024px) {
 	.thumbnail .youtube .thumb{top: -12px;}
 	.youtube, img.property-image{width: 100%; height: 197px;}
+	.homeland_properties .youtube { height: 193px; }
+	.pimage img.thumb {top: -35px;}
 }
 
 @media (max-width: 768px) {
 	.thumbnail .youtube .thumb{top: -14px;}
+	.homeland_properties .youtube { height: 359px; }
+	.pimage img.thumb {top: -66px;}
 }
 
 @media (max-width: 603px) {
 	.thumbnail .youtube .thumb{top: -19px;}
 }
 
+@media (max-width: 600px) {
+	.homeland_properties .youtube { height: 242px; }
+	.pimage img.thumb {top: -44px;}
+}
+
+@media (max-width: 360px) {
+	.homeland_properties .youtube { height: 160px; }
+	.pimage img.thumb {top: -30px;}
+}
+
 @media (max-width: 320px) {
 	.thumbnail .youtube .thumb{top: -12px;}
 	.youtube, img.property-image{width: 100%; height: 176px;}
+	.homeland_properties .youtube { height: 140px; }
+	.pimage img.thumb {top: -25px;}
 }
 
 .footer .widget p{text-align: justify;}
@@ -973,4 +1021,7 @@ footer .sub-menu li a:link, footer .sub-menu li a:visited, .sidebar .sub-menu li
   background-image: none;
 }
 .single-property-image{}
+
+.MsoNoSpacing{text-align:justify;}
+.propertyFeatures i.fa{font-size:14px;}
 

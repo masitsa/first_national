@@ -29,16 +29,7 @@ if($property->num_rows() > 0)
 		$latitude = $prods->latitude;
 		$longitude = $prods->longitude;
 		
-		if(empty($property_video_id))
-		{
-			$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive"/>';
-		}
-	
-		else
-		{
-			$image = '<div class="youtube" id="'.$property_video_id.'">
-			</div>';
-		}
+		$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive"/>';
 	
 		if($sale_status == 2)
 		{
@@ -59,86 +50,6 @@ if(!isset($brochure))
 ?>
 
 <div class="container container-wrapper gradient projects single-project">
-    
-  	<!-- Property images & map -->
-    <div class="row" id="single_property_container">
-    	<div class="col-md-6">
-        	<div class="single-property-image">
-        		<?php echo $image;?>
-            </div>
-        </div>
-        
-    	<div class="col-md-6">
-        	<?php
-				if($gallery_images->num_rows() > 0)
-				{
-					$gallery_no = $gallery_images->num_rows();
-					?>
-					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-						<!-- Indicators -->
-						<ol class="carousel-indicators">
-						<?php
-						for($r = 0; $r < $gallery_no; $r++)
-						{
-							if($r == 0)
-							{
-								$active = 'active';
-							}
-							else
-							{
-								$active = '';
-							}
-							?>
-							<li data-target="#carousel-example-generic" data-slide-to="<?php echo $r;?>" class="<?php echo $active;?>"></li>
-							<?php
-						}
-						?>
-						</ol>
-						
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner" role="listbox">
-					<?php
-					$count = 0;
-					foreach($gallery_images->result() as $cat)
-					{			
-						$property_image_name = $cat->property_image_thumb;
-						$active = '';
-						$count++;
-						
-						if($count == 1)
-						{
-							$active = 'active';
-						}
-						
-						echo
-						'
-							<div class="item '.$active.'">
-								<img src="'.base_url().'assets/images/property/'.$property_image_name.'" class="img-responsive">
-							</div>
-						';
-					}
-					?>
-					</div>
-					<?php
-					if ($gallery_no > 0)
-					{
-					?>
-						  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						  </a>
-						  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						  </a>
-				</div>
-					<?php
-					}
-				}
-			?>
-        </div><!-- end images -->
-    </div>
-  	<!-- End Property images & map -->
 	
     <!-- Property header -->
 	<div class="row">
@@ -232,20 +143,6 @@ if(!isset($brochure))
             	<div class="col-md-4">
                 	<h4>Inspection times</h4>
                     <?php echo $property_inspection_time;?>
-                    
-                    <div class="row" style="margin-top:30px;">
-                    	<div class="col-md-12">
-							<a href="<?php echo site_url().'print-brochure/'.$property_id;?>" class="submit btn btn-success"  style="width: 100%; margin-bottom:20px;" target="_blank">Print brochure</a>
-                    	</div>
-                    </div>
-                    
-                    <div class="row">
-                    	<div class="col-md-12">
-							<?php if(!empty($property_sale_contract)){?>
-                            <a href="<?php echo base_url().'assets/sale_contracts/'.$property_sale_contract;?>" class="submit btn btn-success"  style="width: 100%;">Download sale contract</a>
-                            <?php }?>
-                    	</div>
-                    </div>
                 </div>
                 
                 <div class="col-md-8">
@@ -258,7 +155,7 @@ if(!isset($brochure))
                 	<a href="<?php echo site_url().'about'?>"><img src="<?php echo base_url();?>assets/themes/realta/img/preview/agents/Portrait Dad.jpg" class="img-responsive" alt="" style="max-height:200px"></a>
                     <ul class="fa-ul-icons">
                         <li><i class="fa fa-phone"></i><a href="tel:0414072084">0414 072 084</a></li>
-                        <li><i class="fa fa-envelope-o"></i><a href="mailto:1.haggarty@walshsullivan.com.au">i.haggarty@walshsullivan.com.au</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="mailto:1.haggarty@walshsullivan.com.au">1.haggarty@walshsullivan.com.au</a></li>
                     </ul>
                 </div>
             	<div class="col-md-6">
@@ -272,6 +169,32 @@ if(!isset($brochure))
         </div><!-- end map -->
     </div>
     <!-- End Property description -->
+    
+  	<!-- Property images & map -->
+    <div class="row" id="single_property_container">
+    	<div class="col-md-6" style="margin-bottom:10px;">
+        	<?php echo $image;?>
+       	</div>
+		<?php
+            if($gallery_images->num_rows() > 0)
+            {
+                foreach($gallery_images->result() as $cat)
+                {			
+                    $property_image_name = $cat->property_image_thumb;
+                    
+                    echo
+                    '<div class="col-md-6" style="margin-bottom:10px;">
+                        <img src="'.base_url().'assets/images/property/'.$property_image_name.'" class="img-responsive">
+                    </div>';
+                }
+                ?>
+                </div>
+                
+                <?php
+            }
+        ?>
+    </div>
+  	<!-- End Property images & map -->
   
 </div>
 

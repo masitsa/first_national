@@ -37,7 +37,8 @@
 								
 								if(empty($property_video_id))
 								{
-									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive property-image" alt="'.$property_name.'"/>';
+									$image = '<img src="'.base_url().'/assets/images/property/'.$property_image.'" class="img-responsive property-image" alt="'.$property_name.'"/>
+									<div style="clear:both;"></div>';
 								}
 								
 								else
@@ -51,29 +52,29 @@
                                         
 										<div class="hero-block">
 						                    <div class="hero-unit text-center">
-						                      <a href="'.base_url().'properties/view-single/'.$property_id.'">  <h5>'.$property_name.'</h5> </a>
+												<a href="'.base_url().'properties/view-single/'.$property_id.'">  <h5>'.$property_name.', '.$location_name.'</h5> </a>
 												
 												<div class="row property-info">
 													
 													
 													<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 														<span>
-															<i class="fa fa-inbox-custom"></i>
+															<i class="fa fa-bed"></i>
 															'.$property_bedroom.' 
 														</span>
 													</div>
 													
 													<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 														<span>
-															<i class="fa fa-male-custom"></i>
-															'.$property_bathrooms.' 
+															<span style="line-height:0.5; float: right;">'.$property_bathrooms.' </span>
+															<i class="fa icon-bath"></i>
 														</span>
 													</div>
 													
 													<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 														<span>
 														
-														<i class="fa fa-car"></i>
+															<i class="fa fa-car"></i>
 															'.$car_space_no.' 
 														</span>
 													</div>

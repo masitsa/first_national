@@ -409,7 +409,7 @@ class Property_model extends CI_Model
 				'lease_type_id'=>$this->input->post('lease_type_id'),
 				'property_video_id'=>$this->input->post('property_video_id'),
 				'property_bathrooms'=>$this->input->post('bathroom_id'),
-				'created_on'=>date("Y-m-d"),
+				'created_on'=>date("Y-m-d H:i:s"),
 				'bedrooms'=>$this->input->post('bedroom_id'),
 				'land_size'=>$this->input->post('property_land_size'),
 				'property_price'=>$this->input->post('property_price'),
@@ -448,7 +448,6 @@ class Property_model extends CI_Model
 				'property_video_id'=>$this->input->post('property_video_id'),
 				'property_bathrooms'=>$this->input->post('property_bathrooms'),
 				'sale_status'=>$this->input->post('sold_status'),
-				'created_on'=>date("Y-m-d"),
 				'bedrooms'=>$this->input->post('bedrooms'),
 				'bedrooms'=>$this->input->post('bedrooms'),
 				'land_size'=>$this->input->post('property_land_size'),
@@ -1073,47 +1072,50 @@ class Property_model extends CI_Model
 		
 		if(isset($_FILES['post_image']['tmp_name']))
 		{
-			$file_name = $this->session->userdata('property_file_name');
-			if(!empty($file_name))
+			if(file_exists($_FILES['post_image']['tmp_name']) || is_uploaded_file($_FILES['post_image']['tmp_name']))
 			{
-				//delete any other uploaded image
-				$this->file_model->delete_file($property_path."\\".$this->session->userdata('property_file_name'));
-				
-				//delete any other uploaded thumbnail
-				$this->file_model->delete_file($property_path."\\thumbnail_".$this->session->userdata('property_file_name'));
-			}
-			//Upload image
-			$response = $this->file_model->upload_file($property_path, 'post_image', $resize);
-			if($response['check'])
-			{
-				$file_name = $response['file_name'];
-				$thumb_name = $response['thumb_name'];
-				
-				//crop file to 1920 by 1010
-				$response_crop = $this->file_model->crop_file($property_path."\\".$file_name, $resize['width'], $resize['height']);
-				
-				if(!$response_crop)
+				$file_name = $this->session->userdata('property_file_name');
+				if(!empty($file_name))
 				{
-					$this->session->set_userdata('property_error_message', $response_crop);
-				
+					//delete any other uploaded image
+					$this->file_model->delete_file($property_path."\\".$this->session->userdata('property_file_name'));
+					
+					//delete any other uploaded thumbnail
+					$this->file_model->delete_file($property_path."\\thumbnail_".$this->session->userdata('property_file_name'));
+				}
+				//Upload image
+				$response = $this->file_model->upload_file($property_path, 'post_image', $resize);
+				if($response['check'])
+				{
+					$file_name = $response['file_name'];
+					$thumb_name = $response['thumb_name'];
+					
+					//crop file to 1920 by 1010
+					$response_crop = $this->file_model->crop_file($property_path."\\".$file_name, $resize['width'], $resize['height']);
+					
+					if(!$response_crop)
+					{
+						$this->session->set_userdata('property_error_message', $response_crop);
+					
+						return FALSE;
+					}
+					
+					else
+					{	
+						//Set sessions for the image details
+						$this->session->set_userdata('property_file_name', $file_name);
+						$this->session->set_userdata('property_thumb_name', $thumb_name);
+					
+						return TRUE;
+					}
+				}
+			
+				else
+				{
+					$this->session->set_userdata('property_error_message', $response['error']);
+					
 					return FALSE;
 				}
-				
-				else
-				{	
-					//Set sessions for the image details
-					$this->session->set_userdata('property_file_name', $file_name);
-					$this->session->set_userdata('property_thumb_name', $thumb_name);
-				
-					return TRUE;
-				}
-			}
-		
-			else
-			{
-				$this->session->set_userdata('property_error_message', $response['error']);
-				
-				return FALSE;
 			}
 		}
 		
