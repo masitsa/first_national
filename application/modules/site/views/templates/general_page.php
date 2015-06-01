@@ -12,13 +12,13 @@
 	    <div class="container">
 	        <div class="top-wrapper clearfix">
 	            <div class="top-left">
-	            	Part of the Walsh & Sullivan Group
+	            	<!-- Part of the Walsh & Sullivan Group -->
 	                
 	            </div>
 	            <div class="top-center">
 	            	<ul class="social" style="">
 	                    <li style="border-left:1px"><a href="https://www.facebook.com/firstnationalbaulkhamhills " target="_blank"><i class="fa fa-facebook"></i></a></li>
-	                    <li><a href="https://twitter.com/FirstNationalBH" target="_blank"><i class="fa fa-twitter"></i></a></li>
+	                    <li><a href="https://twitter.com/HaggartyRE" target="_blank"><i class="fa fa-twitter"></i></a></li>
 	                    <li><a href="http://www.youtube.com/channel/UCMWrW1z0TK1s-jrrXx2UVQg" target="_blank"><i class="fa fa-youtube"></i></a></li>
 	                    <li><a href="https://plus.google.com/u/0/114966265112746135848/posts " target="_blank"><i class="fa fa-google-plus"></i></a></li>
 	                </ul>

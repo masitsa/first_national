@@ -66,7 +66,7 @@ class Site_model extends CI_Model
                     </ul>
                 </li>
                 <li class="'.$development.'">
-                    <a href="'.base_url().'development">Development portfolio</a>
+                    <a href="'.base_url().'service/2">Development portfolio</a>
                 </li>
                 <li class="'.$about.'">
                     <a href="'.base_url().'about">About us</a>
